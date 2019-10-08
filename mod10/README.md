@@ -54,7 +54,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <tr>
     <td align="center"><a href="http://cloud5mins.com/">
         <img src="https://avatars1.githubusercontent.com/u/2974195?s=400&u=9ab103b405a40dfeec2302ff0fb7700685d66915&v=4/u/2404846?s=460&v=4" width="100px;" alt="Jay Gordon"/><br />
-        <sub><b>Frank Boucher</b></sub></a><br />
+        <sub><b>Jay Gordon</b></sub></a><br />
             <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=jaydestro" title="talk">📢</a>
             <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=jaydestro" title="Documentation">📖</a> 
     </td>
