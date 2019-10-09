@@ -6,6 +6,7 @@ You can also see the recording of a dry run for this session, which includes the
 
 > **Important**: Make sure to run the [preparation steps](./01-preparation.md) first.
 
+<a id="demo1"></a>
 ## Demo 1: Migrating from MongoDB to CosmosDB
 
 In this demo we will migrate the shopping cart data from an on-premises MongoDB instance running in a Linux VM to CosmosDB. Then we will change the connection string in the App Service and show that the data has been migrated, and the shopping cart works without any changes to the code.
@@ -104,6 +105,7 @@ The Database migration service supports online data migration. In this mode, the
 
 This concludes the first demo. Go back to the slides to introduce Azure SQL Database.
 
+<a id="demo2"></a>
 ## Demo 2: SQL Server 2012 to Azure SQL Database
 
 For the second demo, we will migrate the product descriptions from SQL Server 2012 to Azure SQL database. 
