@@ -72,6 +72,8 @@ Then navigate to the App Service instance. Click on `Configuration`, and then `A
 
 Click `OK` and then `Save`. This will force the web application to restart, which takes a couple of minutes.
 
+> Wait until the notification turns green before navigating to another page
+
 ### Tour of the CosmosDB instance
 
 Since we have a couple of minutes, we can give a small tour of the CosmosDB instance that we migrated to.
@@ -102,5 +104,74 @@ The Database migration service supports online data migration. In this mode, the
 
 This concludes the first demo. Go back to the slides to introduce Azure SQL Database.
 
-# Demo 2: SQL Server 2012 to Azure SQL Database
+## Demo 2: SQL Server 2012 to Azure SQL Database
+
+For the second demo, we will migrate the product descriptions from SQL Server 2012 to Azure SQL database. 
+
+First, open the Azure SQL Database instance in the Azure portal. Then launch the Query editor.
+
+> If your IP address changed, it is possible that you have to add your Client IP to the whitelist again. [The process is described here](./04-prep-finish.md#config-firewall).
+
+In the Query editor, expand the Tables node. Show that it is empty at the moment.
+
+### Migrating the SQL schema
+
+Open the Database migration service instance. Then click on `New migration project`. Enter the name `mig-sql`. Show the Source server type choices in the combobox and underline the diverse choices we have. For this migration, select `SQL server`. For the Target server type, show the choices available. We will use `Azure SQL Database`. Click on `Choose type of activity`. Since we are using an Azure SQL Database single instance as the target of the migration, we will migrate the schema first. Select `Schema only migration`. Then click on `Save`.
+
+Click on `Create and run activity`. 
+
+Copy the SQL VM's IP address from the cheat sheet and paste it in the `Source SQL server instance name` field.
+
+Select `SQL authentication` for the Authentication type.
+
+Enter the username and the password as saved in the cheat sheet.
+
+Then click on `Trust server certificate`. Then click on `Save`.
+
+In the Migration target details drawer, copy the Target server name from the cheat sheet and paste it in the corresponding field. Then enter the username and password again for the SQL authentication. Then click on `Save`.
+
+In the Map to target databases drawer, select the `tailwindsql` checkbox. For the Target database, select the target from the combobox. Make sure to NOT select the backup database. Then click on `Save`.
+
+Finally enter a name for the activity, for example `mig-schema`. Select Validation options, and explain that to save time we will not validate the databases here, but you should do it in production. Then click on `Run migration`.
+
+The migration takes a few seconds to complete, you can update the progress by clicking on `Refresh`.
+
+### Migrating the SQL data
+
+Go back to the database migration service. Click on the `mig-sql` project. Then click on `New activity` and select `Offline data migration`. You can remind people quickly about the difference between online and offline migration.
+
+In the Migration source details drawer, enter the password. Then click `Save`.
+
+Enter again the password in the Migration target details drawer and click `Save`.
+
+In the drawer titled Map to target databases, select the `tailwindsql` database and select the correct target database from the combobox.
+
+You can set the `Set source DB read-only` checkbox if you want to avoid any changes made in the source DB during the migration. Then click on `Save`.
+
+In the Select tables drawer, you can expand to show the 5 tables. Then click on `Save`.
+
+On the next page, enter a name for the activity, for example `mig-data` and press `Validation options`. Again, do not validate to save time, but explain that in production you would validate. Then click on `Save`, then `Run migration`.
+
+Here too, the migration takes just a few seconds. You can click `Refresh` until the migration is complete.
+
+### Setting the connection string
+
+Open the App service, click on `Configuration`. Copy the Azure SQL database connection string from the cheat sheet, then go back to the App service, and click on `Advanced edit`. Scroll down to `SqlConnectionString` and replace the value with the one you just copied.
+
+Then press `OK` and then `Save`.
+
+> Wait until the notification turns green before navigating to another page
+
+### Introducing Azure SQL database
+
+While the application is restarting, we can take a quick tour of the Azure SQL database. Navigate to this instance in the Azure portal. Show the Geo-replication drawer and explain that this is configured for higher reliability.
+
+Then click on `Connection strings` and show the various options.
+
+Further down, click on `Advanced data security` then `Vulnerability Assessment`. Explain this feature and show that the current database has vulnerabilities, and show the report.
+
+### Show the migrated website
+
+Go back to the website and refresh the page. Show that the debug header now shows Azure as the source of the data. You can navigate in the categories and show that everything still works like before.
+
 
