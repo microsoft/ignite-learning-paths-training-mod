@@ -1,0 +1,754 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"prefix": {
+			"type": "string",
+			"defaultValue": "",
+			"metadata": {
+				"description": "A unique prefix in lowercase"
+			}
+		},
+		"username": {
+			"type": "string",
+			"defaultValue": "tailwind",
+			"metadata": {
+				"description": "The username for the VMs and for the Azure SQL DB"
+			}
+		},
+		"password": {
+			"type": "securestring",
+			"defaultValue": "traderstraders42.",
+			"metadata": {
+				"description": "The password. No '@', '!' or using the username"
+			}
+		}
+	},
+	"variables": {
+		"name": "[toLower(concat('mod20', parameters('prefix')))]",
+
+		"sqlVirtualMachineName": "[concat(variables('name'), 'sqlvm')]",
+		"sqlPublicIpAddressName": "[concat(variables('sqlVirtualMachineName'), '-ip')]",
+		"sqlNsgName": "[concat(variables('sqlVirtualMachineName'), '-nsg')]",
+		"sqlNicName": "[concat(variables('sqlVirtualMachineName'), '-nic')]",
+		"sqlNicIpConfigName": "[concat(variables('sqlNicName'), '-ipconfig')]",
+
+		"mongoVirtualMachineName": "[concat(variables('name'), 'mongovm')]",
+		"mongoPublicIpAddressName": "[concat(variables('mongoVirtualMachineName'), '-ip')]",
+		"mongoNsgName": "[concat(variables('mongoVirtualMachineName'), '-nsg')]",
+		"mongoNicName": "[concat(variables('mongoVirtualMachineName'), '-nic')]",
+		"mongoNicIpConfigName": "[concat(variables('mongoNicName'), '-ipconfig')]",
+
+		"publicIpAddressType": "Dynamic",
+		"publicIpAddressSku": "Basic",
+
+		"virtualNetworkName": "[concat(variables('name'), 'vmvnet')]",
+		"virtualNetworkId": "[resourceId(resourceGroup().name, 'Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
+		"subnetName": "default",
+		"subnetRef": "[concat(variables('virtualNetworkId'), '/subnets/', variables('subnetName'))]",
+
+		"storageAccountName": "[concat(variables('name'), 'vmstore')]",
+
+		"location": "[resourceGroup().location]"
+	},
+	"resources": [{
+			"type": "Microsoft.Network/virtualNetworks",
+			"apiVersion": "2019-06-01",
+			"name": "[variables('virtualNetworkName')]",
+			"location": "[variables('location')]",
+			"properties": {
+				"addressSpace": {
+					"addressPrefixes": [
+						"172.16.0.0/24"
+					]
+				},
+				"subnets": [{
+					"name": "[variables('subnetName')]",
+					"properties": {
+						"addressPrefix": "172.16.0.0/24",
+						"delegations": [],
+						"privateEndpointNetworkPolicies": "Enabled",
+						"privateLinkServiceNetworkPolicies": "Enabled"
+					}
+				}],
+				"virtualNetworkPeerings": [],
+				"enableDdosProtection": false,
+				"enableVmProtection": false
+			}
+		},
+		{
+			"type": "Microsoft.Network/virtualNetworks/subnets",
+			"apiVersion": "2019-06-01",
+			"name": "[concat(variables('virtualNetworkName'), '/', variables('subnetName'))]",
+			"dependsOn": [
+				"[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
+			],
+			"properties": {
+				"addressPrefix": "172.16.0.0/24",
+				"delegations": [],
+				"privateEndpointNetworkPolicies": "Enabled",
+				"privateLinkServiceNetworkPolicies": "Enabled"
+			}
+		},
+		{
+			"type": "Microsoft.Storage/storageAccounts",
+			"apiVersion": "2019-04-01",
+			"name": "[variables('storageAccountName')]",
+			"location": "[variables('location')]",
+			"sku": {
+				"name": "Standard_LRS",
+				"tier": "Standard"
+			},
+			"kind": "Storage",
+			"properties": {
+				"networkAcls": {
+					"bypass": "AzureServices",
+					"virtualNetworkRules": [],
+					"ipRules": [],
+					"defaultAction": "Allow"
+				},
+				"supportsHttpsTrafficOnly": true,
+				"encryption": {
+					"services": {
+						"file": {
+							"enabled": true
+						},
+						"blob": {
+							"enabled": true
+						}
+					},
+					"keySource": "Microsoft.Storage"
+				}
+			}
+		},
+		{
+			"type": "Microsoft.Storage/storageAccounts/blobServices",
+			"apiVersion": "2019-04-01",
+			"name": "[concat(variables('storageAccountName'), '/default')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+			],
+			"properties": {
+				"cors": {
+					"corsRules": []
+				},
+				"deleteRetentionPolicy": {
+					"enabled": false
+				}
+			}
+		},
+		{
+			"type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+			"apiVersion": "2019-04-01",
+			"name": "[concat(variables('storageAccountName'), '/default/bootdiagnostics-', variables('sqlVirtualMachineName'))]",
+			"dependsOn": [
+				"[resourceId('Microsoft.Storage/storageAccounts/blobServices', variables('storageAccountName'), 'default')]",
+				"[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+			],
+			"properties": {
+				"publicAccess": "None"
+			}
+		},
+		{
+			"type": "Microsoft.Network/publicIpAddresses",
+			"apiVersion": "2019-06-01",
+			"name": "[variables('mongoPublicIpAddressName')]",
+			"location": "[variables('location')]",
+			"sku": {
+				"name": "[variables('publicIpAddressSku')]"
+			},
+			"properties": {
+				"publicIpAllocationMethod": "[variables('publicIpAddressType')]"
+			}
+		},
+		{
+			"name": "[variables('mongoNsgName')]",
+			"type": "Microsoft.Network/networkSecurityGroups",
+			"apiVersion": "2018-08-01",
+			"location": "[variables('location')]",
+			"properties": {
+				"securityRules": [{
+						"name": "open-ssh",
+						"properties": {
+							"priority": 1000,
+							"protocol": "Tcp",
+							"access": "Allow",
+							"direction": "Inbound",
+							"sourcePortRange": "*",
+							"destinationPortRange": "22",
+							"sourceAddressPrefix": "*",
+							"destinationAddressPrefix": "*",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					},
+					{
+						"name": "open-3300",
+						"properties": {
+							"priority": 900,
+							"protocol": "*",
+							"access": "Allow",
+							"direction": "Inbound",
+							"sourcePortRange": "*",
+							"destinationPortRange": "3300",
+							"sourceAddressPrefix": "*",
+							"destinationAddressPrefix": "*",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					},
+					{
+						"name": "open-27017",
+						"properties": {
+							"priority": 1010,
+							"protocol": "*",
+							"access": "Allow",
+							"direction": "Inbound",
+							"sourcePortRange": "*",
+							"destinationPortRange": "27017",
+							"sourceAddressPrefix": "*",
+							"destinationAddressPrefix": "*",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					}
+				],
+				"defaultSecurityRules": [{
+						"name": "AllowVnetInBound",
+						"properties": {
+							"description": "Allow inbound traffic from all VMs in VNET",
+							"protocol": "*",
+							"sourcePortRange": "*",
+							"destinationPortRange": "*",
+							"sourceAddressPrefix": "VirtualNetwork",
+							"destinationAddressPrefix": "VirtualNetwork",
+							"access": "Allow",
+							"priority": 65000,
+							"direction": "Inbound",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					},
+					{
+						"name": "AllowAzureLoadBalancerInBound",
+						"properties": {
+							"description": "Allow inbound traffic from azure load balancer",
+							"protocol": "*",
+							"sourcePortRange": "*",
+							"destinationPortRange": "*",
+							"sourceAddressPrefix": "AzureLoadBalancer",
+							"destinationAddressPrefix": "*",
+							"access": "Allow",
+							"priority": 65001,
+							"direction": "Inbound",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					},
+					{
+						"name": "DenyAllInBound",
+						"properties": {
+							"description": "Deny all inbound traffic",
+							"protocol": "*",
+							"sourcePortRange": "*",
+							"destinationPortRange": "*",
+							"sourceAddressPrefix": "*",
+							"destinationAddressPrefix": "*",
+							"access": "Deny",
+							"priority": 65500,
+							"direction": "Inbound",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					},
+					{
+						"name": "AllowVnetOutBound",
+						"properties": {
+							"description": "Allow outbound traffic from all VMs to all VMs in VNET",
+							"protocol": "*",
+							"sourcePortRange": "*",
+							"destinationPortRange": "*",
+							"sourceAddressPrefix": "VirtualNetwork",
+							"destinationAddressPrefix": "VirtualNetwork",
+							"access": "Allow",
+							"priority": 65000,
+							"direction": "Outbound",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					},
+					{
+						"name": "AllowInternetOutBound",
+						"properties": {
+							"description": "Allow outbound traffic from all VMs to Internet",
+							"protocol": "*",
+							"sourcePortRange": "*",
+							"destinationPortRange": "*",
+							"sourceAddressPrefix": "*",
+							"destinationAddressPrefix": "Internet",
+							"access": "Allow",
+							"priority": 65001,
+							"direction": "Outbound",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					},
+					{
+						"name": "DenyAllOutBound",
+						"properties": {
+							"description": "Deny all outbound traffic",
+							"protocol": "*",
+							"sourcePortRange": "*",
+							"destinationPortRange": "*",
+							"sourceAddressPrefix": "*",
+							"destinationAddressPrefix": "*",
+							"access": "Deny",
+							"priority": 65500,
+							"direction": "Outbound",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "Microsoft.Network/networkInterfaces",
+			"apiVersion": "2019-06-01",
+			"name": "[variables('mongoNicName')]",
+			"location": "[variables('location')]",
+			"dependsOn": [
+				"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+				"[concat('Microsoft.Network/publicIpAddresses/', variables('mongoPublicIpAddressName'))]"
+			],
+			"properties": {
+				"ipConfigurations": [{
+					"name": "[variables('mongoNicIpConfigName')]",
+					"properties": {
+						"subnet": {
+							"id": "[variables('subnetRef')]"
+						},
+						"privateIPAllocationMethod": "Dynamic",
+						"publicIPAddress": {
+							"id": "[resourceId(resourceGroup().name, 'Microsoft.Network/publicIpAddresses', variables('mongoPublicIpAddressName'))]"
+						}
+					}
+				}]
+			}
+		},
+		{
+			"type": "Microsoft.Compute/virtualMachines",
+			"apiVersion": "2019-03-01",
+			"name": "[variables('mongoVirtualMachineName')]",
+			"location": "[variables('location')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.Network/networkInterfaces', variables('mongoNicName'))]"
+			],
+			"properties": {
+				"osProfile": {
+					"computerName": "[variables('mongoVirtualMachineName')]",
+					"adminUsername": "[parameters('username')]",
+					"adminPassword": "[parameters('password')]",
+					"linuxConfiguration": {
+						"disablePasswordAuthentication": false
+					}
+				},
+				"hardwareProfile": {
+					"vmSize": "Standard_DS1_v2"
+				},
+				"storageProfile": {
+					"imageReference": {
+						"publisher": "Canonical",
+						"offer": "UbuntuServer",
+						"sku": "16.04-LTS",
+						"version": "latest"
+					},
+					"osDisk": {
+						"createOption": "FromImage",
+						"managedDisk": {
+							"storageAccountType": "Premium_LRS"
+						}
+					}
+				},
+				"networkProfile": {
+					"networkInterfaces": [{
+						"id": "[resourceId('Microsoft.Network/networkInterfaces', variables('mongoNicName'))]"
+					}]
+				}
+			},
+			"resources": [{
+				"apiVersion": "2019-03-01",
+				"type": "extensions",
+				"name": "install-mongo",
+				"location": "[variables('location')]",
+				"dependsOn": [
+					"[concat('Microsoft.Compute/virtualMachines/', variables('mongoVirtualMachineName'))]"
+				],
+				"properties": {
+					"publisher": "Microsoft.Azure.Extensions",
+					"type": "CustomScript",
+					"typeHandlerVersion": "2.0",
+					"autoUpgradeMinorVersion": true,
+					"settings": {
+						"fileUris": [
+							"https://raw.githubusercontent.com/microsoft/ignite-learning-paths/master/mod/mod20/DeploymentTemplates/configure-mongo.sh"
+						]
+					},
+					"protectedSettings": {
+						"commandToExecute": "[concat('sudo sh configure-mongo.sh ', parameters('username'), ' ', parameters('password'))]"
+					}
+				}
+			}]
+		},
+		{
+			"type": "Microsoft.Network/publicIpAddresses",
+			"apiVersion": "2019-06-01",
+			"name": "[variables('sqlPublicIpAddressName')]",
+			"location": "[variables('location')]",
+			"sku": {
+				"name": "[variables('publicIpAddressSku')]"
+			},
+			"properties": {
+				"publicIpAllocationMethod": "[variables('publicIpAddressType')]"
+			}
+		},
+		{
+			"name": "[variables('sqlNsgName')]",
+			"type": "Microsoft.Network/networkSecurityGroups",
+			"apiVersion": "2019-06-01",
+			"location": "[variables('location')]",
+			"properties": {
+				"securityRules": [{
+						"name": "open-rdp",
+						"properties": {
+							"priority": 300,
+							"protocol": "Tcp",
+							"access": "Allow",
+							"direction": "Inbound",
+							"sourcePortRange": "*",
+							"destinationPortRange": "3389",
+							"sourceAddressPrefix": "*",
+							"destinationAddressPrefix": "*",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					},
+					{
+						"name": "open-sql",
+						"properties": {
+							"priority": 1600,
+							"protocol": "Tcp",
+							"access": "Allow",
+							"direction": "Inbound",
+							"sourcePortRange": "*",
+							"destinationPortRange": "1433",
+							"sourceAddressPrefix": "*",
+							"destinationAddressPrefix": "*",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					}
+				],
+				"defaultSecurityRules": [{
+						"name": "AllowVnetInBound",
+						"properties": {
+							"description": "Allow inbound traffic from all VMs in VNET",
+							"protocol": "*",
+							"sourcePortRange": "*",
+							"destinationPortRange": "*",
+							"sourceAddressPrefix": "VirtualNetwork",
+							"destinationAddressPrefix": "VirtualNetwork",
+							"access": "Allow",
+							"priority": 65000,
+							"direction": "Inbound",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					},
+					{
+						"name": "AllowAzureLoadBalancerInBound",
+						"properties": {
+							"description": "Allow inbound traffic from azure load balancer",
+							"protocol": "*",
+							"sourcePortRange": "*",
+							"destinationPortRange": "*",
+							"sourceAddressPrefix": "AzureLoadBalancer",
+							"destinationAddressPrefix": "*",
+							"access": "Allow",
+							"priority": 65001,
+							"direction": "Inbound",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					},
+					{
+						"name": "DenyAllInBound",
+						"properties": {
+							"description": "Deny all inbound traffic",
+							"protocol": "*",
+							"sourcePortRange": "*",
+							"destinationPortRange": "*",
+							"sourceAddressPrefix": "*",
+							"destinationAddressPrefix": "*",
+							"access": "Deny",
+							"priority": 65500,
+							"direction": "Inbound",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					},
+					{
+						"name": "AllowVnetOutBound",
+						"properties": {
+							"description": "Allow outbound traffic from all VMs to all VMs in VNET",
+							"protocol": "*",
+							"sourcePortRange": "*",
+							"destinationPortRange": "*",
+							"sourceAddressPrefix": "VirtualNetwork",
+							"destinationAddressPrefix": "VirtualNetwork",
+							"access": "Allow",
+							"priority": 65000,
+							"direction": "Outbound",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					},
+					{
+						"name": "AllowInternetOutBound",
+						"properties": {
+							"description": "Allow outbound traffic from all VMs to Internet",
+							"protocol": "*",
+							"sourcePortRange": "*",
+							"destinationPortRange": "*",
+							"sourceAddressPrefix": "*",
+							"destinationAddressPrefix": "Internet",
+							"access": "Allow",
+							"priority": 65001,
+							"direction": "Outbound",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					},
+					{
+						"name": "DenyAllOutBound",
+						"properties": {
+							"description": "Deny all outbound traffic",
+							"protocol": "*",
+							"sourcePortRange": "*",
+							"destinationPortRange": "*",
+							"sourceAddressPrefix": "*",
+							"destinationAddressPrefix": "*",
+							"access": "Deny",
+							"priority": 65500,
+							"direction": "Outbound",
+							"sourcePortRanges": [],
+							"destinationPortRanges": [],
+							"sourceAddressPrefixes": [],
+							"destinationAddressPrefixes": []
+						}
+					}
+				]
+			}
+		},
+		{
+			"type": "Microsoft.Network/networkInterfaces",
+			"apiVersion": "2019-06-01",
+			"name": "[variables('sqlNicName')]",
+			"location": "[variables('location')]",
+			"dependsOn": [
+				"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+				"[concat('Microsoft.Network/publicIpAddresses/', variables('sqlPublicIpAddressName'))]"
+			],
+			"properties": {
+				"ipConfigurations": [{
+					"name": "[variables('sqlNicIpConfigName')]",
+					"properties": {
+						"subnet": {
+							"id": "[variables('subnetRef')]"
+						},
+						"privateIPAllocationMethod": "Dynamic",
+						"publicIPAddress": {
+							"id": "[resourceId(resourceGroup().name, 'Microsoft.Network/publicIpAddresses', variables('sqlPublicIpAddressName'))]"
+						}
+					}
+				}]
+			}
+		},
+		{
+			"type": "Microsoft.Compute/virtualMachines",
+			"apiVersion": "2019-03-01",
+			"name": "[variables('sqlVirtualMachineName')]",
+			"location": "[variables('location')]",
+			"dependsOn": [
+				"[resourceId('Microsoft.Network/networkInterfaces', variables('sqlNicName'))]",
+				"[resourceId('Microsoft.Storage/StorageAccounts', variables('storageAccountName'))]"
+			],
+			"properties": {
+				"hardwareProfile": {
+					"vmSize": "Standard_DS13_v2"
+				},
+				"storageProfile": {
+					"imageReference": {
+						"publisher": "MicrosoftSQLServer",
+						"offer": "SQL2012SP4-WS2012R2",
+						"sku": "Standard",
+						"version": "latest"
+					},
+					"osDisk": {
+						"osType": "Windows",
+						"name": "[concat(variables('sqlVirtualMachineName'), '_OsDisk_1_8504cd8e576649de86d6cb8045f09d2c')]",
+						"createOption": "FromImage",
+						"caching": "ReadWrite",
+						"managedDisk": {
+							"storageAccountType": "Premium_LRS"
+						},
+						"diskSizeGB": 127
+					},
+					"dataDisks": [{
+						"lun": 0,
+						"name": "[concat(variables('sqlVirtualMachineName'), '_disk2_2b183eae64a8477f9b024d8b1a732ac9')]",
+						"createOption": "Empty",
+						"caching": "ReadOnly",
+						"writeAcceleratorEnabled": false,
+						"managedDisk": {
+							"storageAccountType": "Premium_LRS"
+						},
+						"diskSizeGB": 1023,
+						"toBeDetached": false
+					}]
+				},
+				"osProfile": {
+					"computerName": "[variables('sqlVirtualMachineName')]",
+					"adminUsername": "[parameters('username')]",
+					"adminPassword": "[parameters('password')]",
+					"windowsConfiguration": {
+						"provisionVMAgent": true,
+						"enableAutomaticUpdates": true
+					},
+					"secrets": [],
+					"allowExtensionOperations": true
+				},
+				"networkProfile": {
+					"networkInterfaces": [{
+						"id": "[resourceId('Microsoft.Network/networkInterfaces', variables('sqlNicName'))]"
+					}]
+				},
+				"diagnosticsProfile": {
+					"bootDiagnostics": {
+						"enabled": true,
+						"storageUri": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net/')]"
+					}
+				}
+			}
+		},
+		{
+			"apiVersion": "2015-06-15",
+			"type": "Microsoft.Compute/virtualMachines/extensions",
+			"name": "[concat(variables('sqlVirtualMachineName'), '/SqlIaasExtension')]",
+			"location": "[variables('location')]",
+			"dependsOn": [
+				"[concat('Microsoft.Compute/virtualMachines/', variables('sqlVirtualMachineName'))]"
+			],
+			"properties": {
+				"type": "SqlIaaSAgent",
+				"publisher": "Microsoft.SqlServer.Management",
+				"typeHandlerVersion": "2.0",
+				"autoUpgradeMinorVersion": "true",
+				"settings": {
+					"AutoTelemetrySettings": {
+						"Region": "[variables('location')]"
+					},
+					"AutoPatchingSettings": {
+						"PatchCategory": "WindowsMandatoryUpdates",
+						"Enable": true,
+						"DayOfWeek": "Sunday",
+						"MaintenanceWindowStartingHour": "2",
+						"MaintenanceWindowDuration": "60"
+					},
+					"KeyVaultCredentialSettings": {
+						"Enable": false,
+						"CredentialName": ""
+					},
+					"ServerConfigurationsManagementSettings": {
+						"SQLConnectivityUpdateSettings": {
+							"ConnectivityType": "Public",
+							"Port": 1433
+						},
+						"SQLWorkloadTypeUpdateSettings": {
+							"SQLWorkloadType": "GENERAL"
+						},
+						"SQLStorageUpdateSettings": {
+							"DiskCount": 1,
+							"NumberOfColumns": 1,
+							"StartingDeviceID": 2,
+							"DiskConfigurationType": "NEW"
+						},
+						"AdditionalFeaturesServerConfigurations": {
+							"IsRServicesEnabled": "false"
+						}
+					}
+				},
+				"protectedSettings": {
+					"SQLAuthUpdateUserName": "[parameters('username')]",
+					"SQLAuthUpdatePassword": "[parameters('password')]"
+				}
+			}
+		},
+		{
+			"apiVersion": "2015-06-15",
+			"type": "Microsoft.Compute/virtualMachines/extensions",
+			"name": "[concat(variables('sqlVirtualMachineName'), '/SqlScriptExtension')]",
+			"location": "[resourceGroup().location]",
+			"dependsOn": [
+				"[concat('Microsoft.Compute/virtualMachines/', variables('sqlVirtualMachineName'), '/extensions/SqlIaasExtension')]"
+			],
+			"tags": {
+				"displayName": "create-sql-db"
+			},
+			"properties": {
+				"publisher": "Microsoft.Compute",
+				"type": "CustomScriptExtension",
+				"typeHandlerVersion": "1.9",
+				"autoUpgradeMinorVersion": true,
+				"settings": {
+					"fileUris": [
+						"https://raw.githubusercontent.com/microsoft/ignite-learning-paths/master/mod/mod20/DeploymentTemplates/create-sql-db.ps1"
+					],
+					"commandToExecute": "powershell -ExecutionPolicy Unrestricted -File create-sql-db.ps1"
+				}
+			}
+		}
+	]
+}

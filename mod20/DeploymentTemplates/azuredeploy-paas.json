@@ -1,0 +1,428 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "prefix": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "A unique prefix in lowercase"
+            }
+        },
+        "username": {
+            "type": "string",
+            "defaultValue": "tailwind",
+            "metadata": {
+                "description": "The username for the VMs and for the Azure SQL DB"
+            }
+        },
+		"password": {
+			"type": "securestring",
+			"defaultValue": "traderstraders42.",
+            "metadata": {
+                "description": "The password. No '@', '!' or using the username"
+            }
+		}
+    },
+    "variables": {
+        "name": "[toLower(concat('mod20', parameters('prefix')))]",
+        "subscriptionId": "[subscription().id]",
+        "location": "[resourceGroup().location]",
+        
+        "hostingEnvironment": "",
+        "hostingPlanName": "[concat(variables('name'), 'plan')]",
+        "serverFarmResourceGroup": "[resourceGroup().name]",
+        "alwaysOn": true,
+        "sku": "PremiumV2",
+        "skuCode": "P1v2",
+        "workerSize": "3",
+        "workerSizeId": "3",
+        "numberOfWorkers": "1",
+        "currentStack": "dotnetcore",
+        "apiUrl": "/api/v1",
+        "apiUrlShoppingCart": "/api/v1",
+        "locationCode": "[toLower(replace(variables('location'), ' ', ''))]",
+        
+        "appInsightsName": "[variables('name')]",
+        
+        "sqlServerName": "[concat(variables('name'), 'sqlsvr')]",
+        "sqlDatabaseName": "[concat(variables('name'), 'sqldb')]",
+        "sqlBakDatabaseName": "[concat(variables('sqlDatabaseName'), '-bak')]",
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "maxSizeBytes": 2147483648,
+        "sampleName": "",
+        "licenseType": "",
+        "readScaleOut": "Disabled",
+        "zoneRedundant": false,
+        "numberOfReplicas": 0,
+        "minCapacity": "",
+        "autoPauseDelay": "",
+        "sqlSkuName": "Basic",
+        "sqlTier": "Basic",
+        
+        "cosmosAccountName": "[concat(variables('name'), 'mongo')]",
+        "cosmosBakAccountName": "[concat(variables('cosmosAccountName'), '-bak')]",
+        "cosmosDatabaseName": "tailwind",
+
+        "storageAccountName": "[concat(variables('name'), 'store')]",
+
+        "virtualNetworkName": "[concat(variables('name'), 'vnet')]",
+		"subnetName": "default",
+        "dmsName": "[concat(variables('name'), 'dms')]"
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-02-01",
+            "name": "[variables('name')]",
+            "type": "Microsoft.Web/sites",
+            "location": "[variables('location')]",
+            "tags": {},
+            "dependsOn": [
+                "[concat('microsoft.insights/components/', variables('appInsightsName'))]",
+                "[concat('Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
+                "[concat('Microsoft.Sql/servers/', variables('sqlServerName'), '/databases/', variables('sqlDatabaseName'))]",
+                "[concat('Microsoft.DocumentDB/databaseAccounts/', variables('cosmosAccountName'))]"
+            ],
+            "properties": {
+                "name": "[variables('name')]",
+                "siteConfig": {
+                    "appSettings": [
+                        {
+                            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                            "value": "[reference(concat('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
+                        },
+                        {
+                            "name": "ApplicationInsightsAgent_EXTENSION_VERSION",
+                            "value": "~2"
+                        },
+                        {
+                            "name": "XDT_MicrosoftApplicationInsights_Mode",
+                            "value": "recommended"
+                        },
+                        {
+                            "name": "DiagnosticServices_EXTENSION_VERSION",
+                            "value": "~3"
+                        },
+                        {
+                            "name": "APPINSIGHTS_PROFILERFEATURE_VERSION",
+                            "value": "1.0.0"
+                        },
+                        {
+                            "name": "APPINSIGHTS_SNAPSHOTFEATURE_VERSION",
+                            "value": "1.0.0"
+                        },
+                        {
+                            "name": "InstrumentationEngine_EXTENSION_VERSION",
+                            "value": "~1"
+                        },
+                        {
+                            "name": "SnapshotDebugger_EXTENSION_VERSION",
+                            "value": "~1"
+                        },
+                        {
+                            "name": "XDT_MicrosoftApplicationInsights_BaseExtensions",
+                            "value": "~1"
+                        },
+                        {
+                            "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                            "value": "10.15.2"
+                        },
+                        {
+                            "name": "ApiUrl",
+                            "value": "[variables('apiUrl')]"
+                        },
+                        {
+                            "name": "ApiUrlShoppingCart",
+                            "value": "[variables('apiUrlShoppingCart')]"
+                        },
+                        {
+                            "name": "MongoConnectionString",
+                            "value": "[listConnectionStrings(resourceId('Microsoft.DocumentDB/databaseAccounts', variables('cosmosBakAccountName')), '2015-04-08').connectionStrings[0].connectionString]"
+                        },
+                        {
+                            "name": "SqlConnectionString",
+                            "value": "[concat('Server=tcp:', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', variables('sqlBakDatabaseName'), ';Persist Security Info=False;User ID=', parameters('username'), ';Password=', parameters('password'), ';MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]"
+                        },
+                        {
+                            "name": "DebugInformation__ShowDebug",
+                            "value": "true"
+                        },
+                        {
+                            "name": "ProductImagesUrl",
+                            "value": "https://raw.githubusercontent.com/microsoft/TailwindTraders-Backend/master/Source/Services/Tailwind.Traders.Product.Api/Setup/product-images/product-details"
+                        }
+                    ],
+                    "metadata": [
+                        {
+                            "name": "CURRENT_STACK",
+                            "value": "[variables('currentStack')]"
+                        }
+                    ],
+                    "alwaysOn": "[variables('alwaysOn')]"
+                },
+                "serverFarmId": "[concat('/subscriptions/', variables('subscriptionId'),'/resourcegroups/', variables('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
+                "hostingEnvironment": "[variables('hostingEnvironment')]",
+                "clientAffinityEnabled": true
+            },
+            "resources": [
+                {
+                    "apiVersion": "2015-08-01",
+                    "name": "web",
+                    "type": "sourcecontrols",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Web/Sites', variables('name'))]"
+                    ],
+                    "properties": {
+                        "RepoUrl": "https://github.com/lbugnion/TailwindTraders-Website",
+                        "branch": "master",
+                        "IsManualIntegration": true
+                    }
+                }
+            ]
+        },
+        {
+            "apiVersion": "2018-02-01",
+            "name": "[variables('hostingPlanName')]",
+            "type": "Microsoft.Web/serverfarms",
+            "location": "[variables('location')]",
+            "kind": "",
+            "tags": {},
+            "dependsOn": [],
+            "properties": {
+                "name": "[variables('hostingPlanName')]",
+                "workerSize": "[variables('workerSize')]",
+                "workerSizeId": "[variables('workerSizeId')]",
+                "numberOfWorkers": "[variables('numberOfWorkers')]",
+                "hostingEnvironment": "[variables('hostingEnvironment')]"
+            },
+            "sku": {
+                "Tier": "[variables('sku')]",
+                "Name": "[variables('skuCode')]"
+            }
+        },
+        {
+            "apiVersion": "2015-05-01",
+            "name": "[variables('appInsightsName')]",
+            "type": "microsoft.insights/components",
+            "location": "[variables('locationCode')]",
+            "tags": null,
+            "properties": {
+                "ApplicationId": "[variables('name')]",
+                "Request_Source": "IbizaWebAppExtensionCreate"
+            }
+        },
+        {
+            "apiVersion": "2015-05-01-preview",
+            "location": "[variables('locationCode')]",
+            "tags": {},
+            "name": "[variables('sqlServerName')]",
+            "properties": {
+                "administratorLogin": "[parameters('username')]",
+                "administratorLoginPassword": "[parameters('password')]",
+                "version": "12.0"
+            },
+            "resources": [
+                {
+                    "apiVersion": "2017-10-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', variables('sqlServerName'))]"
+                    ],
+                    "location": "[variables('locationCode')]",
+                    "tags": {},
+                    "name": "[variables('sqlDatabaseName')]",
+                    "properties": {
+                        "collation": "[variables('collation')]",
+                        "maxSizeBytes": "[variables('maxSizeBytes')]",
+                        "sampleName": "[variables('sampleName')]",
+                        "zoneRedundant": "[variables('zoneRedundant')]",
+                        "licenseType": "[variables('licenseType')]",
+                        "readScale": "[variables('readScaleOut')]",
+                        "readReplicaCount": "[variables('numberOfReplicas')]",
+                        "minCapacity": "[variables('minCapacity')]",
+                        "autoPauseDelay": "[variables('autoPauseDelay')]"
+                    },
+                    "sku": {
+                        "name": "[variables('sqlSkuName')]",
+                        "tier": "[variables('sqlTier')]"
+                    },
+                    "type": "databases"
+                },
+                {
+                    "apiVersion": "2017-10-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', variables('sqlServerName'))]"
+                    ],
+                    "location": "[variables('locationCode')]",
+                    "tags": {},
+                    "name": "[variables('sqlBakDatabaseName')]",
+                    "properties": {
+                        "collation": "[variables('collation')]",
+                        "maxSizeBytes": "[variables('maxSizeBytes')]",
+                        "sampleName": "[variables('sampleName')]",
+                        "zoneRedundant": "[variables('zoneRedundant')]",
+                        "licenseType": "[variables('licenseType')]",
+                        "readScale": "[variables('readScaleOut')]",
+                        "readReplicaCount": "[variables('numberOfReplicas')]",
+                        "minCapacity": "[variables('minCapacity')]",
+                        "autoPauseDelay": "[variables('autoPauseDelay')]"
+                    },
+                    "sku": {
+                        "name": "[variables('sqlSkuName')]",
+                        "tier": "[variables('sqlTier')]"
+                    },
+                    "type": "databases"
+                },
+                {
+                    "apiVersion": "2014-04-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', variables('sqlServerName'))]"
+                    ],
+                    "location": "[variables('locationCode')]",
+                    "name": "AllowAllWindowsAzureIps",
+                    "properties": {
+                        "endIpAddress": "0.0.0.0",
+                        "startIpAddress": "0.0.0.0"
+                    },
+                    "type": "firewallrules"
+                }
+            ],
+            "type": "Microsoft.Sql/servers"
+        },
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts",
+            "name": "[variables('cosmosAccountName')]",
+            "apiVersion": "2016-03-31",
+            "location": "[variables('location')]",
+            "kind": "MongoDB",
+            "properties": {
+                "databaseAccountOfferType": "Standard"
+            }
+        },
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts/apis/databases",
+            "name": "[concat(variables('cosmosAccountName'), '/mongodb/', variables('cosmosDatabaseName'))]",
+            "apiVersion": "2016-03-31",
+            "dependsOn": [
+                "[resourceId('Microsoft.DocumentDB/databaseAccounts/', variables('cosmosAccountName'))]"
+            ],
+            "properties": {
+                "resource": {
+                    "id": "[variables('cosmosDatabaseName')]"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts",
+            "name": "[variables('cosmosBakAccountName')]",
+            "apiVersion": "2016-03-31",
+            "location": "[variables('location')]",
+            "kind": "MongoDB",
+            "properties": {
+                "databaseAccountOfferType": "Standard"
+            }
+        },
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts/apis/databases",
+            "name": "[concat(variables('cosmosBakAccountName'), '/mongodb/', variables('cosmosDatabaseName'))]",
+            "apiVersion": "2016-03-31",
+            "dependsOn": [
+                "[resourceId('Microsoft.DocumentDB/databaseAccounts/', variables('cosmosBakAccountName'))]"
+            ],
+            "properties": {
+                "resource": {
+                    "id": "[variables('cosmosDatabaseName')]"
+                }
+            }
+        },
+		{
+			"type": "Microsoft.Network/virtualNetworks",
+			"apiVersion": "2019-06-01",
+			"name": "[variables('virtualNetworkName')]",
+			"location": "[variables('location')]",
+			"properties": {
+				"addressSpace": {
+					"addressPrefixes": [
+						"10.0.0.0/16"
+					]
+				},
+				"subnets": [
+					{
+						"name": "[variables('subnetName')]",
+						"properties": {
+							"addressPrefix": "10.0.0.0/16",
+							"delegations": [],
+							"privateEndpointNetworkPolicies": "Enabled",
+							"privateLinkServiceNetworkPolicies": "Enabled"
+						}
+					}
+				],
+				"virtualNetworkPeerings": [],
+				"enableDdosProtection": false,
+				"enableVmProtection": false
+			}
+		},
+		{
+			"type": "Microsoft.Network/virtualNetworks/subnets",
+			"apiVersion": "2019-06-01",
+			"name": "[concat(variables('virtualNetworkName'), '/', variables('subnetName'))]",
+			"dependsOn": [
+				"[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
+			],
+			"properties": {
+				"addressPrefix": "10.0.0.0/16",
+				"delegations": [],
+				"privateEndpointNetworkPolicies": "Enabled",
+				"privateLinkServiceNetworkPolicies": "Enabled"
+			}
+		},
+        {
+            "type": "Microsoft.DataMigration/services",
+            "sku": {
+                "name": "Premium_4vCores",
+                "tier": "Premium",
+                "size": "4 vCores"
+            },
+            "name": "[variables('dmsName')]",
+            "apiVersion": "2017-11-15-privatepreview",
+            "location": "[variables('location')]",
+            "properties": {
+                "virtualSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[variables('storageAccountName')]",
+            "location": "[variables('location')]",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [],
+                    "ipRules": [],
+                    "defaultAction": "Allow"
+                },
+                "supportsHttpsTrafficOnly": true,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "enabled": true
+                        },
+                        "blob": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                },
+                "accessTier": "Hot"
+            }
+        }
+    ]
+}
