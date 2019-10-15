@@ -11,6 +11,10 @@ The following steps are necessary to prepare for MOD30 demos.
 5. (Optional) for sharing Android device: [Vysor](http://www.vysor.io/)
 
 ## Mobile App
+1. Get invitation from app mobile development team (Currently Matt Soucoup)
+2. Open invitation link and follow instructions
+   a. Open invitation link in Safari if iOS device
+3. 
 
 ## Deployments
 

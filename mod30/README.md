@@ -26,7 +26,8 @@ code.
 - Full-length recording of presentation [here](https://#)
 - Director Cut Full-length recording of presentation [here](https://#)
 - Individual recordings of stage-ready hands-on demos [here](https://#)
-- Demo Guide and ReadMe [here](https://#)
+- Demo Setup [here](Setup.md) and
+  - Guide [here](Demos.md)
 
 ## Become a Presenter
 
@@ -38,28 +39,26 @@ To become a *Trained Presenters*, contact [scalablecontent@microsoft.com](mailto
 
 > It doesn't need to be this content, the important is to show your presenter skills
 
-
 ## Trained Presenters
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
+Thanks goes to these wonderful people
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
 
 <table>
 <tr>
-    <td align="center"><a href="http://cloud5mins.com/">
-        <img src="https://avatars2.githubusercontent.com/u/2404846?s=460&v=4" width="100px;" alt="Frank Boucher"/><br />
-        <sub><b>Frank Boucher</b></sub></a><br />
-            <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=fboucher" title="talk">📢</a>
-            <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=fboucher" title="Documentation">📖</a> 
+    <td align="center"><a href="https://medium.com/@bbenz">
+        <img src="https://avatars2.githubusercontent.com/u/2809036?s=400&v=4" width="100px;" alt="Brian Benz"/><br />
+        <sub><b>Brian Benz</b></sub></a><br />
+            <!-- <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=fboucher" title="talk">📢</a>
+            <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=fboucher" title="Documentation">📖</a>  -->
     </td>
-    <td align="center"><a href="https://blogs.technet.microsoft.com/neilp/">
-        <img src="https://avatars3.githubusercontent.com/u/7844635?s=460&v=4" width="100px;" alt="Neil Peterson"/><br />
-        <sub><b>Neil Peterson</b></sub></a><br />
-            <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=neilpeterson" title="talk">🎨</a>
-            <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=neilpeterson" title="design">📖</a> 
+    <td align="center"><a href="https://blog.jeremylikness.com/">
+        <img src="https://avatars0.githubusercontent.com/u/5479675?s=400&v=4" width="100px;" alt="Jeremy Likness"/><br />
+        <sub><b>Jeremy Likness</b></sub></a><br />
+            <!-- <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=neilpeterson" title="talk">🎨</a>
+            <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=neilpeterson" title="design">📖</a>  -->
     </td>
 </tr></table>
 
