@@ -1,8 +1,8 @@
 # Train The Trainer - MOD30: Demo Walkthrough
 
-*View the [Setup documentation](Setup.md) to prepare for these demos.*
+*View the [Setup documentation](setup.md) to prepare for these demos.*
 
-## Demo: Serverless for Elastic Scale
+## Demo 1: Serverless for Elastic Scale ([Watch 📽](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30_Demo1.mp4))
 
 1. Use the empty `mod30-demo` variant of the function
 2. Create an In-portal HTTP Trigger (not the WebHook quick start, use "More templates...")
@@ -13,7 +13,7 @@
 7. Run `artillery quick --count 100 -n 100 {endpoint}`
 8. Go back to Live Metrics Stream and show auto-scale working, response times, etc.
 
-## Demo: Thumbnails with Functions
+## Demo 2: Thumbnails with Functions ([Watch 📽](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30_Demo2.mp4))
 
 > **Important Note**: the demo as designed will only work with files using the `.jpg` (not `.jpeg`, `.png` etc.) extension. This should be handled by the app but in case you are testing it manually, keep this in mind.
 
@@ -31,7 +31,7 @@
 10. Run and show the execution
 11. Navigate back to the `wishlist` container in the storage account and show the thumbnail
 
-## Demo: Trigger Function with Event Grid Event
+## Demo 3: Trigger Function with Event Grid Event
 
 1. Show the code for `MakeThumbnailEventGrid`.
 2. Navigate to storage and show events blade. Mention the different ways to set up subscriptions.
@@ -43,12 +43,12 @@
 7. Filter to just the `Blob Created` event
 8. Wait for subscription to confirm.
 9. Expand the function logs and keep those open.
-10. Upload a new image and show it processed in the event grid
+10. Upload a new image from the app and show it processed in the event grid
 11. Navigate to storage and show the thumbnail.
 
 As a bonus, you can show the "events" in storage to display the subscription and related metrics.
 
-## Demo: Social Media Integration with Logic Apps
+## Demo 4: Social Media Integration with Logic Apps
 
 1. Navigate to the logic app and explain the steps. Point out how there is no code at all to authenticate with and/or search Twitter. It's just a simple step.
 2. Do not expand the variables and reveal the token secret.
@@ -57,7 +57,7 @@ As a bonus, you can show the "events" in storage to display the subscription and
 5. Enable the logic app and run the trigger
 6. Show the push notification
 
-## Demo: Automatic Image Captioning with Cognitive Services
+## Demo 5: Automatic Image Captioning with Cognitive Services
 
 1. Navigate to the `mod30-caption` logic app
 2. Open the Logic app designer

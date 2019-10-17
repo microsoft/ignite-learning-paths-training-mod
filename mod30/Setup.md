@@ -10,12 +10,6 @@ The following steps are necessary to prepare for MOD30 demos.
 4. (Optional) Install [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows&WT.mc_id=msignitethetour2019-github-mod30)
 5. (Optional) for sharing Android device: [Vysor](http://www.vysor.io/)
 
-## Mobile App
-1. Get invitation from app mobile development team (Currently Matt Soucoup)
-2. Open invitation link and follow instructions
-   a. Open invitation link in Safari if iOS device
-3. 
-
 ## Deployments
 
 1. Provision the Tailwind Traders monolith app available [here](https://gist.github.com/anthonychu/9ab34d2991fb5c1c0c29faeebbe43a51)
@@ -30,6 +24,20 @@ The following steps are necessary to prepare for MOD30 demos.
     4. Token from App Center
 
 ***Deployment unsuccessful?** See [Troubleshooting](#troubleshooting)*
+
+## Mobile App
+
+*The mobile app currently is only available for phones. Devices such as Tablets (iPad) will not work*
+
+1. Locate and install the Tailwind Traders app on your device's app store.
+2. Login to app with fake email and password.
+3. After logging in, go to Menu > Settings [image]
+4. Update Product Service API URL with url of deployed website from [Deployment](#deployments) Step 1.
+5. Update Storage Account Name with storage account created from [Deployment](#deployments) Step 2.
+6. Update Functions App Url with Function App created from [Deployment](#deployments) Step 2.
+7. Save your changes with the "Save" button at the bottom.
+
+*Can't access the app after troubleshooting? Contact Matt Soucoup for assistance*
 
 ## Azure Portal
 
