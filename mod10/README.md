@@ -32,7 +32,7 @@ code.
 - [Demo Instructions](https://github.com/microsoft/ignite-learning-paths/tree/master/mod/mod10)
   
 
-## Become a Presenter
+## Become a Certified Presenter
 
 To become a certified presenter, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
 
