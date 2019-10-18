@@ -23,11 +23,9 @@ Along with the video of the presentation, this document will link to all the ass
 # Assets in Train-the-Trainer Kit
 
 * This guide
-* [PowerPoint presentation](https://microsoft.sharepoint.com/:p:/t/CloudDevAdvocacy/EV37sX0MXLtAgtPPYj8lEwYBF6BaxEvB6mDGS5T4-t72zA?e=yjAxyg)
+* [PowerPoint presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod20/MOD20_Moving Your Database to Azure.pptx)
 * [Outline for this session](./00-outline.md).
 * [A lot of videos made to help you learn and present](./00A-videos.md)
-
-> Note that you will need access to this Microsoft Teams channel to view the slides.
 
 ## Demos deployment and preparation
 
@@ -37,7 +35,7 @@ In order to run the demos, you will need to run two deployments to Azure. [This 
 
 Before each session you will need to run a few steps to [prepare the demo environment](./05-prep-demos.md). After that you'll be all set, and you can find a [complete description of the demos here](./06-demos.md).
 
-## Become a Presenter
+## Become a Certified Presenter
 
 To become a certified presenter, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
 
