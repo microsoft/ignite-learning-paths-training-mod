@@ -1,20 +1,33 @@
-# MOD20 Moving Your Database to Azure
+# MOD20: Moving Your Database to Azure
 
-## Abstract
+## Train-the-Trainer Guide
+
+## Session Abstract
 
 Northwind kept the bulk of its data in an on-premises data center, which hosted servers running both SQL Server and MongoDB. After the acquisition, Tailwind Traders worked with the Northwind team to move their data center to Azure. 
 
 In this session, you’ll see how to migrate an on-premises MongoDB database to Azure Cosmos DB and SQL Server database to an Azure SQL Server. From there, you’ll walk through performing the migration and ensuring minimal downtime while you switch over to the cloud-hosted providers. 
 
-## Outline, Powerpoint slides, Session recording
+# How to Use
 
-You can see the [outline for this session here](./00-outline.md). 
+### Welcome, Presenter!
 
-The [Powerpoint slides are available online here](https://microsoft.sharepoint.com/:p:/t/CloudDevAdvocacy/EV37sX0MXLtAgtPPYj8lEwYBF6BaxEvB6mDGS5T4-t72zA?e=yjAxyg).
+We're glad you are here and look forward to your delivery of this amazing content. As an experienced presenter, we know you know **HOW** to present so this guide will focus on **WHAT** you need to present. It will provide you a full run-through of the presentation created by the presentation design team.
 
-> Note that you will need access to this Microsoft Teams channel to view these slides.
+Along with the video of the presentation, this document will link to all the assets you need to successfully present including PowerPoint slides and demo instructions & code.
 
-There are also a number of videos to help you get ready. [Click here to see the video page!](./00A-videos.md)
+* Read the document in its entirety.
+* Watch the video presentation
+* Ask questions of the Lead Presenter
+
+# Assets in Train-the-Trainer Kit
+
+* This guide
+* [PowerPoint presentation](https://microsoft.sharepoint.com/:p:/t/CloudDevAdvocacy/EV37sX0MXLtAgtPPYj8lEwYBF6BaxEvB6mDGS5T4-t72zA?e=yjAxyg)
+* [Outline for this session](./00-outline.md).
+* [A lot of videos made to help you learn and present](./00A-videos.md)
+
+> Note that you will need access to this Microsoft Teams channel to view the slides.
 
 ## Demos deployment and preparation
 
