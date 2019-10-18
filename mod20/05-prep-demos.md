@@ -76,6 +76,7 @@ These steps must be executed everytime that you prepare to run the demos. The st
 
 3. Use the SQL server authentication to log into the database.
 
+<a id="config-firewall"></a>
 > On the first login from a new IP address, you will need to configure the firewall. Simply follow the instructions to add your client IP address to the firewall list.
 
 ![Instructions to configure the firewall](./images/2019-09-24_16-50-01.png)
