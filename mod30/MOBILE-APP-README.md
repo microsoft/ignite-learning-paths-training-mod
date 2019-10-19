@@ -65,7 +65,7 @@ If you are only demoing the app as part of **APP10** you can download the compil
 
 Installing Xamarin on Windows can be done by selecting the _Mobile Development with .NET_ workload from the Visual Studio Installer.
 
-![mobile development with .NET workload](images/vs-workload.jpg)
+![mobile development with .NET workload](./images/vs-workload.jpg)
 
 This will get you up and running with the Xamarin development environment. The [full installation documentation can be found here](https://docs.microsoft.com/en-us/xamarin/get-started/installation/windows?WT.mc_id=msignitethetour2019-github-mod30).
 
@@ -111,4 +111,17 @@ If the emulator starts, you're in business. If not, you'll need to follow these 
 
 ## <a name="compile"></a>Running From Compile
 
+### Android
+
+1. On your Android device, browse to: https://aka.ms/tailwind-droid
+1. Follow the directions on screen.
+1. You will have to trust.
+
+### iOS
+
+1. On your **iOS Phone** (iPad not supported), browse to: https://aka.ms/tailwind-ios
+1. It will prompt you to download the TestFlight application. This is Apple's means of distributing iOS applications without going through the App Store. _We are limited to 10,000 downloads. FYI_
+1. Follow the on-screen instructions.
+
 ## <a name="tips"></a>Tips and Tricks For a Successful Demo
+
