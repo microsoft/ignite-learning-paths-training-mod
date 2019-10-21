@@ -168,7 +168,7 @@ You can set these from the `Settings` screen.
 3. Change the `Storage Account Name` entry box to the one you are using for your demo. (The pink highlight below.)
 4. Change the `Function App URL` entry box to the one you are using in your demo. (The yellow highlight below.) _NOTE: You must include the url through the `/api` portion. The route to the actual function will be appended by the application._
 
-![urls to change](./images/setttings.jpg)
+![urls to change](.images/setttings.jpg)
 
 > You can leave the `Product Service API URL` setting as-is. That setting is pulling product metadata, and does not affect these demos. If you wish to change it, you first must setup the Tailwind Traders website first.
 
