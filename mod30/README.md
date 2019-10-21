@@ -1,4 +1,4 @@
-# Adding Cool Features to Your Application via Cloud Services (Previously APPS30)
+# Adding Cool Features to Your Application via Cloud Services
 
 Tailwind Traders has implemented development frameworks, deployment strategies, and server infrastructure for their apps. But now that they are on the cloud it’s time to extend functionality by tapping into powerful services that automatically scale and run exactly where and when they need them. This includes image resizing, messaging, integration with social media and tapping into cloud intelligence for image identification.
 
