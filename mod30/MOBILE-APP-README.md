@@ -65,7 +65,7 @@ If you are only demoing the app as part of **APP10** you can download the compil
 
 Installing Xamarin on Windows can be done by selecting the _Mobile Development with .NET_ workload from the Visual Studio Installer.
 
-![mobile development with .NET workload](./images/vs-workload.jpg)
+![mobile development with .NET workload](images/vs-workload.jpg)
 
 This will get you up and running with the Xamarin development environment. The [full installation documentation can be found here](https://docs.microsoft.com/en-us/xamarin/get-started/installation/windows?WT.mc_id=msignitethetour2019-github-mod30).
 
@@ -115,41 +115,41 @@ If the emulator starts, you're in business. If not, you'll need to follow these 
 
 1. On your Android device, browse to: https://aka.ms/tailwind-droid - tap the download button.
 
-![droid app center screenshot](./droid-app-center.png)
+![droid app center screenshot](./images/droid-app-center.png)
 
 2. Once the download is complete Android will prompt you to open the application, tap **Open**.
 
-![droid open application](./droid-finish-download.png)
+![droid open application](./images/droid-finish-download.png)
 
 3. You will again get prompted top open the application. Tap **Open** again.
 
-![droid open app](./droid-open.app.png)
+![droid open app](./images/droid-open.app.png)
 
 4. You will then get prompted to install the application. Tap **Install**. The application will be installed just like any other application and you can open it from the launcher.
 
-![droid install app screenshot](./droid-install-app.png)
+![droid install app screenshot](./images/droid-install-app.png)
 
 ### iOS
 
 1. On your **iOS Phone** (iPad not supported), browse to: https://aka.ms/tailwind-ios. Install the _TestFlight_ application from the iOS App Store.
 
-![test flight screen shot](./ios-testflight-page.PNG)
+![test flight screen shot](./images/ios-testflight-page.PNG)
 
 1. The App Store will open, download and install _Test Flight_ as you would any other app.
 
-![iOS App Store for Test Flight installation screenshot](./ios-install-testflight.PNG)
+![iOS App Store for Test Flight installation screenshot](./images/ios-install-testflight.PNG)
 
 1. Once installed, go back to the web browser screen from step 1. Tap on the button to install Tailwind Traders.
 
-![tailwind tradrs install screenshot](./ios-testflight-page.PNG)
+![tailwind tradrs install screenshot](./images/ios-testflight-page.PNG)
 
 1. The TestFlight application will launch. Follow the instructions on setting TestFlight up.
 
-![testflight setup instructions screenshot](./ios-setup-testflight.PNG)
+![testflight setup instructions screenshot](./images/ios-setup-testflight.PNG)
 
 1. You will then be presented with a screen to install Tailwind Traders, tap **Install** and the app will be installed as if you downloaded it from the App Store.
 
-![install Tailwind Traders app from testflight screenshot](./ios-install-tailwind.PNG)
+![install Tailwind Traders app from testflight screenshot](./images/ios-install-tailwind.PNG)
 
 ## <a name="tips"></a>Tips and Tricks For a Successful Demo
 
@@ -162,13 +162,13 @@ In order for the demos to run successfully, the mobile application needs to have
 You can set these from the `Settings` screen.
 
 1. Tap on the Hamburger icon in the upper left corner to make the flyout appear.
-![hamburger menu](./hamburger.PNG)
+![hamburger menu](./images/hamburger.PNG)
 
 2. Tap on the `Settings` menu item.
 3. Change the `Storage Account Name` entry box to the one you are using for your demo. (The pink highlight below.)
 4. Change the `Function App URL` entry box to the one you are using in your demo. (The yellow highlight below.) _NOTE: You must include the url through the `/api` portion. The route to the actual function will be appended by the application._
 
-![urls to change](./setttings.jpg)
+![urls to change](./images/setttings.jpg)
 
 > You can leave the `Product Service API URL` setting as-is. That setting is pulling product metadata, and does not affect these demos. If you wish to change it, you first must setup the Tailwind Traders website first.
 

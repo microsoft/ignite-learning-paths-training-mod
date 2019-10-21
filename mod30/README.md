@@ -28,7 +28,7 @@ The following steps are necessary to prepare for MOD30 demos.
     2. Owner name
     3. App name
     4. Token from App Center
-6. Follow the steps in the [MOBILE-APP-README](MOBILE-APP_README.md) for instructions on installing Xamarin and mobile application.
+6. Follow the steps in the [MOBILE-APP-README](.MOBILE-APP_README.md) for instructions on installing Xamarin and mobile application.
 
 ***Deployment unsuccessful?** See [Troubleshooting](#troubleshooting)*
 
