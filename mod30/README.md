@@ -12,9 +12,8 @@ The following steps are necessary to prepare for MOD30 demos.
 
 1. Install [Node.js](https://nodejs.org) LTS
 2. Install [artillery](https://artillery.io/): `npm i -g artillery`
-3. Install [Visual Studio 2019 Preview](https://visualstudio.microsoft.com/?WT.mc_id=msignitethetour2019-github-mod30) with the Azure/cloud workloads (for functions)
+3. Install [Visual Studio 2019 Preview](https://visualstudio.microsoft.com/?WT.mc_id=msignitethetour2019-github-mod30) with the Azure/cloud (for functions) and mobile workloads.
 4. (Optional) Install [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows&WT.mc_id=msignitethetour2019-github-mod30)
-5. (Optional) for sharing Android device: [Vysor](http://www.vysor.io/)
 
 
 ### Deployments
@@ -29,6 +28,7 @@ The following steps are necessary to prepare for MOD30 demos.
     2. Owner name
     3. App name
     4. Token from App Center
+6. Follow the steps in the [MOBILE-APP-README](MOBILE-APP_README.md) for instructions on installing Xamarin and mobile application.
 
 ***Deployment unsuccessful?** See [Troubleshooting](#troubleshooting)*
 
