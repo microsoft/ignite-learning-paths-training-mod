@@ -113,15 +113,95 @@ If the emulator starts, you're in business. If not, you'll need to follow these 
 
 ### Android
 
-1. On your Android device, browse to: https://aka.ms/tailwind-droid
-1. Follow the directions on screen.
-1. You will have to trust.
+1. On your Android device, browse to: https://aka.ms/tailwind-droid - tap the download button.
+
+![droid app center screenshot](./droid-app-center.png)
+
+2. Once the download is complete Android will prompt you to open the application, tap **Open**.
+
+![droid open application](./droid-finish-download.png)
+
+3. You will again get prompted top open the application. Tap **Open** again.
+
+![droid open app](./droid-open.app.png)
+
+4. You will then get prompted to install the application. Tap **Install**. The application will be installed just like any other application and you can open it from the launcher.
+
+![droid install app screenshot](./droid-install-app.png)
 
 ### iOS
 
-1. On your **iOS Phone** (iPad not supported), browse to: https://aka.ms/tailwind-ios
-1. It will prompt you to download the TestFlight application. This is Apple's means of distributing iOS applications without going through the App Store. _We are limited to 10,000 downloads. FYI_
-1. Follow the on-screen instructions.
+1. On your **iOS Phone** (iPad not supported), browse to: https://aka.ms/tailwind-ios. Install the _TestFlight_ application from the iOS App Store.
+
+![test flight screen shot](./ios-testflight-page.PNG)
+
+1. The App Store will open, download and install _Test Flight_ as you would any other app.
+
+![iOS App Store for Test Flight installation screenshot](./ios-install-testflight.PNG)
+
+1. Once installed, go back to the web browser screen from step 1. Tap on the button to install Tailwind Traders.
+
+![tailwind tradrs install screenshot](./ios-testflight-page.PNG)
+
+1. The TestFlight application will launch. Follow the instructions on setting TestFlight up.
+
+![testflight setup instructions screenshot](./ios-setup-testflight.PNG)
+
+1. You will then be presented with a screen to install Tailwind Traders, tap **Install** and the app will be installed as if you downloaded it from the App Store.
+
+![install Tailwind Traders app from testflight screenshot](./ios-install-tailwind.PNG)
 
 ## <a name="tips"></a>Tips and Tricks For a Successful Demo
 
+Once the Tailwind application is successully running on your device or emulator, here are some tips to ensure a successful demo.
+
+### Setting Up Function URLs and Storage Account Names
+
+In order for the demos to run successfully, the mobile application needs to have the URL of the Function App and the name of the Storage Account that you are using in your demo.
+
+You can set these from the `Settings` screen.
+
+1. Tap on the Hamburger icon in the upper left corner to make the flyout appear.
+![hamburger menu](./hamburger.PNG)
+
+2. Tap on the `Settings` menu item.
+3. Change the `Storage Account Name` entry box to the one you are using for your demo. (The pink highlight below.)
+4. Change the `Function App URL` entry box to the one you are using in your demo. (The yellow highlight below.) _NOTE: You must include the url through the `/api` portion. The route to the actual function will be appended by the application._
+
+![urls to change](./setttings.jpg)
+
+> You can leave the `Product Service API URL` setting as-is. That setting is pulling product metadata, and does not affect these demos. If you wish to change it, you first must setup the Tailwind Traders website first.
+
+### Taking or Choosing Photos
+
+You can either take or choose photos to upload to the Function App. Either photo button found on the `Shopping` screen or `Flyout` menu will work.
+
+If you are choosing a photo from a personal device, it is recommended you have some preloaded and ready to go _before_ getting on stage, this way the audience will not see your personal photos.
+
+If you are demoing from an Android emulator. Go to this website via the emulator's web browser (most likely Chrome) and browse to this website. Long press each image with the left mouse button. A menu will appear allowing you to download the image.
+
+**DO THIS BEFORE THE DEMOING ON STAGE**
+
+Then when you select an image while running the app, that image will appear.
+
+The app will give you the option to select more than one image. Only select one. Also, be patient after you select an image, as it takes a second or two for control to be given from the operating system back to the Tailwind Traders application.
+
+### Emulator Launching
+
+It takes a while for the emulator to launch when debugging from code. It is recommended you build the app before starting the talk.
+
+Also, don't start the emulator until after you are already plugged in to the projector. This will make sure the emulator starts at the appropriate resolution.
+
+### Screen Mirroring (On-Device Only)
+
+If you are demoing from your personal device, you will need to mirror the screen from your device to your laptop. This will be accomplished through either [Reflector for iOS](https://www.airsquirrels.com/reflector) or [Vysor for Android](http://www.vysor.io/).
+
+#### iOS with Reflector 
+
+[Reflector can be purchased](https://www.airsquirrels.com/reflector) from Air Squirrels for $15 per license and there is an edition for Windows and Mac OS.
+
+Reflector works via AirPlay. Here are the [setup instructions](https://www.airsquirrels.com/reflector/faq/share-iphone-screen). Reflector is mirror only - all input to your device must occur on your device.
+
+#### Android with Vysor
+
+[Vysor can be purchased](http://www.vysor.io/) to mirror your Android device to your laptop. Vysor installs an application on both your phone and your laptop. Vysor is more full-featured than Reflector in that it also takes keyboard and mouse input from your laptop and communicates that to your phone.
