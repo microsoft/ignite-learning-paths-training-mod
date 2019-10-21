@@ -109,8 +109,6 @@ DROP TABLE [tablename]
 
 4. Delete the collections.
 
-> **TODO** Add a screenshot.
-
 5. Go back to Overview and leave the browser window open.
 
 ## Slides
