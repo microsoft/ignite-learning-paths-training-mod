@@ -48,7 +48,7 @@ A mentor will get back to you with the information on the process.
 
 ## Certified Presenters
 
-Thanks go to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks go to these wonderful people :) :
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
