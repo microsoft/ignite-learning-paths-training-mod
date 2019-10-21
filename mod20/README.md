@@ -23,7 +23,7 @@ Along with the video of the presentation, this document will link to all the ass
 # Assets in Train-the-Trainer Kit
 
 * This guide
-* [PowerPoint presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod20/MOD20_Moving Your Database to Azure.pptx)
+* [PowerPoint presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod20/MOD20_Moving%20Your%20Database%20to%20Azure.pptx)
 * [Outline for this session](./00-outline.md).
 * [A lot of videos made to help you learn and present](./00A-videos.md)
 
