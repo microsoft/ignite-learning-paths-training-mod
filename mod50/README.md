@@ -1,12 +1,12 @@
-# MOD10: Debugging and Interacting with Production Applications
+# MOD50: Managing Delivery of Your App via DevOps
 
 ## Session Abstract
 
-In recent months, Tailwind Traders has been having issues with keeping their sprawling IaaS VM deployment under control, leading to mismanaged resources and inefficient processes.  
+In this session, we’ll show you how Tailwind Traders’ Developer team works with its Operations teams to safely automate tedious, manual tasks with reliable scripted routines and prepared services. 
 
-In this session, you’ll look into how Tailwind Traders can ensure their VMs are properly managed and maintained with the same care in Azure as they were in Tailwind Trader's on-premises data centers.  
+We’ll start with automating the building and deployment of a web application, backend web service and database with a few clicks. Then, we’ll add automated operations that developers control like A/B testing and automated approval gates. We’ll also discuss how Tailwind Traders can preserve their current investments in popular tools like Jenkins, while taking advantage of the best features of Azure DevOps. 
 
-The session [Ignite Learning Paths - APPS10](https://github.com/microsoft/ignite-learning-paths/tree/master/mod/mod10).
+The session [Ignite Learning Paths - MOD50](https://github.com/microsoft/ignite-learning-paths/tree/master/mod/mod50).
 
 ## How To Use
 
@@ -36,7 +36,7 @@ code.
 To become a certified presenter, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
 
 - Complete name:
-- The code of this presentation: ops40
+- The code of this presentation: MOD50
 - Link (ex: unlisted YouTube video) to a video of you presenting (~10 minutes). 
   > It doesn't need to be this content, the important is to show your presenter skills
 
