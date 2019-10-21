@@ -96,9 +96,9 @@ If the emulator starts, you're in business. If not, you'll need to follow these 
 
 ### Getting and Copying Confidential Keys for Push Notifications
 
-1. Go to this document and copy the JSON into the contents of `google-services.json` (link will only work for internal Microsoft.)
+1. Go to [this document](https://microsoft-my.sharepoint.com/:u:/p/masoucou/EUgju-HxAPNLi-RUbVEU5bcBe8Unxtv0irL2xMIK0bNI8w?e=uK1xvT) and copy the JSON into the contents of `google-services.json` (link will only work for internal Microsoft.)
 1. Within the `TailwindTraders.Mobile` project. Open the file in the `Helpers` folder called `AppCenterConstants.cs`
-1. Replace the value of `AndroidAppSecret` and `iOSAppSecret` with what is found in this file.
+1. Replace the value of `AndroidAppSecret` and `iOSAppSecret` with what is [found in this file](https://microsoft-my.sharepoint.com/:t:/p/masoucou/ETGwhnNsN-lOoyFHCtRBv8EBmEaAWzcrBWlt-9jY-I0Vgw?e=o9rQqx).
 
 ### Run the Code
 
@@ -179,6 +179,11 @@ You can either take or choose photos to upload to the Function App. Either photo
 If you are choosing a photo from a personal device, it is recommended you have some preloaded and ready to go _before_ getting on stage, this way the audience will not see your personal photos.
 
 If you are demoing from an Android emulator. Go to this website via the emulator's web browser (most likely Chrome) and browse to this website. Long press each image with the left mouse button. A menu will appear allowing you to download the image.
+
+* [Door frame photo - https://aka.ms/tw-frames](https://aka.ms/tw-frames)
+* [Power drill photo - https://aka.ms/tw-drill](https://aka.ms/tw-drill)
+* [Hammer photo - https://aka.ms/tw-hammer](https://aka.ms/tw-hammer)
+* [Wrench photo - https://aka.ms/tw-wrench](https://aka.ms/tw-wrench)
 
 **DO THIS BEFORE THE DEMOING ON STAGE**
 
