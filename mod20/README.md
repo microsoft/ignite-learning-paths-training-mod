@@ -1,20 +1,31 @@
-# MOD20 Moving Your Database to Azure
+# MOD20: Moving Your Database to Azure
 
-## Abstract
+## Train-the-Trainer Guide
+
+## Session Abstract
 
 Northwind kept the bulk of its data in an on-premises data center, which hosted servers running both SQL Server and MongoDB. After the acquisition, Tailwind Traders worked with the Northwind team to move their data center to Azure. 
 
 In this session, you’ll see how to migrate an on-premises MongoDB database to Azure Cosmos DB and SQL Server database to an Azure SQL Server. From there, you’ll walk through performing the migration and ensuring minimal downtime while you switch over to the cloud-hosted providers. 
 
-## Outline, Powerpoint slides, Session recording
+# How to Use
 
-You can see the [outline for this session here](./00-outline.md). 
+### Welcome, Presenter!
 
-The [Powerpoint slides are available online here](https://microsoft.sharepoint.com/:p:/t/CloudDevAdvocacy/EV37sX0MXLtAgtPPYj8lEwYBF6BaxEvB6mDGS5T4-t72zA?e=yjAxyg).
+We're glad you are here and look forward to your delivery of this amazing content. As an experienced presenter, we know you know **HOW** to present so this guide will focus on **WHAT** you need to present. It will provide you a full run-through of the presentation created by the presentation design team.
 
-> Note that you will need access to this Microsoft Teams channel to view these slides.
+Along with the video of the presentation, this document will link to all the assets you need to successfully present including PowerPoint slides and demo instructions & code.
 
-There are also a number of videos to help you get ready. [Click here to see the video page!](./00A-videos.md)
+* Read the document in its entirety.
+* Watch the video presentation
+* Ask questions of the Lead Presenter
+
+# Assets in Train-the-Trainer Kit
+
+* This guide
+* [PowerPoint presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod20/MOD20_Moving%20Your%20Database%20to%20Azure.pptx)
+* [Outline for this session](./00-outline.md).
+* [A lot of videos made to help you learn and present](./00A-videos.md)
 
 ## Demos deployment and preparation
 
@@ -23,6 +34,44 @@ In order to run the demos, you will need to run two deployments to Azure. [This 
 ## Running the demos
 
 Before each session you will need to run a few steps to [prepare the demo environment](./05-prep-demos.md). After that you'll be all set, and you can find a [complete description of the demos here](./06-demos.md).
+
+## Become a Certified Presenter
+
+To become a certified presenter, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
+
+- Complete name:
+- The code of this presentation: MOD20
+- Link (ex: unlisted YouTube video) to a video of you presenting (~10 minutes). 
+  > It doesn't need to be this content, the important is to show your presenter skills
+
+A mentor will get back to you with the information on the process.
+
+## Certified Presenters
+
+Thanks go to these wonderful people :) :
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+
+<table>
+<tr>
+    <td align="center"><a href="">
+        <img src="https://avatars1.githubusercontent.com/u/4922457?s=400&v=4" width="100px;" alt="Laurent Bugnion"/><br />
+        <sub><b>Laurent Bugnion</b></sub></a>
+        <!-- <br />
+            <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=fboucher" title="talk">📢</a>
+            <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=fboucher" title="Documentation">📖</a>  -->
+    </td>
+    <td align="center"><a href="">
+        <img src="https://avatars3.githubusercontent.com/u/1414307?s=400&v=4" width="100px;" alt="Jasmine Greenaway"/><br />
+        <sub><b>Jasmine Greenaway</b></sub></a>
+        <!-- <br />
+            <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=neilpeterson" title="talk">🎨</a>
+            <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=neilpeterson" title="design">📖</a>  -->
+    </td>
+</tr></table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## See also on Microsoft Learn
 
