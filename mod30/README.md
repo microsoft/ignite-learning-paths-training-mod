@@ -58,7 +58,7 @@ code.
 
 ## Become a Presenter
 
-To become a *Trained Presenters*, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
+To become a *Trained Presenter*, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
 
 - Complete name:
 - The code of this presentation: MOD30

@@ -33,9 +33,9 @@ In order to run the demos, you will need to run a deployment to Azure. [This is 
 
 Before each session you will need to run a few steps to [prepare the demo environment](./05-prep-demos.md). After that you'll be all set, and you can find a [complete description of the demos here](./06-demos.md).
 
-## Become a Certified Presenter
+## Become a Trained Presenter
 
-To become a certified presenter, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
+To become a trained presenter, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
 
 - Complete name:
 - The code of this presentation: MOD41
@@ -44,7 +44,7 @@ To become a certified presenter, contact [scalablecontent@microsoft.com](mailto:
 
 A mentor will get back to you with the information on the process.
 
-## Certified Presenters
+## Trained Presenters
 
 Thanks go to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
