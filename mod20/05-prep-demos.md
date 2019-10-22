@@ -107,7 +107,9 @@ DROP TABLE [tablename]
 
 3. If the collections are not deleted, open the Data Explorer.
 
-4. Delete the collections.
+4. Delete the collection.
+
+![Deleting the collection](./images/2019-10-09_18-30-30.png)
 
 5. Go back to Overview and leave the browser window open.
 
