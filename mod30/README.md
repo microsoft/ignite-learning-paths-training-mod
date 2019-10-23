@@ -1,4 +1,4 @@
-# Train The Trainer - MOD30: Adding Cool Features to Your Application via Cloud Services
+# Train The Trainer - MOD30: Enhancing Web Applications with Cloud Intelligence
 
 ## Session Abstract
 
@@ -18,6 +18,15 @@ code.
 1. Read document in its entirety.
 2. Watch the video presentation
 3. Ask questions of the Lead Presenter
+
+## Assets in Train-The-Trainer kit
+
+- PowerPoint presentation including notes for each slide [Here](https://#)
+- Full-length recording of presentation [here](https://#)
+- Director Cut Full-length recording of presentation [here](https://#)
+- Individual recordings of stage-ready hands-on demos [here](https://#)
+- Demo Setup [here](Setup.md) and Mobile App Setup [here](MOBILE-APP-README.md)
+- Demo Walkthrough and Guide [here](Demos.md)
 
 ## Session Outline
 
@@ -47,14 +56,7 @@ code.
 |[4 - Social Media Integration with Logic Apps ](demos.md#demo-4-social-media-integration-with-logic-apps)|?    |[Link](https://coming.soon)
 |[4 - Automatic Image Captioning with Cognitive Services](demos.md#demo-4-automatic-image-captioning-with-logic-apps)|? |[Link](https://coming.soon)
 
-## Assets in Train-The-Trainer kit
 
-- PowerPoint presentation including notes for each slide [Here](https://#)
-- Full-length recording of presentation [here](https://#)
-- Director Cut Full-length recording of presentation [here](https://#)
-- Individual recordings of stage-ready hands-on demos [here](https://#)
-- Demo Setup [here](Setup.md) and
-  - Guide [here](Demos.md)
 
 ## Become a Presenter
 
