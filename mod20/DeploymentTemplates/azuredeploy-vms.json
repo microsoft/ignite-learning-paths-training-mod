@@ -628,7 +628,7 @@
             ],
             "properties": {
                 "hardwareProfile": {
-                    "vmSize": "Standard_DS13_v2"
+                    "vmSize": "Standard_DS11_v2"
                 },
                 "storageProfile": {
                     "imageReference": {
