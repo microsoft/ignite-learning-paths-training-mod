@@ -2,6 +2,8 @@
 
 In order to install the virtual machines that will be used as the source of the migration for the demo, follow these steps:
 
+> Once the Virtual machines are deployed, do not switch them off. This can cause issues, especially with the MongoDB VM. Just keep the VMs running, and delete the resource group when you are done with the demo.
+
 ## I. Click on the button below to open the deployment page.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fignite-learning-paths%2Fmaster%2Fmod%2Fmod20%2FDeploymentTemplates%2Fazuredeploy-vms.json" target="_blank">
@@ -35,6 +37,8 @@ After you entered the values, check the `Terms and conditions` checkbox and clic
 After clicking on Purchase, there is a validation step which should happen without issues. Then you can see the progress by clicking on the Notifications button (the one with the bell icon) and then on `Deployment in progress`. This will open a new web page where you can follow what is happening.
 
 ![Notifications pane](./images/2019-09-23_17-53-56.png)
+
+> Once the Virtual machines are deployed, do not switch them off. This can cause issues, especially with the MongoDB VM. Just keep the VMs running, and delete the resource group when you are done with the demo.
 
 ## IV. Deploy the other Azure services
 
