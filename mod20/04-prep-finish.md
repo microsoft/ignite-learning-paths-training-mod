@@ -4,27 +4,31 @@ A few additional steps are needed to finish the deployment.
 
 ## I. Creating the SQL Database in the SQL Virtual Machine
 
-> Note: This step is temporarily necessary while we look for a better way to do this in an automated manner.
+1. In the Azure portal, open the SQL virtual machine.
 
-1. In the Azure Portal, open the SQL VM named `mod20[prefix]sqlvm` where `[prefix]` is the unique prefix that you [prepared here](./01-preparation.md/#prefix).
+2. In the Overview tab, click on `Connect`.
 
-2. In the Overview tab, copy the Public IP address.
+3. Download the RDP file and open it. This will start a remote desktop connection.
 
-3. Start [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+4. Once you are logged into the SQL VM, open the Start menu and then type `SSMS`.
 
-4. In the `Connect to server` dialog, enter the IP address you just copied.
+5. Start SQL Server Management Studio.
 
-5. For the credentials, select `SQL Server Authentication` and enter the [credentials you created here](./01-preparation.md#credentials).
+6. In the `Connect to server` dialog, click on Connect to log into the local server.
+
+7. For the credentials, select `SQL Server Authentication` and enter the [credentials you created here](./01-preparation.md#credentials).
 
 ![Connect to the SQL server](./images/2019-09-23_13-18-55.png)
 
-6. Right click on the Databases node and select `New Database...` from the context menu.
+8. Right click on the Databases node and select `New Database...` from the context menu.
 
 ![Create a new database](./images/2019-09-23_13-20-27.png)
 
-7. In `Database name` enter the name `tailwindsql` and click OK. You don't need to change any other settings.
+9. In `Database name` enter the name `tailwindsql` and click OK. You don't need to change any other settings.
 
 ![Create the database](./images/2019-09-23_13-25-25.png)
+
+10. You can now close the remote desktop connection.
 
 ## II. Running the website to populate the backup databases
 

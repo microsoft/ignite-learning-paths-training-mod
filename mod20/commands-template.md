@@ -96,7 +96,7 @@ Password: [any password works]
 
 ### Source connection string
 
-> Replace `[MONGOIP]` with the Public IP address of the MongoDB virtual machine. You can find this value by navigating to the `mod20[prefix]mongocvm` resource in the Azure Portal. The Public IP address is listed on the Overview tab.
+> Replace `[MONGOIP]` with the Public IP address of the MongoDB virtual machine. You can find this value by navigating to the `mod20[prefix]mongovm` resource in the Azure Portal. The Public IP address is listed on the Overview tab.
 
 ```
 mongodb://[MONGOIP]:27017
@@ -104,15 +104,15 @@ mongodb://[MONGOIP]:27017
 
 ### Target connection string
 
-> Replace `[COSMOSCONNECTIONSTRING]` with the PRIMARY CONNECTION STRING of the CosmosDB instance. You can find this value by navigating to the `mod20[prefix]mongo` resource in the Azure Portal. The PRIMARY CONNECTION STRING is listed on the Connection String tab.
+> Replace `[COSMOSCONNECTIONSTRING]` with the PRIMARY CONNECTION STRING of the CosmosDB instance. You can find this value by navigating to the `mod20[prefix]cosmos` resource in the Azure Portal. The PRIMARY CONNECTION STRING is listed on the Connection String tab.
 
 ```
 [COSMOSCONNECTIONSTRING]
 ```
 
-### BAK Mongo DB connection string
+### BAK target connection string
 
-> Replace `[BAKCOSMOSCONNECTIONSTRING]` with the PRIMARY CONNECTION STRING of the backup CosmosDB instance. You can find this value by navigating to the `mod20[prefix]mongo-bak` resource in the Azure Portal. The PRIMARY CONNECTION STRING is listed on the Connection String tab.
+> Replace `[BAKCOSMOSCONNECTIONSTRING]` with the PRIMARY CONNECTION STRING of the backup CosmosDB instance. You can find this value by navigating to the `mod20[prefix]cosmos-bak` resource in the Azure Portal. The PRIMARY CONNECTION STRING is listed on the Connection String tab.
 
 ```
 [BAKCOSMOSCONNECTIONSTRING]
