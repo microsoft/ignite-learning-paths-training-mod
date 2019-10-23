@@ -82,8 +82,8 @@ You should now see the Tailwind Traders website, but there are some typos in the
 
 You should now see the Tailwind Traders website, but the main color has been changed to red for the demo.
 
-![Navigation menu with typos](./images/2019-10-23_13-58-10.png)
+![Red main color for AB test](./images/2019-10-23_13-58-10.png)
 
 ## V. Time to rehearse your demos!!
 
-Every time before you start the demos, you will need to execute a few simple steps to make sure that the environment is ready. [These steps are described here in details](./03-prep-demos.md). Have fun!!
+Every time before you start the demos, you will need to execute a few simple steps to make sure that the environment is ready. [These steps are described here in details](./03-prep-demo.md). Have fun!!
