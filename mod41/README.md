@@ -35,7 +35,7 @@ Before each session you will need to run a few steps to [prepare the demo enviro
 
 ## Cleaning up
 
-
+After your session, and in order to save costs, you can simple [delete the resource groups and all the resources](./05-cleaning-up.md).
 
 ## Become a Trained Presenter
 

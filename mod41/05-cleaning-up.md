@@ -10,14 +10,12 @@ To delete the resources, simply delete the two resource groups that were created
 
 ![Resource groups category](./images/2019-09-24_15-14-49.png)
 
-3. In the `Filter by name` box, enter `mod20`.
+3. In the `Filter by name` box, enter `mod41`.
 
-4. Select the first resource group `mod20[prefix]vms` where `[prefix]` is the unique prefix that you [prepared here](./01-preparation.md/#prefix).
+4. Select the resource group `mod41[prefix]` where `[prefix]` was the prefix you used during the deployment.
 
 5. In the Overview tab, select `Delete resource group`.
 
 6. Confirm the deletion by entering the name of the resource group. 
 
-7. Repeat steps 4 to 6 for the other resource group `mod20[prefix]paas` where `[prefix]` is the unique prefix that you [prepared here](./01-preparation.md/#prefix).
-
-> Deleting each resource group takes about 10 to 15 minutes.
+> Deleting the resource group takes about 10 to 15 minutes.
