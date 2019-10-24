@@ -8,8 +8,6 @@ To delete the resources, simply delete the two resource groups that were created
 
 2. In the bar on the left, select Resource Groups.
 
-![Resource groups category](./images/2019-09-24_15-14-49.png)
-
 3. In the `Filter by name` box, enter `mod41`.
 
 4. Select the resource group `mod41[prefix]` where `[prefix]` was the prefix you used during the deployment.
