@@ -21,7 +21,7 @@ Along with the video of the presentation, this document will link to all the ass
 # Assets in Train-the-Trainer Kit
 
 * This guide
-* [PowerPoint presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod41/MOD41_Deploying%20and%20AB%20testing%20without%20risks%20with%20Deployment%20Slots.pptx)
+* [PowerPoint presentation](./presentations.md)
 * [Outline for this session](./00-outline.md).
 * [A demo video made to help you learn and present](./00A-videos.md)
 
