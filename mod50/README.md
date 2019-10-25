@@ -1,62 +1,86 @@
-# MOD10: Debugging and Interacting with Production Applications
+# MOD50: Managing Delivery of your App via DevOps
 
 ## Session Abstract
 
-In recent months, Tailwind Traders has been having issues with keeping their sprawling IaaS VM deployment under control, leading to mismanaged resources and inefficient processes.  
+*In this talk, we’ll take a deep dive into automating and continuously deploying your application using Azure Services. We’ll start with the basics, discussing automated operations that developers control (DevOps) like A/B testing and automated approval gates.*
 
-In this session, you’ll look into how Tailwind Traders can ensure their VMs are properly managed and maintained with the same care in Azure as they were in Tailwind Trader's on-premises data centers.  
+*We’ll then take that entirely to the cloud using Azure’s new DevOps project, showing you how you can automate the deployment of a frontend web application, backend web service and database, and mobile application with a few clicks of a button.*
 
-The session [Ignite Learning Paths - APPS10](https://github.com/microsoft/ignite-learning-paths/tree/master/mod/mod10).
+---
 
-## How To Use
+## How To Use This Repository
 
-Welcome, Presenter! 
+Welcome, Presenter!
 
-We're glad you are here and look forward to your delivery of this amazing content. As an experienced presenter, we know you know HOW to present so this guide will focus on WHAT you need to present. It will provide you a full run-through of the presentation created by the presentation design team. 
+We're glad you are here and look forward to your delivery of this amazing content.
 
-Along with the video of the presentation, this document will link to all the assets you need to successfully present including PowerPoint slides and demo instructions &
-code.
+As an experienced presenter, we know you know **HOW** to present so this guide will focus on **WHAT** you need to present.
 
-1.  Read document in its entirety.
-2.  Watch the video presentation
-3.  Ask questions of the Lead Presenter
+Demo instructions, a PowerPoint slide deck and Multiple video versions of this presentation video are available - see below for details.
+
+Read this document in its entirety.
+Watch the video presentation(s).
+
+Ask questions of the Lead Presenters and trained speakers (list below).
+
+---
+
+## Getting Started
+
+This training repository is divided in to the following sections:
+
+| [Slides](slides/README.md) | [Demos](/mod50/demos/README.md) | [Deployment](/MOD50/deployment/README.md) | 
+|--------|-------|------------|
+| 37 slides - 25 minutes, | 1 demo - 20 minutes
+
+### **Videos**
+
+>**What's Here?** Stage ready videos.
+
+ [View the video on Youtube with captions](https://globaleventcdn.blob.core.windows.net/assets/mod/mod50/video/mod50sessionrecordingTTT-2019-10-07.mp4).
+
+ [Download the full-length video](https://globaleventcdn.blob.core.windows.net/assets/mod/mod50/video/mod50sessionrecordingTTT-2019-10-07.mp4).
+
+[Download the "Director's cut" of the video with presenter tips](https://globaleventcdn.blob.core.windows.net/assets/mod/mod50/video/mod50directorscutTTT-2019-10-07%20-%20Copy.mp4).
+
+[Download a silent video of the demos](https://globaleventcdn.blob.core.windows.net/assets/mod/mod50/video/mod50TTTSilentDemo2019-10-07.mp4).
 
 
-## Assets in Train-The-Trainer kit
+### **Slides**
 
-- This guide
-- [PowerPoint presentation](https://#)
-- [Full-length recording of presentation](https://#)
-- [Full-length recording of presentation - Director Cut](https://youtu.be/0kGGhoEB-48)
-- [Demo Instructions](https://#)
-  
+>**What's Here?** A speaking script, numbered slide thumbnails, and the master Powerpoint slide deck.
+
+Begin by familiarizing yourself with the presentation. Speaking scripts and the master Powerpoint slide deck can be found in the [slides](slides/README.md) section.
+ 
+### **Deployment**
+
+>**What's Here?** Deploying the demo environment on Azure - including manual steps to perform after the automation is finished
+
+[Instructions and prerequisites are outlined here](deployment/README.md). 
+
+
+ 
+### **Demos**
+
+>**What's Here?** Pre-delivery preparation, stage ready videos, required files (such as JSON templates), and walk-through videos
+
+[Demo Page](demos/README.md)
+
+---
 
 ## Become a Presenter
 
-To become a certified presenter, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
+To become a **Trained Presenter**, contact scalablecontent@microsoft.com. 
+
+In your email please include:
 
 - Complete name:
-- The code of this presentation: ops40
-- Link (ex: unlisted YouTube video) to a video of you presenting (~10 minutes). 
-  > It doesn't need to be this content, the important is to show your presenter skills
+- The code of this presentation: MOD50
+- Link (ex: unlisted YouTube video) to a video of you presenting (~10 minutes).
+It doesn't need to be this content, the important is to show your presenter skills
 
-A mentor will get back to you with the information on the process.
+## Trained Presenters
 
-## Certified Presenters
+Thanks goes to these wonderful people (emoji key):
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-
-<table>
-<tr>
-    <td align="center"><a href="http://cloud5mins.com/">
-        <img src="https://avatars2.githubusercontent.com/u/2404846?s=460&v=4" width="100px;" alt="Frank Boucher"/><br />
-        <sub><b>Frank Boucher</b></sub></a><br />
-            <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=fboucher" title="talk">📢</a>
-            <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=fboucher" title="Documentation">📖</a> 
-    </td>
-</tr></table>
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section --> <!-- prettier-ignore --> <table> <tr> <td align="center"><a href="https://medium.com/@bbenz/"> <img src="https://avatars2.githubusercontent.com/u/2809036?s=400&v=4" width="100px;" alt="Brian Benz"/><br /> <sub><b>Brian Benz</b></sub></a><br /> <a href="https://github.com/bbenz/ignite-tour-fy20/commits?author=bbenz" title="talk">📢</a> <a href="https://github.com/bbenz/ignite-tour-fy20/commits?author=bbenz" title="Documentation">📖</a> </td> </tr></table> <!-- ALL-CONTRIBUTORS-LIST:END -->
