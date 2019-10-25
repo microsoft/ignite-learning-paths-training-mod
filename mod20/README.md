@@ -1,6 +1,6 @@
 # MOD20: Moving Your Database to Azure
 
-## Train-the-Trainer Guide
+# Train-the-Trainer Guide
 
 ## Session Abstract
 
@@ -8,7 +8,7 @@ Northwind kept the bulk of its data in an on-premises data center, which hosted 
 
 In this session, you’ll see how to migrate an on-premises MongoDB database to Azure Cosmos DB and SQL Server database to an Azure SQL Server. From there, you’ll walk through performing the migration and ensuring minimal downtime while you switch over to the cloud-hosted providers. 
 
-# How to Use
+## How to Use
 
 ### Welcome, Presenter!
 
@@ -20,26 +20,26 @@ Along with the video of the presentation, this document will link to all the ass
 * Watch the video presentation
 * Ask questions of the Lead Presenter
 
-# Assets in Train-the-Trainer Kit
+### Assets in Train-the-Trainer Kit
 
 * This guide
 * [PowerPoint presentation](./presentations.md)
 * [Outline for this session](./00-outline.md).
 * [A lot of videos made to help you learn and present](./00A-videos.md)
 
-## Demos deployment and preparation
+### Demos deployment and preparation
 
 In order to run the demos, you will need to run two deployments to Azure. [This is explained in details here](./01-preparation.md). You can run this deployment for training purpose and then delete the resource groups that you created, and deploy again. The deployment can also be run in parallel multiple times with a unique name. This is needed sometimes when multiple speakers are presenting the session in different locations at the same time.
 
-## Running the demos
+### Running the demos
 
 Before each session you will need to run a few steps to [prepare the demo environment](./05-prep-demos.md). After that you'll be all set, and you can find a [complete description of the demos here](./06-demos.md).
 
-## Cleaning up
+### Cleaning up
 
 After your session, and in order to save costs, you can simple [delete the resource groups and all the resources](./07-cleaning-up.md).
 
-## Become a Trained Presenter
+### Become a Trained Presenter
 
 To become a trained presenter, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
 
@@ -50,7 +50,7 @@ To become a trained presenter, contact [scalablecontent@microsoft.com](mailto:sc
 
 A mentor will get back to you with the information on the process.
 
-## Trained Presenters
+### Trained Presenters
 
 Thanks go to these wonderful people :) :
 
