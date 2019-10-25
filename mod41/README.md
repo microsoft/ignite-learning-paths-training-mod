@@ -27,6 +27,8 @@ Along with the video of the presentation, this document will link to all the ass
 
 ### Demos deployment and preparation
 
+> Note that the deployment is essentially the same as for the MOD40 session. [You can find more information about this deployment there](../mod40/README.md).
+
 In order to run the demos, you will need to run a deployment to Azure. [This is explained in details here](./01-preparation.md). You can run this deployment for training purpose and then delete the resource groups that you created, and deploy again. The deployment can also be run in parallel multiple times with a unique name. This is needed sometimes when multiple speakers are presenting the session in different locations at the same time.
 
 ### Running the demos
