@@ -128,7 +128,7 @@ Run through the demo using [example-notes.txt](example-notes.txt) file.
 - This guide
 - [PowerPoint presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mod10.pptx)
 - [Full-length recording of presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mitt-mod10-dry-run.mp4)
-- [Full-length recording of presentation - Director Cut](https://youtu.be/0kGGhoEB-48)
+- [Full-length recording of presentation - Director Cut](https://youtu.be/eczGFbKcT_A)
 - [Demo Instructions](https://github.com/microsoft/ignite-learning-paths/tree/master/mod/mod10)
   
 
