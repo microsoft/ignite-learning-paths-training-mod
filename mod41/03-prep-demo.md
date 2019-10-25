@@ -6,7 +6,10 @@ These steps must be executed everytime that you prepare to run the demos. The st
 
 1. Open the App Service you created.
 
-2. In the Overview, click on the URL and make sure that the version without typos is shown.
+2. In the Overview, click on the URL and make sure that the version with the typos is shown.
+
+- The typos are in the navigation menu. One menu is titled "Applyances" and the other is "Sinq".
+- If you cannot see the navigation menu, zoom out a little in the web browser until it is shown.
 
 > If the correct version is shown, go to `7.` below.
 
@@ -24,11 +27,19 @@ These steps must be executed everytime that you prepare to run the demos. The st
 
 7. Click on Deployment slots again.
 
-8. Open the `Staging` deployment slot and make sure the typos are there in the menu.
+8. Make sure that the Traffic is set to 100% for the production site.
 
-9. Click Back to go back to the root's Deployment slots menu.
+9. Open the `Staging` deployment slot and make sure there are no typos in the menu.
 
-10. Open the `AbTest` deployment slot and make sure that it's red.
+10. In the Staging slot, open the website (from the Overview menu).
+
+11. Log into the shopping cart and make sure that this throws error.
+
+12. Click the Back button to stop the flow of errors and then log out of the shopping cart.
+
+13. In the App service in the portal, click Back to go back to the root's Deployment slots menu.
+
+14. Open the `AbTest` deployment slot and make sure that it's red.
 
 ## Mangling the connection string
 
