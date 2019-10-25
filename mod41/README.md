@@ -18,7 +18,7 @@ Along with the video of the presentation, this document will link to all the ass
 * Watch the video presentation
 * Ask questions of the Lead Presenter
 
-## Assets in Train-the-Trainer Kit
+### Assets in Train-the-Trainer Kit
 
 * This guide
 * [PowerPoint presentation](./presentations.md)
@@ -33,7 +33,7 @@ In order to run the demos, you will need to run a deployment to Azure. [This is 
 
 ### Running the demos
 
-Before each session you will need to run a few steps to [prepare the demo environment](./03-prep-demo.md). After that you'll be all set, and you can find a [complete description of the demos here](./04-demo.md).
+Before each session you will need to run a few steps to [prepare the demo environment](./03-prep-demo.md). After that you'll be all set, and you can find a [complete description of the demo here](./04-demo.md).
 
 ### Cleaning up
 
