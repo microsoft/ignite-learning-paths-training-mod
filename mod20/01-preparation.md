@@ -1,7 +1,5 @@
 # MOD20 Demos deployment and preparation
 
-> **TODO**: Finish this and ask other members of the team to test.
-
 The deployment of the demos is mostly automated. You can run this deployment for training purpose and then delete the resource groups that you created, and deploy again. The deployment can also be run in parallel multiple times with a unique name. This is needed sometimes when multiple speakers are presenting the session in different locations at the same time.
 
 In order to run the deployment, you will need the following decisions:

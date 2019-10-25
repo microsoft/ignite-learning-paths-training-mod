@@ -58,7 +58,7 @@ In the Overview tab, click on New Migration Project. Then fill the data:
 - Click on `Save` then `Create and run activity`.
 - In the Source Details drawer, select `Connection String mode`.
 - Copy the MongoDB connection string from the cheat sheet and paste it in the portal. Then click `Save`.
-- In the Migration target details drawer, make sure to select the correct CosmosDB instance that you want to use for the target. It should be named `mod20[prefix]mongo` where `[prefix]` is the unique prefix that you [prepared here](./01-preparation.md/#prefix). The connection string is automatically copied by the DMS. Then click `Save`.
+- In the Migration target details drawer, make sure to select the correct CosmosDB instance that you want to use for the target. It should be named `mod20[prefix]cosmos` where `[prefix]` is the unique prefix that you [prepared here](./01-preparation.md/#prefix). The connection string is automatically copied by the DMS. Then click `Save`.
 - In the Map to target databases drawer, check that the tailwind database is selected both in the source and the target. Explain that you can also throttle the troughput is needed. Then click `Save`.
 - In the Collection setting drawer, show that the Cart collection will be created in the target database. Then click `Save`.
 - Finally enter a name for the migration activity, for example `mig-mongo` again. Then click on `Run migration`.

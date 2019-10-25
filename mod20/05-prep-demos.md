@@ -99,7 +99,7 @@ DROP TABLE [tablename]
 
 ## Checking the Cosmos DB
 
-1. Open the resource named `mod20[prefix]mongo` where `[prefix]` is the unique prefix that you [prepared here](./01-preparation.md/#prefix).
+1. Open the resource named `mod20[prefix]cosmos` where `[prefix]` is the unique prefix that you [prepared here](./01-preparation.md/#prefix).
 
 2. Make sure that all the Collections are deleted. You can see the collections in the Overview tab.
 
@@ -107,9 +107,9 @@ DROP TABLE [tablename]
 
 3. If the collections are not deleted, open the Data Explorer.
 
-4. Delete the collections.
+4. Delete the collection.
 
-> **TODO** Add a screenshot.
+![Deleting the collection](./images/2019-10-09_18-30-30.png)
 
 5. Go back to Overview and leave the browser window open.
 

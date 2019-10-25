@@ -60,7 +60,7 @@
         "sqlSkuName": "Basic",
         "sqlTier": "Basic",
         
-        "cosmosAccountName": "[concat(variables('name'), 'mongo')]",
+        "cosmosAccountName": "[concat(variables('name'), 'cosmos')]",
         "cosmosBakAccountName": "[concat(variables('cosmosAccountName'), '-bak')]",
         "cosmosDatabaseName": "tailwind",
 

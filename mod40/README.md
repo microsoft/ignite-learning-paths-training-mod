@@ -1,1 +1,1 @@
-# Consolidating Infrastructure with Azure Kubernetes Service
+# Debugging and interacting with production applications
