@@ -1,44 +1,12 @@
-# Tailwind Traders Deploy to Azure Buttons
+# Provisioning
 
-## Instructions
-
-### Standalone
-
-This method deploys the Tailwind Traders website with a SQL DB and Cosmos DB, and does not depend on backend microservices.
-
-- Select `standalone`
-- Ensure you select a region where you're allowed to deploy SQL Databases and App Services, each of those services have restrictions for internal subs.
-- Use a short name (< 20 characters), that name is used to generate resource names. Each resource has different naming restrictions. Stick to lower case characters, numbers, and dashes.
-- Enter a strong password for SQL, but do NOT use `;` (this is a separator in SQL connection strings)
-
-### Frontend Only
-
-This method deploys the Tailwind Traders website and calls backend services hosted somewhere else.
-
-- Select `frontendOnly`
-- You can leave the SQL login information blank
-
-
-## Buttons
-
-### Microsoft/TailwindTraders-Website ([master](https://github.com/anthonychu/TailwindTraders-Website/tree/monolith) branch)
-
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://deploy.azure.com/?repository=https://github.com/Microsoft/TailwindTraders-Website/tree/master)
-
-This is the master branch in the official repo.
-
-<!--
-
-### anthonychu/TailwindTraders-Website ([add-image-classifier](https://github.com/anthonychu/TailwindTraders-Website/tree/add-image-classifier) branch)
-
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://deploy.azure.com/?repository=https://github.com/anthonychu/TailwindTraders-Website/tree/add-image-classifier)
-
-Includes the new image classifier endpoint.
-
-### anthonychu/TailwindTraders-Website ([monolith](https://github.com/anthonychu/TailwindTraders-Website/tree/monolith) branch)
-
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://deploy.azure.com/?repository=https://github.com/anthonychu/TailwindTraders-Website/tree/monolith)
-
-This includes the changes in the add-debug-info and local-product-images branches.
--->
-
+* Prerequisite: deploy the “standalone” app here: https://gist.github.com/anthonychu/9ab34d2991fb5c1c0c29faeebbe43a51/  use standalone (be careful, certain regions are restricted, tested with eastus)
+* Navigate the site a few levels deep to spin it up and start monitoring
+* At least 12 hours before the presentation, navigate to the app service down to Monitoring->App service logs
+* Turn on Application Logging (filesystem) level information
+* Turn on Web server logging (file system) default quota (35) and retention 1 day
+* Turn on detailed error messages and failed request tracing and save
+* When prompted, click to install the ASP.NET Core extension
+* Mangle the MongoDB connection string and use the shopping cart to throw some exceptions, then restore it back
+* Create a new deployment set for staging. Clone all settings. Go into deployments and use “External Git” to point to the same repo/branch. Once deployed and working, change the mongodb connection string to break it.
+* After throwing an exception, drill into it from Application Insights and click on an exception. The first time you’ll need to click a link “don’t see a snapshot? troubleshoot” and add the appropriate role.
