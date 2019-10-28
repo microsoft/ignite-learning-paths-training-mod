@@ -1,6 +1,6 @@
 # MOD50 (Tailwind Traders Deployment)
 
-| [README](/MOD50/README.md) | [Slides](/MOD50/slides/README.md) | [Demos](/MOD50/demos/README.md) | [Deployment](/MOD50/deployment/README.md)
+| [README](/mod50/README.md) | [Slides](/mod50/slides/README.md) | [Demos](/mod50/demos/README.md) | [Deployment](/mod50/deployment/README.md)
 |--------|-------|------------|------|
 
 ## Prerequisites
