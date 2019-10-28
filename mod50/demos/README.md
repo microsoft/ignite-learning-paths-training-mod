@@ -39,11 +39,11 @@ There are five (5) separate demos, four (4) together, then one (1) 2 minute Audi
 
 | Section / Demo | Minutes | Slides | Video
 |----------|----------|-------|-----|
-|[1 - Reviewing the tailwindtraders app](section/01/README.md)|2 | *3 - 11* | [Link](https://youtu.be/Ma9NulalaKk?t=1070)
-|[2 - Changing the tailwindtraders shipping cost](section/01/README.md)|2 | *3 - 11* | [Link](https://youtu.be/Ma9NulalaKk?t=1193)
-|[3 - Connecting the GitHub Repo and Azure DevOps](section/02/README.md)|6 | *12 - 24* |[Link](https://youtu.be/Ma9NulalaKk?t=1302)
-|[4 - Creating an Azure DevOps Release Pipeline](section/03/README.md)|8 | *25-27* |[Link](https://youtu.be/Ma9NulalaKk?t=1562)
-|[5 -  Audience Participation of A/B Testing](section/04/README.md) | 2 | *28-31* |[Link](https://youtu.be/Ma9NulalaKk?t=2496)
+|[1 - Reviewing the tailwindtraders app](https://youtu.be/Ma9NulalaKk?t=1070)|2 | *3 - 11* | [Link](https://youtu.be/Ma9NulalaKk?t=1070)
+|[2 - Changing the tailwindtraders shipping cost](https://youtu.be/Ma9NulalaKk?t=1193)|2 | *3 - 11* | [Link](https://youtu.be/Ma9NulalaKk?t=1193)
+|[3 - Connecting the GitHub Repo and Azure DevOps](https://youtu.be/Ma9NulalaKk?t=1302)|6 | *12 - 24* |[Link](https://youtu.be/Ma9NulalaKk?t=1302)
+|[4 - Creating an Azure DevOps Release Pipeline](https://youtu.be/Ma9NulalaKk?t=1562)|8 | *25-27* |[Link](https://youtu.be/Ma9NulalaKk?t=1562)
+|[5 -  Audience Participation of A/B Testing](https://youtu.be/Ma9NulalaKk?t=2496) | 2 | *28-31* |[Link](https://youtu.be/Ma9NulalaKk?t=2496)
 | Total       |20 | |
 
 

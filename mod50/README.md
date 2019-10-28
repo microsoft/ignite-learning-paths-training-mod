@@ -12,8 +12,6 @@
 
 Welcome, Presenter!
 
-We're glad you are here and look forward to your delivery of this amazing content.
-
 As an experienced presenter, we know you know **HOW** to present so this guide will focus on **WHAT** you need to present.
 
 Demo instructions, a PowerPoint slide deck and Multiple video versions of this presentation video are available - see below for details.
@@ -29,7 +27,7 @@ Ask questions of the Lead Presenters and trained speakers (list below).
 
 This training repository is divided in to the following sections:
 
-| [Slides](slides/README.md) | [Demos](/mod50/demos/README.md) | [Deployment](/MOD50/deployment/README.md) | 
+| [Slides](slides/README.md) | [Demos](/mod50/demos/README.md) | [Deployment](/mod50/deployment/README.md) | 
 |--------|-------|------------|
 | 37 slides - 25 minutes, | 1 demo - 20 minutes
 
