@@ -21,7 +21,7 @@ code.
 
 ## Assets in Train-The-Trainer kit
 
-- PowerPoint presentation including notes for each slide [Here](https://#)
+- PowerPoint presentation including notes for each slide [Here]([https://#](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/mod30-2019-10_Oct-24.pptx))
 - Full-length recording of presentation [here](https://#)
 - Director Cut Full-length recording of presentation [here](https://#)
 - Individual recordings of stage-ready hands-on demos [here](https://#)
@@ -30,31 +30,31 @@ code.
 
 ## Session Outline
 
-| Section  | Minutes | Slides | Video |
-|----------|----------|-------|-----|
-|[1 - Introduction](README.md)| ? | 1 - 5 | [Link](https://globaleventcdn.blob.core.windows.net/assets/ops/ops20/video/02_Presentation_Section_One.mp4)
-|[2 - Introduction to Serverless](README.md)| ? | 5 - 22 |[Link](tbd.mp4)
-|[3 - Demo: Serverless at Scale](README.md)| ? | 12 |[Link](tbd.mp4)
-|[4 - Intro to Serverless Cont': Azure Serverless Platform Components](tbd.md)| ? | 13 - 18 |[Link](tbd.mp4)
-|[5 - Functions](README.md)| ? | 18-22 |[Link](tbd.mp4)
-|[6 - Demo: Thumbnails with Functions](README.md)| ? | 23 |[Link](tbd.mp4)
-|[7 - Event Grid](slides/section/03/README.md)| ? | 24 - 38 |[Link](tbd.mp4)
-|[8 - Demo: Trigger Function with Event Grid Event](README.md)|?| 38 |[Link](tbd.mp4)
-|[9 - Logic Apps](README.md)| ? | 40 - 45  |[Link]()
-|[11 - Demo: Social Media Integration with Logic Apps](README.md)| ? | 45 |[Link](tbd.mp4)
-|[12 - Cognitive Services](README.md)| ? | 46-49 |[Link](tbd.mp4)
-|[13 - Demo: Automatic Image Captioning with Cognitive Services](README.md)| ? | 48 |[Link](tbd.mp4)
-|[14 - Closing](README.md)| ? | 50 - end |[Link](tbd.mp4)
+| Section  | Slides |
+|----------|----------|
+|[1 - Introduction](README.md)|  1 - 5
+|[2 - Introduction to Serverless](README.md)|  5 - 22
+|[3 - Demo: Serverless at Scale](README.md)| 12
+|[4 - Intro to Serverless Cont': Azure Serverless Platform Components](tbd.md)| 13 - 18
+|[5 - Functions](README.md)|  18-22
+|[6 - Demo: Thumbnails with Functions](README.md)| 23
+|[7 - Event Grid](slides/section/03/README.md)| 24 - 38
+|[8 - Demo: Trigger Function with Event Grid Event](README.md)| 38
+|[9 - Logic Apps](README.md)|  40 - 45
+|[11 - Demo: Social Media Integration with Logic Apps](README.md)|  45
+|[12 - Cognitive Services](README.md)|  46-49
+|[13 - Demo: Automatic Image Captioning with Cognitive Services](README.md)|  48
+|[14 - Closing](README.md)| 50 - end
 
 ### Demos
 
-| Demo  | Minutes | Video |
-|----------|----------|-------|
-|[1 - Serverless at Scale](demos.md#demo-1-serverless-for-elastic-scale)|?  |[Link](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30_Demo1.mp4)
-|[2 - Thumbnails with Functions](demos.md#demo-2-thumbnails-with-functions)|?   |[Link](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30_Demo2.mp4)
-|[3 - Trigger Function with Event Grid Event ](demos.md#demo-3-trigger-function-with-event-grid-event)|?    |[Link](https://coming.soon)
-|[4 - Social Media Integration with Logic Apps ](demos.md#demo-4-social-media-integration-with-logic-apps)|?    |[Link](https://coming.soon)
-|[4 - Automatic Image Captioning with Cognitive Services](demos.md#demo-4-automatic-image-captioning-with-logic-apps)|? |[Link](https://coming.soon)
+| Demo  | Video |  
+|----------|----------|
+|[1 - Serverless at Scale](demos.md#demo-1-serverless-for-elastic-scale)|[Link](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30_Demo1.mp4)
+|[2 - Thumbnails with Functions](demos.md#demo-2-thumbnails-with-functions)|[Link](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30_Demo2.mp4)
+|[3 - Trigger Function with Event Grid Event ](demos.md#demo-3-trigger-function-with-event-grid-event)|[Link](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30_Demo3.mp4)
+|[4 - Social Media Integration with Logic Apps ](demos.md#demo-4-social-media-integration-with-logic-apps)|[Link](https://coming.soon)
+|[4 - Automatic Image Captioning with Cognitive Services](demos.md#demo-4-automatic-image-captioning-with-logic-apps)|[Link](https://coming.soon)
 
 
 

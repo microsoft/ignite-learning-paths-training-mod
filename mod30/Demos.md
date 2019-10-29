@@ -21,15 +21,12 @@
 2. Take a picture in the app and save it
 3. Navigate to the `wishlist` container in the storage account
 4. Show the image and copy the full URL to the clipboard
-5. Take a picture in the app and save it
-6. Navigate to the `wishlist` container in the storage account
-7. Show the image and save the full URL
-8. Navigate to the `mod30-app` function and expand, drill into `MakeThumbnailHttp`
-9. Open the "test" tab and change the body to:
+5. Navigate to the `mod30-app` function and expand, drill into `MakeThumbnailHttp`
+6. Open the "test" tab and change the body to:
 
     `{ "blob": "{url}" }`
-10. Run and show the execution
-11. Navigate back to the `wishlist` container in the storage account and show the thumbnail
+7.  Run and show the execution
+8.  Navigate back to the `wishlist` container in the storage account and show the thumbnail
 
 ## Demo 3: Trigger Function with Event Grid Event
 
@@ -66,5 +63,5 @@ As a bonus, you can show the "events" in storage to display the subscription and
 5. Add a step to connect with the `UpdateDescription` function _after_ the `Describe Image Content` step.
 6. Show the code for `Update Description` function.
 7. Set the `blob` to the URL of the blob and `description` to the generated caption
-8. Save, then enable the logic app
+8. Save, then **enable** the logic app in the Overview
 9. Upload a new image and show the automated caption
