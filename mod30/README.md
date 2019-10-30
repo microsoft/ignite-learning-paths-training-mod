@@ -24,7 +24,7 @@ code.
 - PowerPoint presentation including notes for each slide [Here]([https://#](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/mod30-2019-10_Oct-24.pptx))
 - Full-length recording of presentation [here](https://#)
 - Director Cut Full-length recording of presentation [here](https://#)
-- Individual recordings of stage-ready hands-on demos [here](https://#)
+- Individual recordings of stage-ready hands-on demos [here](#demos)
 - Demo Setup [here](Setup.md) and Mobile App Setup [here](MOBILE-APP-README.md)
 - Demo Walkthrough and Guide [here](Demos.md)
 
@@ -54,9 +54,7 @@ code.
 |[2 - Thumbnails with Functions](demos.md#demo-2-thumbnails-with-functions)|[Link](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30_Demo2.mp4)
 |[3 - Trigger Function with Event Grid Event ](demos.md#demo-3-trigger-function-with-event-grid-event)|[Link](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30_Demo3.mp4)
 |[4 - Social Media Integration with Logic Apps ](demos.md#demo-4-social-media-integration-with-logic-apps)|[Link](https://coming.soon)
-|[4 - Automatic Image Captioning with Cognitive Services](demos.md#demo-4-automatic-image-captioning-with-logic-apps)|[Link](https://coming.soon)
-
-
+|[5 - Automatic Image Captioning with Cognitive Services](demos.md#demo-4-automatic-image-captioning-with-logic-apps)|[Link](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30_Demo5.mp4)
 
 ## Become a Presenter
 
