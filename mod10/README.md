@@ -22,13 +22,113 @@ code.
 2.  Watch the video presentation
 3.  Ask questions of the Lead Presenter
 
+## Getting Started
+
+To begin the demo you'll need to do a few things which are described in the TTT video:
+
+1. Execute a cloud shell
+2. Download the [create-db.sh](https://github.com/microsoft/ignite-learning-paths/blob/master/mod/mod10/create-db.sh) script.
+3. You'll need the presentation deck, get the latest from the [presentations.md](presentations.md)
+
+We'll use these to prep before we go into the session.  Fully build the application at least before the session. Always keep a preview copy ready to go and build what you can as a demonstration live.  You will demonstrate building the databases live, but well remind the audience we're using "cooking show rules."  You will show the process of creating these databases.
+
+Once you've prepped the app - you're going to build the same app live using the pre-created database information, an incremented name of the app from the one you've created for the demo.
+
+IE: My pre-show demo 
+
+```
+az group create --subscription "Ignite The Tour" --name ignitemod10 --location eastus
+```
+
+What I will create live: resource group creation notes in [example-notes.txt](example-notes.txt)
+
+```
+az group create --subscription "Ignite The Tour" --name 001ignitemod10 --location eastus
+```
+
+The incremented name is just to keep it easy to follow.
+
+---
+
+## Creating Resource Group and Databases.
+
+Within [create-db.sh](https://github.com/microsoft/ignite-learning-paths/blob/master/apps/apps30/create-db.sh) there are a few bash variables to change.
+
+```
+#!/bin/bash
+set -e
+
+# Credentials
+azureResourceGroup=igniteapps30
+adminUser=twtadmin
+adminPassword=twtapps30pD
+subname=cd400f31-6f94-40ab-863a-673192a3c0d0
+location=eastus
+
+# DB Name
+
+cosmosdbname=apps30twtnosql
+sqldbname=apps30twtsql
+```
+
+I do the same incrementing of the name for the "live" version.  I create these before hand but then demonstrate how to create from portal.  The versions I do from portal I do not "deploy" - before I "create and deploy" I explain for time we've already created our DB's with Azure SQL and Cosmos DB.
+
+Example:
+
+Live Version - 
+
+```
+#!/bin/bash
+set -e
+
+# Credentials
+azureResourceGroup=ignitemod10
+adminUser=example
+adminPassword=examplesjefkjdkj
+subname=2348283-example-398349839
+location=eastus
+
+# DB Name
+
+cosmosdbname=001apps30twtnosql
+sqldbname=001apps30twtsql
+```
+
+Once you've edited the script lets run it in bash Cloud Shell and begin process of building demo.
+
+```
+bash create-db.sh
+```
+
+This should take about 15 minutes for both DBs to create.
+
+Collect both connection strings to put in the VARs for the container to connect to the database.
+
+## Next Steps
+
+Go through the opening of the talk with the application fully built in the background.  Keep two portals up, one with the "complete" version of the app, one of the resource group you're going to build live.  You'll want to show them the difference and how you're creating the resources live as you're explaining each part.
+
+## Demoing Live
+
+
+Run through the demo using [example-notes.txt](example-notes.txt) file.
+
+1. Create Resource Group Cloud Shell (it's already created, but that's fine)
+2. Create VNET in Cloud Shell (then show them the vnet in portal)
+3. Create VM as described in video and in deck
+4. SSH into VM
+5. Copy contents of [deploy.sh](deploy.sh) into shell after su to root
+6. update variables as decribed in demo instructions in the deployment script (mongo string, SQL, api, etc)
+7. Run deploy script - talk through as it runs.
+8. Navigate browser to real prod tailwindtraders.com
+9. Delete resources
 
 ## Assets in Train-The-Trainer kit
 
 - This guide
-- [PowerPoint presentation](https://microsoft.sharepoint.com/:p:/t/CloudDevAdvocacy/EcjGAId0G0tOptjeWc7hSFcBbzlfED9ah-50cVzKy1G1Ug?e=q5kp4b)
-- [Full-length recording of presentation](https://microsoft.sharepoint.com/:p:/t/CloudDevAdvocacy/EcjGAId0G0tOptjeWc7hSFcBbzlfED9ah-50cVzKy1G1Ug?e=q5kp4b)
-- [Full-length recording of presentation - Director Cut](https://youtu.be/0kGGhoEB-48)
+- [PowerPoint presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mod10.pptx)
+- [Full-length recording of presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mitt-mod10-dry-run.mp4)
+- [Full-length recording of presentation - Director Cut](https://youtu.be/eczGFbKcT_A)
 - [Demo Instructions](https://github.com/microsoft/ignite-learning-paths/tree/master/mod/mod10)
   
 
