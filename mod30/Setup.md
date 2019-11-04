@@ -6,10 +6,10 @@ The following steps are necessary to prepare for MOD30 demos.
 
 1. Install [Node.js](https://nodejs.org) LTS
 2. Install [artillery](https://artillery.io/): `npm i -g artillery`
-3. Install [Visual Studio 2019 Preview](https://visualstudio.microsoft.com/?WT.mc_id=msignitethetour2019-github-mod30) with the Azure/cloud workloads (for functions)
+3. Install [Visual Studio or VS Code](https://visualstudio.microsoft.com/?WT.mc_id=msignitethetour2019-github-mod30)
 4. (Optional) Install [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows&WT.mc_id=msignitethetour2019-github-mod30)
 5. (Optional) for sharing and screen mirroring on Android device: [Vysor](http://www.vysor.io/)
-6. (Optional) for sharing and screen mirroring on  iOS device: [Reflektor](https://www.airsquirrels.com/reflector)
+6. (Optional) for sharing and screen mirroring oniOS device: [Reflektor](https://www.airsquirrels.com/reflector)
 
 ## Deployments
 
@@ -20,9 +20,9 @@ The following steps are necessary to prepare for MOD30 demos.
 4. Publish the `Mod30Functions` app to the deployed `mod30-app` endpoint.
 5. Open the `socialintegration` Logic App and update:
     1. Search term (trigger)
-    2. Owner name
-    3. App name
-    4. Token from App Center
+    2. Owner name (This will most likely be `Microsoft-CDA`)
+    3. App name (This will most likely be `Tailwind-Traders`)
+    4. Token from App Center, [see mobile app instructions](MOBILE-APP-README.md). 
 
 ***Deployment unsuccessful?** See [Troubleshooting](#troubleshooting)*
 
@@ -41,6 +41,10 @@ Pin the following items for easy reference:
 ## Mobile App Setup
 
 This demo includes a mobile app. The instructions for setup can be found [here](MOBILE-APP-README.md).
+
+## Demo Code
+
+Demo code can be found [here](https://github.com/microsoft/ignite-learning-paths/blob/master/mod/mod30/src/Mod30Functions/)
 
 ## Deployment Troubleshooting
 
