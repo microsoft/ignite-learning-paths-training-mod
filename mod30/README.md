@@ -1,4 +1,6 @@
-# Train The Trainer - MOD30: Enhancing Web Applications with Cloud Intelligence
+# MOD30 - Enhancing Web Applications with Cloud Intelligence
+
+![Learning Path](https://img.shields.io/badge/Learning%20Path-MOD-fe5e00?logo=microsoft)  
 
 ## Session Abstract
 

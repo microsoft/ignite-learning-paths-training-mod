@@ -1,4 +1,6 @@
-# Modernizing Data, Applications, and APIs to the Cloud
+# Ignite Learning Paths - (MOD) Modernizing Data, Applications, and APIs to the Cloud
+
+![Learning Path](https://img.shields.io/badge/Learning%20Path-MOD-fe5e00?logo=microsoft)  ![Session](https://img.shields.io/badge/🗣️Sessions-6-31c754)
 
 **Welcome to the Train-the-Trainer content for the 'Modernizing Data, Applications, and APIs to the Cloud Learning Path**. 
 

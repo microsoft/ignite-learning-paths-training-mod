@@ -1,4 +1,6 @@
-# MOD50: Managing Delivery of your App via DevOps
+# MOD50 - Managing Delivery of your App via DevOps
+
+![Learning Path](https://img.shields.io/badge/Learning%20Path-MOD-fe5e00?logo=microsoft)  
 
 ## Session Abstract
 

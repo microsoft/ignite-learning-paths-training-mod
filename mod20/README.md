@@ -1,4 +1,6 @@
-# MOD20: Moving Your Database to Azure
+# MOD20 - Moving Your Database to Azure
+
+![Learning Path](https://img.shields.io/badge/Learning%20Path-MOD-fe5e00?logo=microsoft)  
 
 # Train-the-Trainer Guide
 

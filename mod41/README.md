@@ -1,4 +1,6 @@
-# MOD41: Deploying and A/B testing without risks with Deployment Slots
+# MOD41 - Deploying and A/B testing without risks with Deployment Slots
+
+![Learning Path](https://img.shields.io/badge/Learning%20Path-MOD-fe5e00?logo=microsoft)  
 
 # Train-the-Trainer Guide
 
