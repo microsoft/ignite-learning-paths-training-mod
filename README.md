@@ -30,14 +30,14 @@ Northwind kept the bulk of its data in an on-premises data center, which hosted 
 
 In this session, you’ll see how to migrate an on-premises MongoDB database to Azure Cosmos DB and SQL Server database to an Azure SQL Server. From there, you’ll walk through performing the migration and ensuring minimal downtime while you switch over to the cloud-hosted providers. 
 
-### [MOD30: Modernizing Your Application with Containers](./mod30/README.md) 
+### [MOD30: Enhancing Web Applications with Cloud Intelligence](./mod30/README.md) 
 #### Abstract:
 
 Tailwind Traders has implemented development frameworks, deployment strategies, and server infrastructure for their apps. But now that they are on the cloud it’s time to add cool features using simple scripts to access powerful services that automatically scale and run exactly where and when they need them. This includes language translation, image recognition, and other AI/ML features.
 
 In this session, we’ll create a set of routines that run on Azure Functions, respond to events in Azure Event Grid, and then orchestrate these functions and messages with Azure Logic Apps. We’ll also use Azure Cognitive Services to add AI capabilities and Xamarin to implement AR features with a phone app.
 
-### [MOD40: Consolidating Infrastructure with Azure Kubernetes Service](./mod40/README.md) 
+### [MOD40: Debugging and interacting with production applications](./mod40/README.md) 
 #### Abstract:
 
 Now that Tailwind Traders is running fully on Azure, the developers must find ways to debug and interact with the production applications with minimal impact and maximal efficiency. Azure comes with a full set of tools and utilities that can be used to manage and monitor your applications. In this session, we will see how Streaming logs work to monitor the production application in live time. We will also talk about Deployment slots that enable easy A/B testing of new features and show how Snapshot Debugging can be used to live debug applications. We'll also see how other tools can be used to manage your websites and containers live.
