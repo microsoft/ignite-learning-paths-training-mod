@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TailwindTraders.Mobile.Views.FlyoutHeader"
+             x:Name="this">
+    <ContentView.Content>
+        <StackLayout Padding="20">
+            <Label Text="Tailwind Traders" FontSize="Default" Margin="0,0,0,40" />
+            <Button Text="Take Photo" ImageSource="photo" Margin="20,0,20,0" CornerRadius="24" 
+                    BorderColor="{StaticResource AccentColor}" BorderWidth="2"
+                    Command="{Binding PhotoCommand, Source={x:Reference this}}"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
