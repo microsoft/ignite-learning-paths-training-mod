@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:styles="clr-namespace:TailwindTraders.Mobile.Styles"
+             x:Class="TailwindTraders.Mobile.Styles.Colors">
+
+    <Color x:Key="NavigationPrimary">#2196F3</Color>
+    <Color x:Key="AccentColor">#2F4B66</Color>
+    <Color x:Key="Accent2Color">#673C4F</Color>
+    <Color x:Key="PrimaryColor">White</Color>
+
+</ResourceDictionary>
