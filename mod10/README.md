@@ -42,7 +42,7 @@ IE: My pre-show demo
 az group create --subscription "Ignite The Tour" --name ignitemod10 --location eastus
 ```
 
-What I will create live: resource group creation notes in [example-notes.txt](example-notes.txt)
+What I will create live: resource group creation notes in [hints-for-presentation.md](hints-for-presentation.md)
 
 ```
 az group create --subscription "Ignite The Tour" --name 001ignitemod10 --location eastus
@@ -113,12 +113,30 @@ Go through the opening of the talk with the application fully built in the backg
 ## Demoing Live
 
 
-Run through the demo using [example-notes.txt](example-notes.txt) file.
+Run through the demo using [hints-for-presentation.md](hints-for-presentation.md) file.
 
 1. Create Resource Group Cloud Shell (it's already created, but that's fine)
 2. Create VNET in Cloud Shell (then show them the vnet in portal)
 3. Create VM as described in video and in deck
-4. SSH into VM
+    * Navigate to your resource group
+    * Click Add - Select Ubuntu 18.04 LTS
+    * Use Ignite the tour subscription
+    * Create unique Virtual Machine name
+    * Select region (try using something local to the event)
+    * Don't use Spot, Don't enable infra redundancy (just explain it)
+    * Use a username and password or use a SSH key (i use ssh key and paste from my terminal)
+    * Select inbound ports 22, 443, 80 (explain you can secure better in a secureity group)
+    * Click Next Disks
+    * Explain adding disks, disk types, do not add new disk.
+    * Click Next Networking
+    * Use VLAN created in step 2, explain network security groups, load balancing, etc
+    * Click Next Management  
+    * explain monitoring, explain RBAC via AAD, explain autoshutdown, explain backups.
+    * Click Next Advanced  
+    * Explain extensions, cloud init, etc.  Click review and create.
+    * Explain validation process via ARM - Explain Exporting via ARM template
+    * Create - Show create messages in deployment.
+4. Navigate to server in resource group, SSH into VM
 5. Copy contents of [deploy.sh](deploy.sh) into shell after su to root
 6. update variables as decribed in demo instructions in the deployment script (mongo string, SQL, api, etc)
 7. Run deploy script - talk through as it runs.
@@ -130,6 +148,7 @@ Run through the demo using [example-notes.txt](example-notes.txt) file.
 - This guide
 - [PowerPoint presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mod10.pptx)
 - [Full-length recording of presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mitt-mod10-dry-run.mp4)
+- [Full-length presentation from Ignite 2019](https://myignite.techcommunity.microsoft.com/sessions/82988?source=speakerdetail)
 - [Full-length recording of presentation - Director Cut](https://youtu.be/eczGFbKcT_A)
 - [Demo Instructions](https://github.com/microsoft/ignite-learning-paths/tree/master/mod/mod10)
   
