@@ -23,14 +23,14 @@ code.
 
 - This guide
 - [Provisioning Guide](./demo-scripts/provisioning.md)
-- [PowerPoint presentation including notes for each slide](http://cdn.tailwindtraders.com/assets/mod/mod40/mod40-2019-10_Oct-24.pptx)
-- [Full-length recording of presentation](http://cdn.tailwindtraders.com/assets/mod/mod40/MITT-MOD40.mp4)
+- [PowerPoint presentation including notes for each slide](https://globaleventcdn.blob.core.windows.net/assets/mod/mod40/mod40-2019-10_Oct-24.pptx)
+- [Full-length recording of presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod40/MITT-MOD40.mp4)
 - Individual recordings of stage-ready hands-on demos
-  * [Demo 1: Azure Monitor in Existing Resources](http://cdn.tailwindtraders.com/assets/mod/mod40/MITT-MOD40-Demo1.mp4)
-  * [Demo 2: Application Insights](http://cdn.tailwindtraders.com/assets/mod/mod40/MITT-MOD40-Demo2.mp4)
-  * [Demo 3: Log Analytics](http://cdn.tailwindtraders.com/assets/mod/mod40/MITT-MOD40-Demo3.mp4)
-  * [Demo 4: Snapshot Debugging](http://cdn.tailwindtraders.com/assets/mod/mod40/MITT-MOD40-Demo4.mp4)
-  * [Demo 5: Deployment Slots](http://cdn.tailwindtraders.com/assets/mod/mod40/MITT-MOD40-Demo5.mp4)
+  * [Demo 1: Azure Monitor in Existing Resources](https://globaleventcdn.blob.core.windows.net/assets/mod/mod40/MITT-MOD40-Demo1.mp4)
+  * [Demo 2: Application Insights](https://globaleventcdn.blob.core.windows.net/assets/mod/mod40/MITT-MOD40-Demo2.mp4)
+  * [Demo 3: Log Analytics](https://globaleventcdn.blob.core.windows.net/assets/mod/mod40/MITT-MOD40-Demo3.mp4)
+  * [Demo 4: Snapshot Debugging](https://globaleventcdn.blob.core.windows.net/assets/mod/mod40/MITT-MOD40-Demo4.mp4)
+  * [Demo 5: Deployment Slots](https://globaleventcdn.blob.core.windows.net/assets/mod/mod40/MITT-MOD40-Demo5.mp4)
 - [Demo Guide Index](./demo-scripts/demo-guide.md)
 
 
