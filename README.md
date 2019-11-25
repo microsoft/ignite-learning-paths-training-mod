@@ -52,7 +52,7 @@ In this session, we’ll create a set of routines that run on Azure Functions, r
 
 Now that Tailwind Traders is running fully on Azure, the developers must find ways to debug and interact with the production applications with minimal impact and maximal efficiency. Azure comes with a full set of tools and utilities that can be used to manage and monitor your applications. In this session, we will see how Streaming logs work to monitor the production application in live time. We will also talk about Deployment slots that enable easy A/B testing of new features and show how Snapshot Debugging can be used to live debug applications. We'll also see how other tools can be used to manage your websites and containers live.
 
-### [MOD41: Deploying and A/B testing without risks with Deployment Slots](./mod41/README.md) 
+### [MOD41: (15-20 Minute Theatre Session)Deploying and A/B testing without risks with Deployment Slots](./mod41/README.md) 
 
 Who hasn’t been very scared when deploying a new feature to a website? Sometimes we feel that we will break everything, and the stress level is just not something we want to experience ever again. That's why the Deployment Slots feature of Azure App Services is such a nice experience. With Deployment Slots, you can deploy to a safe slot in the same conditions than your production environment. You can test in isolation, without risking breaking something. Then you can gradually route some of the traffic to the new features, for example to perform A/B testing. When you are satisfied with the results, you can simply switch the whole traffic to the new site. But don't fret, if something goes wrong, the old, safe site is just one mouse click away.
 
