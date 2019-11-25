@@ -1,4 +1,4 @@
-# Ignite Learning Paths - Modernizing Data, Applications, and APIs to the Cloud
+# Ignite Learning Paths - Modernizing Web Applications and Data
 
 ![Learning Path](https://img.shields.io/badge/Learning%20Path-MOD-fe5e00?logo=microsoft)  ![Session](https://img.shields.io/badge/🗣️Sessions-6-31c754)
 
