@@ -56,12 +56,11 @@ Now that Tailwind Traders is running fully on Azure, the developers must find wa
 
 Who hasn’t been very scared when deploying a new feature to a website? Sometimes we feel that we will break everything, and the stress level is just not something we want to experience ever again. That's why the Deployment Slots feature of Azure App Services is such a nice experience. With Deployment Slots, you can deploy to a safe slot in the same conditions than your production environment. You can test in isolation, without risking breaking something. Then you can gradually route some of the traffic to the new features, for example to perform A/B testing. When you are satisfied with the results, you can simply switch the whole traffic to the new site. But don't fret, if something goes wrong, the old, safe site is just one mouse click away.
 
-### [MOD50: Debugging and Interacting with Production Applications](./mod50/README.md) 
+### [MOD50: Managing Delivery of your App via DevOps](./mod50/README.md) 
 
-In this session, we’ll show you how Tailwind Traders’ Developer team works with its Operations teams to safely automate tedious, manual tasks with reliable scripted routines and prepared services. 
+In this talk, we’ll take a deep dive into automating and continuously deploying your application using Azure Services. We’ll start with the basics, discussing automated operations that developers control (DevOps) like A/B testing and automated approval gates.
 
-We’ll start with automating the building and deployment of a web application, backend web service and database with a few clicks. Then, we’ll add automated operations that developers control like A/B testing and automated approval gates. We’ll also discuss how Tailwind Traders can preserve their current investments in popular tools like Jenkins, while taking advantage of the best features of Azure DevOps.
-
+We’ll then take that entirely to the cloud using Azure’s new DevOps project, showing you how you can automate the deployment of a frontend web application, backend web service and database, and mobile application with a few clicks of a button.
 
 ## Contributing
 
