@@ -179,6 +179,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
             <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=jaydestro" title="talk">📢</a>
             <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=jaydestro" title="Documentation">📖</a> 
     </td>
+    <td align="center"><a href="http://cloud5mins.com/">
+        <img src="https://avatars2.githubusercontent.com/u/2404846?s=460&v=4" width="100px;" alt="Frank Boucher"/><br />
+        <sub><b>Frank Boucher</b></sub></a><br />
+            <a href="https://github.com/microsoft/ignite-learning-paths-training-mod/commits?author=FBoucher" title="talk">📢</a>
+            <a href="https://github.com/microsoft/ignite-learning-paths-training-mod/commits?author=FBoucher" title="Documentation">📖</a> 
+    </td>
 </tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
