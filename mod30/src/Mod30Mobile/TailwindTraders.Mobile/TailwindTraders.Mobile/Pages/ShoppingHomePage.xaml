@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:viewmodels="clr-namespace:TailwindTraders.Mobile.ViewModels"
+             xmlns:views="clr-namespace:TailwindTraders.Mobile.Views"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             mc:Ignorable="d"             
+             ios:Page.UseSafeArea="True"
+             Shell.BackgroundColor="{StaticResource AccentColor}"
+             Shell.TitleColor="{StaticResource PrimaryColor}"
+             x:Class="TailwindTraders.Mobile.Pages.ShoppingHomePage">
+
+    <ContentPage.BindingContext>
+        <viewmodels:ShoppingHomeViewModel/>
+    </ContentPage.BindingContext>
+    
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Image Margin="-10,0,0,0" Source="logo_vertical_w" HorizontalOptions="CenterAndExpand" />
+            <Image HorizontalOptions="End" Margin="0,0,20,0">
+                <Image.Source>
+                    <FontImageSource FontFamily="{StaticResource SegMDL2}" Glyph="&#xE7BF;" Color="{StaticResource PrimaryColor}"/>
+                </Image.Source>
+            </Image>
+        </StackLayout>
+    </Shell.TitleView>
+        
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="FillAndExpand">
+                <ffimageloading:CachedImage HeightRequest="250" Source="header" Aspect="AspectFill" />
+                <Button Text="Start Smart Shopping&#x0a;by taking a photo" 
+                        Image="photo"
+                        Style="{StaticResource DefaultShadowfullButtonStyle}"
+                        Command="{Binding TakePhotoCommand}" Margin="30,-30,30,0"/>
+                <ActivityIndicator Color="Black" IsRunning="{Binding IsBusy}"/>
+                <Label Text="RECOMMENDED" Style="{StaticResource Header1FontStyle}" HorizontalTextAlignment="Center"/>
+                
+                <CarouselView ItemsSource="{Binding RecommendedCategories}" 
+                              HeightRequest="250" PeekAreaInsets="55">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="25" HeightRequest="200">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="200"/>
+                                </Grid.RowDefinitions>
+
+                                <ffimageloading:CachedImage Grid.Row="0" Grid.Column="0"
+                                    Source="{Binding ImageName}" Aspect="AspectFill" />
+                                
+                                <Button Text="{Binding CategoryName}" Grid.Row="0" Grid.Column="0" 
+                                    HorizontalOptions="Center" VerticalOptions="Center"
+                                    CornerRadius="24" HeightRequest="48"
+                                    Command="{Binding NavigateCommand}" CommandParameter="{Binding CategoryAbbreviation}" />
+                            </Grid>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <Label Text="POPULAR PRODUCTS" Style="{StaticResource Header1FontStyle}" HorizontalTextAlignment="Center"/>
+                <CarouselView ItemsSource="{Binding PopularProducts}" HeightRequest="450" Margin="0,30" PeekAreaInsets="55">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <views:PopularProductView ProductName="{Binding Name}" ProductImage="{Binding Image}" ProductCost="{Binding Price}"/>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                
+                <Label Text="PREVIOUSLY SEEN" Style="{StaticResource Header1FontStyle}" HorizontalTextAlignment="Center" />
+                <CollectionView ItemsSource="{Binding PreviouslySeenProducts}" HeightRequest="350">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <views:PreviouslySeenProductView
+                                ProductName="{Binding Name}" 
+                                ProductImage="{Binding Image}" 
+                                ProductCost="{Binding Price}"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>    
+                </CollectionView>
+                
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

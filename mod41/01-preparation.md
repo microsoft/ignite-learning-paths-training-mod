@@ -44,7 +44,7 @@ In the browser window that opens, fill the data:
 
 - Branch: Leave the default value which shuld be `master`.
 
-Then check the terms and conditipns checkbox and click on `Purchase`.
+Then check the terms and conditions checkbox and click on `Purchase`.
 
 After the deployment is complete, some additional steps will be needed to [complete the deployment](./02-prep-finish.md). Then you will be able to [prepare for the demo](./03-prep-demo.md), and then [run the demo](./04-demo.md).
 

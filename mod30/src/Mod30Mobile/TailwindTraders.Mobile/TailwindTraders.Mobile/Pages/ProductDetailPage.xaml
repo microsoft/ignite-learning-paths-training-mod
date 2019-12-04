@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodels="clr-namespace:TailwindTraders.Mobile.ViewModels"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:views="clr-namespace:TailwindTraders.Mobile.Views"
+             mc:Ignorable="d"
+             x:Class="TailwindTraders.Mobile.Pages.ProductDetailPage"
+             Shell.BackgroundColor="{StaticResource AccentColor}"
+             Shell.TitleColor="{StaticResource PrimaryColor}"
+             Title="{Binding ProductName}">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    <ContentPage.BindingContext>
+        <viewmodels:ProductDetailViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <ffimageloading:CachedImage Source="{Binding ImageUrl}" HeightRequest="375" Aspect="AspectFill"/>
+                
+                <Label Text="{Binding BrandName}"
+                       FontFamily="{StaticResource BrandonGrotesqueLight}"
+                       FontSize="Default"/>
+                
+                <Label Text="{Binding ProductName}"
+                       FontFamily="{StaticResource BrandonGrotesqueMedium}"/>
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                    <Label Text="{Binding Price, StringFormat='${0}'}" VerticalTextAlignment="End"/>
+                                                
+                    <Label Text="{Binding QuantityRemaining, StringFormat='Hurry only {0} remaining!'}"
+                           FontFamily="{StaticResource GinRegular}"
+                           TextColor="{StaticResource Accent2Color}" FontSize="Small" VerticalTextAlignment="Center"/>
+                </StackLayout>
+
+                <Button Text="Add to Cart" Style="{StaticResource Accent2ColorButtonStyle}" Margin="30,30,30,30"/>
+                
+                <Label Text="SIMILAR PRODUCTS" Style="{StaticResource Header1FontStyle}" HorizontalTextAlignment="Center" />
+                <CarouselView ItemsSource="{Binding SimilarProducts}" HeightRequest="500" Margin="0,30">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <views:PopularProductView 
+                                ProductName="{Binding Name}" 
+                                ProductImage="{Binding Image}" 
+                                ProductCost="{Binding Price}"/>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+            </StackLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

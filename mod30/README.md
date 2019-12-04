@@ -1,4 +1,6 @@
-# Train The Trainer - MOD30: Enhancing Web Applications with Cloud Intelligence
+# MOD30 - Enhancing Web Applications with Cloud Intelligence
+
+![Learning Path](https://img.shields.io/badge/Learning%20Path-MOD-fe5e00?logo=microsoft)  
 
 ## Session Abstract
 
@@ -61,9 +63,8 @@ This training repository is divided in to the following sections:
 
 [Instructions and prerequisites are outlined here](setup.md).
 
+
 ### Demos
-
-
 > What's Here? Pre-delivery preparation, stage ready videos, required files (such as JSON templates), and walk-through videos
 
 Detailed explanations of each demonstration associated with this presentation can be found in this section. There are 3 "live from stage" technical demonstrations that utilize a number of tools both in and out of Azure. [You can get a high level overview of the tools and how we will be using them here](demos.md).

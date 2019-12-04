@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       mc:Ignorable="d"
+       xmlns:pages="clr-namespace:TailwindTraders.Mobile.Pages"
+       xmlns:views="clr-namespace:TailwindTraders.Mobile.Views"
+       xmlns:viewmodels="clr-namespace:TailwindTraders.Mobile.ViewModels"
+       xmlns:styles="clr-namespace:TailwindTraders.Mobile.Styles"              
+       x:Class="TailwindTraders.Mobile.AppShell">
+        
+    <Shell.BindingContext>
+        <viewmodels:AppShellViewModel/>
+    </Shell.BindingContext>
+
+    <Shell.FlyoutHeader>
+        <views:FlyoutHeader PhotoCommand="{Binding TakePhotoCommand}" />
+    </Shell.FlyoutHeader>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Label Text="{Binding Title}" FontSize="Body" TextColor="{StaticResource AccentColor}" Padding="20,0" />
+        </DataTemplate>
+    </Shell.ItemTemplate>
+    
+    <ShellContent Title="Shopping" ContentTemplate="{DataTemplate pages:ShoppingHomePage}"/>
+
+    <MenuItem Text="Home Appliances"
+              Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="homeappliances" />
+    <MenuItem Text="Sink" 
+              Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="sink"/>
+    <MenuItem Text="Home Items" 
+              Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="home"/>
+    <MenuItem Text="Gardening" 
+              Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="gardening"/>
+    <MenuItem Text="Decor" 
+              Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="decor" />
+    <MenuItem Text="Kitchen Accessories" 
+              Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="kitchen"/>
+    <MenuItem Text="DIY Tools" 
+              Command="{Binding NavigateToProductCategoryCommand}" CommandParameter="diytools"/>
+    
+    <ShellContent Title="Wishlist" ContentTemplate="{DataTemplate pages:WishlistPage}"/>
+    <ShellContent Title="Settings" ContentTemplate="{DataTemplate pages:SettingsPage}"/>
+    
+    <MenuItem Text="Logout"/>
+    
+</Shell>

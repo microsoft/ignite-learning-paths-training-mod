@@ -13,8 +13,8 @@ The following steps are necessary to prepare for MOD30 demos.
 
 ## Deployments
 
-1. Provision the Tailwind Traders monolith app available [here](https://gist.github.com/anthonychu/9ab34d2991fb5c1c0c29faeebbe43a51)
-2. Deploy the MOD30 Assets: [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/microsoft/ignite-learning-paths/tree/master/mod/mod30)
+1. Provision the Tailwind Traders monolith app available [here](https://github.com/microsoft/TailwindTraders-Website/tree/master/Source/Tailwind.Traders.Web/Standalone#deploy-to-azure-app-service-automatic-deployment)
+2. Deploy the MOD30 Assets: [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/microsoft/ignite-learning-paths-training/tree/master/mod30)
     > **Note:** give it a unique prefix it with, i.e. `mod30xyz` should replace `mod30`, and hereafter assume `mod30-demo` translates to `mod30xyz-demo`
 3. Navigate to the `azureeventgrid` connection, click "Edit API connection" then click `Authorize` to authorize the connection (don't forget to `Save` after authorizing!)
 4. Publish the `Mod30Functions` app to the deployed `mod30-app` endpoint.
@@ -44,7 +44,7 @@ This demo includes a mobile app. The instructions for setup can be found [here](
 
 ## Demo Code
 
-Demo code can be found [here](https://github.com/microsoft/ignite-learning-paths/blob/master/mod/mod30/src/Mod30Functions/)
+Demo code can be found [here](https://github.com/microsoft/ignite-learning-paths-training-mod/blob/master/mod30/src/Mod30Functions/)
 
 ## Deployment Troubleshooting
 
@@ -54,5 +54,5 @@ If after the deployment, you navigate to `mod30-app` and there are no functions,
 2. Click `Deployment center`
 3. Choose `External git` then click continue
 4. Choose `Kudu` then click continue
-5. Put in repo: https://github.com/Microsoft/Ignite-Learning-Paths and branch `master` and check `no` for `Private Repository`
+5. Put in repo: https://github.com/Microsoft/Ignite-Learning-Paths-training-mod and branch `master` and check `no` for `Private Repository`
 6. Confirm and the deployment will begin. Once the status is `Success (Active)` you should have the function app.

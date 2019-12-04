@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             x:Class="TailwindTraders.Mobile.Views.ProductGridView"
+             x:Name="this">
+    <ContentView.Content>
+
+        <AbsoluteLayout>
+            <BoxView
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                Margin="0,28,0,-8"
+                android:VisualElement.Elevation="10"
+                ios:VisualElement.IsShadowEnabled="true"
+                ios:VisualElement.ShadowColor="Black"
+                ios:VisualElement.ShadowOffset="2,2"
+                ios:VisualElement.ShadowOpacity="0.1"
+                Style="{StaticResource ShadowfullBoxViewStyle}" />
+
+            <StackLayout
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                android:VisualElement.Elevation="{StaticResource DefaultElevation}"
+                Spacing="{StaticResource 0.5xDefaultMargin}">   
+
+                <Frame x:Name="imageFrame"
+                    BackgroundColor="{StaticResource Accent2Color}"
+                    CornerRadius="{Binding Source={x:Reference imageFrame}, Path=Width, Converter={StaticResource DoubleToHalfFloatConverter}}"
+                    HeightRequest="{Binding Source={x:Reference imageFrame}, Path=Width}"
+                    IsClippedToBounds="true">
+
+                    <Frame.Margin>
+                        <Thickness
+                            Left="{StaticResource 0.5xDefaultMargin}"
+                            Right="{StaticResource 0.5xDefaultMargin}" />
+                    </Frame.Margin>
+
+                    <ffimageloading:CachedImage
+                        Aspect="AspectFill"
+                        Source="{Binding ProductImage, Source={x:Reference this}}"/>
+                </Frame>
+
+                <Label
+                    HorizontalOptions="Center"
+                    Style="{StaticResource BrandonGrotesqueMediumMediumFontStyle}"
+                    Text="{Binding ProductCost, StringFormat='${0}', Source={x:Reference this}}" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="1"
+                    Style="{StaticResource BrandonGrotesqueLightSmallFontStyle}"
+                    Text="{Binding ProductName, Source={x:Reference this}}">
+
+                    <Label.Margin>
+                        <Thickness
+                            Left="{StaticResource 0.5xDefaultMargin}"
+                            Right="{StaticResource 0.5xDefaultMargin}" />
+                    </Label.Margin>
+                </Label>
+
+            </StackLayout>
+        </AbsoluteLayout>
+        
+    </ContentView.Content>
+</ContentView>

@@ -416,7 +416,7 @@
 					"autoUpgradeMinorVersion": true,
 					"settings": {
 						"fileUris": [
-							"https://raw.githubusercontent.com/microsoft/ignite-learning-paths/master/mod/mod20/DeploymentTemplates/configure-mongo.sh"
+							"https://raw.githubusercontent.com/microsoft/ignite-learning-paths-training-mod/master/mod20/DeploymentTemplates/configure-mongo.sh"
 						]
 					},
 					"protectedSettings": {

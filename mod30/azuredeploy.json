@@ -1,0 +1,868 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "sites_prefix": {
+        "defaultValue": "mod30",
+        "type": "string"
+      },
+      "siteLocation": {
+        "type": "string",
+        "defaultValue": "East US"
+      },
+      "SKU": {
+        "type": "string",
+        "metadata": {
+          "description": "SKU for Computer Vision API"
+        },
+        "defaultValue": "F0",
+        "allowedValues": [
+          "F0",
+          "S1"
+        ]
+      },
+      "repoUrl": {
+        "type": "string",
+        "defaultValue": "https://github.com/Microsoft/Ignite-Learning-Paths-training-mod"
+      },
+      "branch": {
+        "type": "string",
+        "defaultValue": "master"
+      }
+    },
+    "variables": {
+      "location": "[parameters('siteLocation')]",
+      "locationCode": "[toLower(replace(variables('location'), ' ', ''))]",
+      "sites_mod30_app_name": "[toLower(concat(parameters('sites_prefix'),'-app'))]",
+      "sites_mod30_demo_name": "[toLower(concat(parameters('sites_prefix'),'-demo'))]",
+      "components_mod30_app_name": "[toLower(concat(parameters('sites_prefix'),'-app'))]",
+      "components_mod30_demo_name": "[toLower(concat(parameters('sites_prefix'),'-demo'))]",
+      "connections_azureblob_name": "azureblob",
+      "serverfarms_plan_name": "[toLower(concat(variables('locationCode'),'plan'))]",
+      "connections_azureeventgrid_name": "azureeventgrid",
+      "connections_twitter_name": "twitter",
+      "storageAccounts_mod30demo_name": "[toLower(concat(parameters('sites_prefix'),'demostorage'))]",
+      "workflows_mod30_caption_name": "[toLower(concat(parameters('sites_prefix'),'-caption'))]",
+      "workflows_mod30_socialintegration_name": "[toLower(concat(parameters('sites_prefix'), '-socialintegration'))]",
+      "connections_cognitiveservicescomputervision_name": "cognitiveservicescomputervision",
+      "accounts_mod30_cognitive_vision_name": "[toLower(concat(parameters('sites_prefix'), '-cognitive-vision'))]",
+      "subscriptionId": "[subscription().id]",
+      "cognitiveServicesId": "[concat(resourceGroup().id,'/providers/','Microsoft.CognitiveServices/accounts/', variables('accounts_mod30_cognitive_vision_name'))]",
+      "singleQuote": "'"
+    },
+    "resources": [
+      {
+        "type": "Microsoft.CognitiveServices/accounts",
+        "apiVersion": "2016-02-01-preview",
+        "name": "[variables('accounts_mod30_cognitive_vision_name')]",
+        "location": "[variables('location')]",
+        "sku": {
+          "name": "[parameters('SKU')]"
+        },
+        "kind": "ComputerVision",
+        "properties": {}
+      },
+      {
+        "type": "microsoft.insights/components",
+        "apiVersion": "2015-05-01",
+        "name": "[variables('components_mod30_app_name')]",
+        "location": "[variables('location')]",
+        "kind": "web",
+        "properties": {
+          "Application_Type": "web",
+          "Request_Source": "IbizaWebAppExtensionCreate"
+        }
+      },
+      {
+        "type": "microsoft.insights/components",
+        "apiVersion": "2015-05-01",
+        "name": "[variables('components_mod30_demo_name')]",
+        "location": "[variables('location')]",
+        "kind": "web",
+        "properties": {
+          "Application_Type": "web",
+          "Request_Source": "IbizaWebAppExtensionCreate"
+        }
+      },
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2019-04-01",
+        "name": "[variables('storageAccounts_mod30demo_name')]",
+        "location": "[variables('location')]",
+        "sku": {
+          "name": "Standard_LRS",
+          "tier": "Standard"
+        },
+        "kind": "StorageV2",
+        "properties": {
+          "networkAcls": {
+            "bypass": "AzureServices",
+            "virtualNetworkRules": [],
+            "ipRules": [],
+            "defaultAction": "Allow"
+          },
+          "supportsHttpsTrafficOnly": false,
+          "encryption": {
+            "services": {
+              "file": {
+                "enabled": true
+              },
+              "blob": {
+                "enabled": true
+              }
+            },
+            "keySource": "Microsoft.Storage"
+          },
+          "accessTier": "Hot"
+        }
+      },
+      {
+        "type": "Microsoft.Web/connections",
+        "apiVersion": "2016-06-01",
+        "name": "[variables('connections_azureblob_name')]",
+        "location": "[variables('location')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_mod30demo_name'))]"
+        ],
+        "properties": {
+          "displayName": "BlobConnection",
+          "customParameterValues": {},
+          "api": {
+            "id": "[concat(variables('subscriptionId'),'/providers/Microsoft.Web/locations/',variables('locationCode'),'/managedApis/', variables('connections_azureblob_name'))]"
+          },
+          "parameterValues": {
+            "accountName": "[variables('storageAccounts_mod30demo_name')]",
+            "accessKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_mod30demo_name')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value]"
+          }
+        }
+      },
+      {
+        "type": "Microsoft.Web/connections",
+        "apiVersion": "2016-06-01",
+        "name": "[variables('connections_azureeventgrid_name')]",
+        "location": "[variables('location')]",
+        "properties": {
+          "displayName": "EventGridConnection",
+          "customParameterValues": {},
+          "api": {
+            "id": "[concat(variables('subscriptionId'),'/providers/Microsoft.Web/locations/',variables('locationCode'),'/managedApis/', variables('connections_azureeventgrid_name'))]"
+          }
+        }
+      },
+      {
+        "type": "Microsoft.Web/connections",
+        "apiVersion": "2016-06-01",
+        "name": "[variables('connections_twitter_name')]",
+        "location": "[variables('location')]",
+        "properties": {
+          "displayName": "TwitterConnection",
+          "customParameterValues": {},
+          "api": {
+            "id": "[concat(variables('subscriptionId'),'/providers/Microsoft.Web/locations/',variables('locationCode'),'/managedApis/', variables('connections_twitter_name'))]"
+          }
+        }
+      },
+      {
+        "type": "Microsoft.Web/connections",
+        "apiVersion": "2016-06-01",
+        "name": "[variables('connections_cognitiveservicescomputervision_name')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.CognitiveServices/accounts', variables('accounts_mod30_cognitive_vision_name'))]"
+        ],
+        "location": "[variables('location')]",
+        "properties": {
+          "displayName": "ComputerVisionConnection",
+          "customParameterValues": {},
+          "api": {
+            "id": "[concat(variables('subscriptionId'),'/providers/Microsoft.Web/locations/',variables('locationCode'),'/managedApis/', variables('connections_cognitiveservicescomputervision_name'))]"
+          },
+          "parameterValues": {
+            "apiKey": "[listKeys(variables('cognitiveServicesId'),providers('Microsoft.CognitiveServices', 'accounts').apiVersions[0]).key1]",
+            "siteUrl": "[reference(variables('cognitiveServicesId'),providers('Microsoft.CognitiveServices', 'accounts').apiVersions[0]).endpoint]"
+          }
+        }
+      },
+      {
+        "type": "Microsoft.Web/serverfarms",
+        "apiVersion": "2016-09-01",
+        "name": "[variables('serverfarms_plan_name')]",
+        "location": "[variables('location')]",
+        "sku": {
+          "name": "Y1",
+          "tier": "Dynamic",
+          "size": "Y1",
+          "family": "Y",
+          "capacity": 0
+        },
+        "kind": "functionapp",
+        "properties": {
+          "name": "[variables('serverfarms_plan_name')]",
+          "perSiteScaling": false,
+          "reserved": false,
+          "targetWorkerCount": 0,
+          "targetWorkerSizeId": 0
+        }
+      },
+      {
+        "type": "Microsoft.Storage/storageAccounts/blobServices",
+        "apiVersion": "2019-04-01",
+        "name": "[concat(variables('storageAccounts_mod30demo_name'), '/default')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_mod30demo_name'))]"
+        ],
+        "properties": {
+          "cors": {
+            "corsRules": []
+          },
+          "deleteRetentionPolicy": {
+            "enabled": false
+          }
+        }
+      },
+      {
+        "type": "Microsoft.Web/sites",
+        "apiVersion": "2016-08-01",
+        "name": "[variables('sites_mod30_app_name')]",
+        "location": "[variables('location')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Web/serverfarms', variables('serverfarms_plan_name'))]"
+        ],
+        "kind": "functionapp",
+        "properties": {
+          "siteConfig": {
+            "appSettings": [
+              {
+                "name": "PROJECT",
+                "value": "mod30/src/Mod30Functions/Mod30Functions"
+              },
+              {
+                "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                "value": "[reference(concat('microsoft.insights/components/', variables('components_mod30_app_name')), '2015-05-01').InstrumentationKey]"
+              },
+              {
+                "name": "AzureWebJobsStorage",
+                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccounts_mod30demo_name'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_mod30demo_name')), '2015-05-01-preview').key1)]"
+              },
+              {
+                "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccounts_mod30demo_name'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_mod30demo_name')), '2015-05-01-preview').key1)]"
+              },
+              {
+                "name": "WEBSITE_CONTENTSHARE",
+                "value": "[concat(variables('sites_mod30_app_name'),'aec7')]"
+              },
+              {
+                "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                "value": "10.14.1"
+              },
+              {
+                "name": "FUNCTIONS_EXTENSION_VERSION",
+                "value": "~2"
+              },
+              {
+                "name": "FUNCTIONS_WORKER_RUNTIME",
+                "value": "dotnet"
+              }
+            ]
+          },
+          "enabled": true,
+          "hostNameSslStates": [
+            {
+              "name": "[concat(variables('sites_mod30_app_name'), '.azurewebsites.net')]",
+              "sslState": "Disabled",
+              "hostType": "Standard"
+            },
+            {
+              "name": "[concat(variables('sites_mod30_app_name'), '.scm.azurewebsites.net')]",
+              "sslState": "Disabled",
+              "hostType": "Repository"
+            }
+          ],
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('serverfarms_plan_name'))]",
+          "reserved": false,
+          "scmSiteAlsoStopped": false,
+          "clientAffinityEnabled": false,
+          "clientCertEnabled": false,
+          "hostNamesDisabled": false,
+          "containerSize": 1536,
+          "dailyMemoryTimeQuota": 0,
+          "httpsOnly": false
+        },
+        "resources": [
+          {
+            "apiVersion": "2015-08-01",
+            "name": "web",
+            "type": "sourcecontrols",
+            "dependsOn": [
+              "[resourceId('Microsoft.Web/sites', variables('sites_mod30_app_name'))]"
+            ],
+            "properties": {
+              "RepoUrl": "[parameters('repoUrl')]",
+              "branch": "[parameters('branch')]",
+              "IsManualIntegration": true
+            }
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.Web/sites",
+        "apiVersion": "2016-08-01",
+        "name": "[variables('sites_mod30_demo_name')]",
+        "location": "[variables('location')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Web/serverfarms', variables('serverfarms_plan_name'))]"
+        ],
+        "kind": "functionapp",
+        "properties": {
+          "siteConfig": {
+            "appSettings": [
+              {
+                "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                "value": "[reference(concat('microsoft.insights/components/', variables('components_mod30_demo_name')), '2015-05-01').InstrumentationKey]"
+              },
+              {
+                "name": "AzureWebJobsStorage",
+                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccounts_mod30demo_name'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_mod30demo_name')), '2015-05-01-preview').key1)]"
+              },
+              {
+                "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccounts_mod30demo_name'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_mod30demo_name')), '2015-05-01-preview').key1)]"
+              },
+              {
+                "name": "WEBSITE_CONTENTSHARE",
+                "value": "[variables('storageAccounts_mod30demo_name')]"
+              },
+              {
+                "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                "value": "10.14.1"
+              },
+              {
+                "name": "FUNCTIONS_EXTENSION_VERSION",
+                "value": "~2"
+              },
+              {
+                "name": "FUNCTIONS_WORKER_RUNTIME",
+                "value": "dotnet"
+              }
+            ]
+          },
+          "enabled": true,
+          "hostNameSslStates": [
+            {
+              "name": "[concat(variables('sites_mod30_demo_name'), '.azurewebsites.net')]",
+              "sslState": "Disabled",
+              "hostType": "Standard"
+            },
+            {
+              "name": "[concat(variables('sites_mod30_demo_name'), '.scm.azurewebsites.net')]",
+              "sslState": "Disabled",
+              "hostType": "Repository"
+            }
+          ],
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('serverfarms_plan_name'))]",
+          "reserved": false,
+          "scmSiteAlsoStopped": false,
+          "clientAffinityEnabled": false,
+          "clientCertEnabled": false,
+          "hostNamesDisabled": false,
+          "containerSize": 1536,
+          "dailyMemoryTimeQuota": 0,
+          "httpsOnly": false
+        }
+      },
+      {
+        "type": "Microsoft.Web/sites/config",
+        "apiVersion": "2016-08-01",
+        "name": "[concat(variables('sites_mod30_app_name'), '/web')]",
+        "location": "[variables('location')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Web/sites', variables('sites_mod30_app_name'))]"
+        ],
+        "properties": {
+          "numberOfWorkers": 1,
+          "defaultDocuments": [
+            "Default.htm",
+            "Default.html",
+            "Default.asp",
+            "index.htm",
+            "index.html",
+            "iisstart.htm",
+            "default.aspx",
+            "index.php"
+          ],
+          "netFrameworkVersion": "v4.0",
+          "phpVersion": "5.6",
+          "pythonVersion": "",
+          "nodeVersion": "",
+          "linuxFxVersion": "",
+          "requestTracingEnabled": false,
+          "remoteDebuggingEnabled": false,
+          "httpLoggingEnabled": false,
+          "logsDirectorySizeLimit": 35,
+          "detailedErrorLoggingEnabled": false,
+          "publishingUsername": "[concat('$', variables('sites_mod30_app_name'))]",
+          "scmType": "None",
+          "use32BitWorkerProcess": true,
+          "webSocketsEnabled": false,
+          "alwaysOn": false,
+          "appCommandLine": "",
+          "managedPipelineMode": "Integrated",
+          "virtualApplications": [
+            {
+              "virtualPath": "/",
+              "physicalPath": "site\\wwwroot",
+              "preloadEnabled": false,
+              "virtualDirectories": null
+            }
+          ],
+          "winAuthAdminState": 0,
+          "winAuthTenantState": 0,
+          "customAppPoolIdentityAdminState": false,
+          "customAppPoolIdentityTenantState": false,
+          "loadBalancing": "LeastRequests",
+          "routingRules": [],
+          "experiments": {
+            "rampUpRules": []
+          },
+          "autoHealEnabled": false,
+          "vnetName": "",
+          "siteAuthEnabled": false,
+          "cors": {
+            "allowedOrigins": [
+              "https://functions.azure.com",
+              "https://functions-staging.azure.com",
+              "https://functions-next.azure.com"
+            ],
+            "supportCredentials": false
+          },
+          "localMySqlEnabled": false,
+          "http20Enabled": false,
+          "minTlsVersion": "1.2",
+          "ftpsState": "AllAllowed",
+          "reservedInstanceCount": 0,
+          "fileChangeAuditEnabled": false
+        }
+      },
+      {
+        "type": "Microsoft.Web/sites/config",
+        "apiVersion": "2016-08-01",
+        "name": "[concat(variables('sites_mod30_demo_name'), '/web')]",
+        "location": "[variables('location')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Web/sites', variables('sites_mod30_demo_name'))]"
+        ],
+        "properties": {
+          "numberOfWorkers": 1,
+          "defaultDocuments": [
+            "Default.htm",
+            "Default.html",
+            "Default.asp",
+            "index.htm",
+            "index.html",
+            "iisstart.htm",
+            "default.aspx",
+            "index.php"
+          ],
+          "netFrameworkVersion": "v4.0",
+          "phpVersion": "5.6",
+          "pythonVersion": "",
+          "nodeVersion": "",
+          "linuxFxVersion": "",
+          "requestTracingEnabled": false,
+          "remoteDebuggingEnabled": false,
+          "httpLoggingEnabled": false,
+          "logsDirectorySizeLimit": 35,
+          "detailedErrorLoggingEnabled": false,
+          "publishingUsername": "[concat('$', variables('sites_mod30_demo_name'))]",
+          "scmType": "None",
+          "use32BitWorkerProcess": true,
+          "webSocketsEnabled": false,
+          "alwaysOn": false,
+          "appCommandLine": "",
+          "managedPipelineMode": "Integrated",
+          "virtualApplications": [
+            {
+              "virtualPath": "/",
+              "physicalPath": "site\\wwwroot",
+              "preloadEnabled": false,
+              "virtualDirectories": null
+            }
+          ],
+          "winAuthAdminState": 0,
+          "winAuthTenantState": 0,
+          "customAppPoolIdentityAdminState": false,
+          "customAppPoolIdentityTenantState": false,
+          "loadBalancing": "LeastRequests",
+          "routingRules": [],
+          "autoHealEnabled": false,
+          "vnetName": "",
+          "siteAuthEnabled": false,
+          "cors": {
+            "allowedOrigins": [
+              "https://functions.azure.com",
+              "https://functions-staging.azure.com",
+              "https://functions-next.azure.com"
+            ],
+            "supportCredentials": false
+          },
+          "localMySqlEnabled": false,
+          "http20Enabled": false,
+          "minTlsVersion": "1.2",
+          "ftpsState": "AllAllowed",
+          "reservedInstanceCount": 0,
+          "fileChangeAuditEnabled": false
+        }
+      },
+      {
+        "type": "Microsoft.Web/sites/hostNameBindings",
+        "apiVersion": "2016-08-01",
+        "name": "[concat(variables('sites_mod30_app_name'), '/', variables('sites_mod30_app_name'), '.azurewebsites.net')]",
+        "location": "[variables('location')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Web/sites', variables('sites_mod30_app_name'))]"
+        ],
+        "properties": {
+          "siteName": "[variables('sites_mod30_app_name')]",
+          "hostNameType": "Verified"
+        }
+      },
+      {
+        "type": "Microsoft.Web/sites/hostNameBindings",
+        "apiVersion": "2016-08-01",
+        "name": "[concat(variables('sites_mod30_demo_name'), '/', variables('sites_mod30_demo_name'), '.azurewebsites.net')]",
+        "location": "[variables('location')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Web/sites', variables('sites_mod30_demo_name'))]"
+        ],
+        "properties": {
+          "siteName": "[variables('sites_mod30_demo_name')]",
+          "hostNameType": "Verified"
+        }
+      },
+      {
+        "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+        "apiVersion": "2019-04-01",
+        "name": "[concat(variables('storageAccounts_mod30demo_name'), '/default/azure-webjobs-hosts')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Storage/storageAccounts/blobServices', variables('storageAccounts_mod30demo_name'), 'default')]",
+          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_mod30demo_name'))]"
+        ],
+        "properties": {
+          "publicAccess": "None"
+        }
+      },
+      {
+        "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+        "apiVersion": "2019-04-01",
+        "name": "[concat(variables('storageAccounts_mod30demo_name'), '/default/azure-webjobs-secrets')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Storage/storageAccounts/blobServices', variables('storageAccounts_mod30demo_name'), 'default')]",
+          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_mod30demo_name'))]"
+        ],
+        "properties": {
+          "publicAccess": "None"
+        }
+      },
+      {
+        "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+        "apiVersion": "2019-04-01",
+        "name": "[concat(variables('storageAccounts_mod30demo_name'), '/default/wishlist')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Storage/storageAccounts/blobServices', variables('storageAccounts_mod30demo_name'), 'default')]",
+          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_mod30demo_name'))]"
+        ],
+        "properties": {
+          "publicAccess": "Container"
+        }
+      },
+      {
+        "type": "Microsoft.Logic/workflows",
+        "apiVersion": "2017-07-01",
+        "name": "[variables('workflows_mod30_caption_name')]",
+        "location": "[variables('location')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_mod30demo_name'))]",
+          "[resourceId('Microsoft.Web/connections', variables('connections_azureblob_name'))]",
+          "[resourceId('Microsoft.Web/connections', variables('connections_azureeventgrid_name'))]",
+          "[resourceId('Microsoft.Web/connections', variables('connections_cognitiveservicescomputervision_name'))]"
+        ],
+        "properties": {
+          "state": "Disabled",
+          "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+              "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+              }
+            },
+            "triggers": {
+              "When_a_resource_event_occurs": {
+                "splitOn": "@triggerBody()",
+                "type": "ApiConnectionWebhook",
+                "inputs": {
+                  "body": {
+                    "properties": {
+                      "destination": {
+                        "endpointType": "webhook",
+                        "properties": {
+                          "endpointUrl": "@{listCallbackUrl()}"
+                        }
+                      },
+                      "filter": {
+                        "includedEventTypes": [
+                          "Microsoft.Storage.BlobCreated"
+                        ]
+                      },
+                      "topic": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_mod30demo_name'))]"
+                    }
+                  },
+                  "host": {
+                    "connection": {
+                      "name": "[concat('@parameters(',variables('singleQuote'),'$connections',variables('singleQuote'),')[',variables('singleQuote'),variables('connections_azureeventgrid_name'),variables('singleQuote'),'][',variables('singleQuote'),'connectionId',variables('singleQuote'),']')]"
+                    }
+                  },
+                  "path": "[concat('/subscriptions/@{encodeURIComponent(',variables('singleQuote'),variables('subscriptionId'),variables('singleQuote'),')}/providers/@{encodeURIComponent(',variables('singleQuote'),'Microsoft.Storage.StorageAccounts',variables('singleQuote'),')}/resource/eventSubscriptions')]",
+                  "queries": {
+                    "x-ms-api-version": "2017-06-15-preview"
+                  }
+                }
+              }
+            },
+            "actions": {
+              "Condition": {
+                "actions": {
+                  "Describe_Image_Content": {
+                    "runAfter": {
+                      "Get_blob_content_using_path": [
+                        "Succeeded"
+                      ]
+                    },
+                    "type": "ApiConnection",
+                    "inputs": {
+                      "body": "@body('Get_blob_content_using_path')",
+                      "host": {
+                        "connection": {
+                          "name": "[concat('@parameters(',variables('singleQuote'),'$connections',variables('singleQuote'),')[',variables('singleQuote'),variables('connections_cognitiveservicescomputervision_name'),variables('singleQuote'),'][',variables('singleQuote'),'connectionId',variables('singleQuote'),']')]"
+                        }
+                      },
+                      "method": "post",
+                      "path": "/vision/v2.0/describeImageContent"
+                    }
+                  },                  
+                  "Get_blob_content_using_path": {
+                    "runAfter": {},
+                    "type": "ApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connection": {
+                          "name": "[concat('@parameters(',variables('singleQuote'),'$connections',variables('singleQuote'),')[',variables('singleQuote'),variables('connections_azureblob_name'),variables('singleQuote'),'][',variables('singleQuote'),'connectionId',variables('singleQuote'),']')]"
+                        }
+                      },
+                      "method": "get",
+                      "path": "/datasets/default/GetFileContentByPath",
+                      "queries": {
+                        "inferContentType": true,
+                        "path": "@{uriPath(body('Parse_JSON')?['url'])}",
+                        "queryParametersSingleEncoded": true
+                      }
+                    }
+                  }
+                },
+                "runAfter": {
+                  "Parse_JSON": [
+                    "Succeeded"
+                  ]
+                },
+                "expression": {
+                  "and": [
+                    {
+                      "contains": [
+                        "@triggerBody()?['subject']",
+                        "wishlist"
+                      ]
+                    },
+                    {
+                      "not": {
+                        "contains": [
+                          "@triggerBody()?['subject']",
+                          "_thumb.jpg"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "type": "If"
+              },
+              "Parse_JSON": {
+                "runAfter": {},
+                "type": "ParseJson",
+                "inputs": {
+                  "content": "@triggerBody()?['data']",
+                  "schema": {
+                    "properties": {
+                      "url": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "outputs": {}
+          },
+          "parameters": {
+            "$connections": {
+              "value": {
+                "azureblob": {
+                  "connectionId": "[resourceId('Microsoft.Web/connections', variables('connections_azureblob_name'))]",
+                  "connectionName": "[variables('connections_azureblob_name')]",
+                  "id": "[concat(variables('subscriptionId'),'/providers/Microsoft.Web/locations/',variables('locationCode'),'/managedApis/',variables('connections_azureblob_name'))]"
+                },
+                "azureeventgrid": {
+                  "connectionId": "[resourceId('Microsoft.Web/connections', variables('connections_azureeventgrid_name'))]",
+                  "connectionName": "[variables('connections_azureeventgrid_name')]",
+                  "id": "[concat(variables('subscriptionId'),'/providers/Microsoft.Web/locations/',variables('locationCode'),'/managedApis/',variables('connections_azureeventgrid_name'))]"
+                },
+                "cognitiveservicescomputervision": {
+                  "connectionId": "[resourceId('Microsoft.Web/connections', variables('connections_cognitiveservicescomputervision_name'))]",
+                  "connectionName": "[variables('connections_cognitiveservicescomputervision_name')]",
+                  "id": "[concat(variables('subscriptionId'),'/providers/Microsoft.Web/locations/',variables('locationCode'),'/managedApis/',variables('connections_cognitiveservicescomputervision_name'))]"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "Microsoft.Logic/workflows",
+        "apiVersion": "2017-07-01",
+        "name": "[variables('workflows_mod30_socialintegration_name')]",
+        "location": "[variables('locationCode')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Web/connections', variables('connections_twitter_name'))]"
+        ],
+        "properties": {
+            "state": "Disabled",
+            "definition": {
+                "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": {
+                    "$connections": {
+                        "defaultValue": {},
+                        "type": "Object"
+                    }
+                },
+                "triggers": {
+                    "When_a_new_tweet_is_posted": {
+                        "recurrence": {
+                            "frequency": "Minute",
+                            "interval": 3
+                        },
+                        "splitOn": "@triggerBody()?['value']",
+                        "type": "ApiConnection",
+                        "inputs": {
+                            "host": {
+                                "connection": {
+                                    "name": "@parameters('$connections')['twitter']['connectionId']"
+                                }
+                            },
+                            "method": "get",
+                            "path": "/onnewtweet",
+                            "queries": {
+                                "searchQuery": "from:@microsoft"
+                            }
+                        }
+                    }
+                },
+                "actions": {
+                    "HTTP": {
+                        "runAfter": {
+                            "Initialize_variable_3": [
+                                "Succeeded"
+                            ]
+                        },
+                        "type": "Http",
+                        "inputs": {
+                            "body": {
+                                "notification_content": {
+                                    "body": "Hello! Check this out: @{triggerBody()?['TweetText']}",
+                                    "name": "Tweet from @{triggerBody()?['TweetedBy']}",
+                                    "title": "Tweet on @{triggerBody()?['CreatedAtIso']}"
+                                },
+                                "notification_target": null
+                            },
+                            "headers": {
+                                "X-API-Token": "@variables('auth_token')"
+                            },
+                            "method": "POST",
+                            "uri": "https://appcenter.ms/api/v0.1/apps/@{variables('owner_name')}/@{variables('app_name')}/push/notifications"
+                        }
+                    },
+                    "Initialize_variable": {
+                        "runAfter": {},
+                        "type": "InitializeVariable",
+                        "inputs": {
+                            "variables": [
+                                {
+                                    "name": "owner_name",
+                                    "type": "String",
+                                    "value": "Microsoft-CDA"
+                                }
+                            ]
+                        }
+                    },
+                    "Initialize_variable_2": {
+                        "runAfter": {
+                            "Initialize_variable": [
+                                "Succeeded"
+                            ]
+                        },
+                        "type": "InitializeVariable",
+                        "inputs": {
+                            "variables": [
+                                {
+                                    "name": "app_name",
+                                    "type": "String",
+                                    "value": "Tailwind-Traders"
+                                }
+                            ]
+                        }
+                    },
+                    "Initialize_variable_3": {
+                        "runAfter": {
+                            "Initialize_variable_2": [
+                                "Succeeded"
+                            ]
+                        },
+                        "type": "InitializeVariable",
+                        "inputs": {
+                            "variables": [
+                                {
+                                    "name": "auth_token",
+                                    "type": "String",
+                                    "value": "secret"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "outputs": {}
+            },
+            "parameters": {
+                "$connections": {
+                    "value": {
+                        "twitter": {
+                            "connectionId": "[resourceId('Microsoft.Web/connections', variables('connections_twitter_name'))]",
+                            "connectionName": "[variables('connections_twitter_name')]",
+                            "id": "[concat(variables('subscriptionId'),'/providers/Microsoft.Web/locations/',variables('locationCode'),'/managedApis/',variables('connections_twitter_name'))]"
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ]
+  }
