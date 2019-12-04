@@ -12,7 +12,7 @@ git clone https://github.com/anthonychu/TailwindTraders-Website.git /tailwind
 cd /tailwind 
 git checkout monolith 
 
-curl https://raw.githubusercontent.com/microsoft/ignite-learning-paths/master/mod/mod10/deploy.sh >deploy.sh
+curl https://raw.githubusercontent.com/microsoft/ignite-learning-paths-training-mod/master/mod10/deploy.sh >deploy.sh
 
 export apiUrl=/api/v1 
 export ApiUrlShoppingCart=/api/v1 

@@ -120,7 +120,7 @@ Line 49: Calls `MakeThumb` (Line 197 - end) to create thumbnail*
 
 As a bonus, you can show the "events" in storage to display the subscription and related metrics.
 
-ignite-learning-paths\mod\mod30\src\Mod30Functions\Mod30Functions\TailwindFunctions.cs
+ignite-learning-paths-training-mod\mod30\src\Mod30Functions\Mod30Functions\Mod30Functions\TailwindFunctions.cs
 
 ## <a href="./#la"></a>Logic Apps, Slides 40 - 45 about 5 minutes
 

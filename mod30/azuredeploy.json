@@ -23,7 +23,7 @@
       },
       "repoUrl": {
         "type": "string",
-        "defaultValue": "https://github.com/Microsoft/Ignite-Learning-Paths"
+        "defaultValue": "https://github.com/Microsoft/Ignite-Learning-Paths-training-mod"
       },
       "branch": {
         "type": "string",

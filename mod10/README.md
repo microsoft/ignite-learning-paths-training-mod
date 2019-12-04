@@ -9,7 +9,7 @@ When Tailwind Traders acquired Northwind earlier this year, they decided to cons
 In this session, you'll examine how a cloud architecture frees you up to focus on your applications, instead of your infrastructure. Then, you'll see the options to "lift and shift" a web application to Azure, including: how to deploy, manage, monitor, and backup both a Node.js and .NET Core API, using Virtual Machines and Azure App Service.
 
 
-The session [Ignite Learning Paths - MOD10](https://github.com/microsoft/ignite-learning-paths/tree/master/mod/mod10).
+The session [Ignite Learning Paths - MOD10](https://github.com/microsoft/ignite-learning-paths-training-mod/tree/master/mod10).
 
 ## How To Use
 
@@ -29,7 +29,7 @@ code.
 To begin the demo you'll need to do a few things which are described in the TTT video:
 
 1. Execute a cloud shell
-2. Download the [create-db.sh](https://github.com/microsoft/ignite-learning-paths/blob/master/mod/mod10/create-db.sh) script.
+2. Download the [create-db.sh](https://github.com/microsoft/ignite-learning-paths-training-mod/blob/master/mod10/create-db.sh) script.
 3. You'll need the presentation deck, get the latest from the [presentations.md](presentations.md)
 
 We'll use these to prep before we go into the session.  Fully build the application at least before the session. Always keep a preview copy ready to go and build what you can as a demonstration live.  You will demonstrate building the databases live, but well remind the audience we're using "cooking show rules."  You will show the process of creating these databases.
@@ -54,7 +54,7 @@ The incremented name is just to keep it easy to follow.
 
 ## Creating Resource Group and Databases.
 
-Within [create-db.sh](https://github.com/microsoft/ignite-learning-paths/blob/master/apps/apps30/create-db.sh) there are a few bash variables to change.
+Within [create-db.sh](https://github.com/microsoft/ignite-learning-paths-training-mod/blob/master/mod10/create-db.sh) there are a few bash variables to change.
 
 ```
 #!/bin/bash
@@ -150,7 +150,7 @@ Run through the demo using [hints-for-presentation.md](hints-for-presentation.md
 - [Full-length recording of presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mitt-mod10-dry-run.mp4)
 - [Full-length presentation from Ignite 2019](https://myignite.techcommunity.microsoft.com/sessions/82988?source=speakerdetail)
 - [Full-length recording of presentation - Director Cut](https://youtu.be/eczGFbKcT_A)
-- [Demo Instructions](https://github.com/microsoft/ignite-learning-paths/tree/master/mod/mod10)
+- [Demo Instructions](https://github.com/microsoft/ignite-learning-paths-training-mod/tree/master/mod10)
   
 
 ## Become a Trained Presenter

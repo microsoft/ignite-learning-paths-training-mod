@@ -44,7 +44,7 @@ This demo includes a mobile app. The instructions for setup can be found [here](
 
 ## Demo Code
 
-Demo code can be found [here](https://github.com/microsoft/ignite-learning-paths/blob/master/mod/mod30/src/Mod30Functions/)
+Demo code can be found [here](https://github.com/microsoft/ignite-learning-paths-training-mod/blob/master/mod30/src/Mod30Functions/)
 
 ## Deployment Troubleshooting
 
@@ -54,5 +54,5 @@ If after the deployment, you navigate to `mod30-app` and there are no functions,
 2. Click `Deployment center`
 3. Choose `External git` then click continue
 4. Choose `Kudu` then click continue
-5. Put in repo: https://github.com/Microsoft/Ignite-Learning-Paths and branch `master` and check `no` for `Private Repository`
+5. Put in repo: https://github.com/Microsoft/Ignite-Learning-Paths-training-mod and branch `master` and check `no` for `Private Repository`
 6. Confirm and the deployment will begin. Once the status is `Success (Active)` you should have the function app.
