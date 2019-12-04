@@ -6,6 +6,16 @@ Tailwind Traders has implemented development frameworks, deployment strategies, 
 
 In this session, we’ll create a set of routines that run on Azure Functions, respond to events in Azure Event Grid, and integrate cloud services with Azure Logic Apps. We’ll also use Azure Cognitive Services to add AI capabilities and Xamarin for a mobile app.
 
+## Table of Contents
+
+| Resources          | Links                            |
+|-------------------|----------------------------------|
+| PowerPoint        | - [Presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/mod30-2019-10_Oct-24.pptx) |
+| Videos            | - [Dry Run Rehearsal](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30DryRun.mp4) <br/>- [Microsoft Ignite Orlando Recording](https://myignite.techcommunity.microsoft.com/sessions/82990) |
+| Director's Cut Notes, with timing guidelines | [Director's Cut](directors_cut.md) |
+| Demos             | - [Demo 1 - Serverless at Scale](demos.md#demo-1-serverless-for-elastic-scale)<br/>- [Demo 2 - Thumbnails with Functions](demos.md#demo-2-thumbnails-with-functions) <br/>- [Demo 3 - Trigger Function with Event Grid Event ](demos.md#demo-3-trigger-function-with-event-grid-event) <br/>- [Demo 4 - Social Media Integration with Logic Apps ](demos.md#demo-4-social-media-integration-with-logic-apps) <br/>- [Demo 5 - Automatic Image Captioning with Cognitive Services](demos.md#demo-4-automatic-image-captioning-with-logic-apps) |
+
+
 ## How To Use
 
 Welcome, Presenter!
@@ -19,16 +29,15 @@ code.
 2. Watch the video presentation
 3. Ask questions of the Lead Presenter
 
-## Assets in Train-The-Trainer kit
+This training repository is divided in to the following sections:
 
-- PowerPoint presentation including notes for each slide [here]([https://#](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/mod30-2019-10_Oct-24.pptx))
-- Full-length recording of presentation [here]([https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30DryRun.mp4)
-- Detailed director's cut of presentation [here](directors_cut.md)
-- Individual recordings of stage-ready hands-on demos [here](#demos)
-- Demo Setup [here](Setup.md) and Mobile App Setup [here](MOBILE-APP-README.md)
-- Demo Walkthrough and Guide [here](Demos.md)
+| [Slides](#slides) | [Demos](#demos) | [Deployment](setup.md) |
+|-------------------|---------------------------|--------------------------------------
+| 50 slides  | 5 demos  | 1 automated deployment
 
-## Session Outline
+ [Full-length video can be viewed here](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30DryRun.mp4).
+
+## Slides
 
 | Section  | Slides |
 |----------|----------|
@@ -46,7 +55,18 @@ code.
 |[13 - Demo: Automatic Image Captioning with Cognitive Services](#demos)|  48
 |[14 - Closing](directors_cut.md#close)| 50 - end
 
+## Deployment / Preparation
+
+>**What's Here?** Deploying the demo environment on Azure - including the prerequisites.
+
+[Instructions and prerequisites are outlined here](setup.md).
+
 ### Demos
+
+
+> What's Here? Pre-delivery preparation, stage ready videos, required files (such as JSON templates), and walk-through videos
+
+Detailed explanations of each demonstration associated with this presentation can be found in this section. There are 3 "live from stage" technical demonstrations that utilize a number of tools both in and out of Azure. [You can get a high level overview of the tools and how we will be using them here](demos.md).
 
 | Demo  | Video |  
 |----------|----------|
@@ -56,15 +76,16 @@ code.
 |[4 - Social Media Integration with Logic Apps ](demos.md#demo-4-social-media-integration-with-logic-apps)|[Link](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30_Demo4.mp4)
 |[5 - Automatic Image Captioning with Cognitive Services](demos.md#demo-4-automatic-image-captioning-with-logic-apps)|[Link](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30_Demo5.mp4)
 
-## Become a Presenter
+## Become a Trained Presenter
 
-To become a *Trained Presenter*, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
+To become a trained presenter, contact [learningpathmanager@microsoft.com](mailto:learningpathmanager@microsoft.com). In your email please include:
 
 - Complete name:
-- The code of this presentation: MOD30
-- Link (ex: unlisted YouTube video) to a video of you presenting (~10 minutes).
+- The code of this presentation: apps10
+- Link (ex: unlisted YouTube video) to a video of you presenting (~10 minutes). 
+  > It doesn't need to be this content, the important is to show your presenter skills
 
-> It doesn't need to be this content, the important is to show your presenter skills
+A mentor will get back to you with the information on the process.
 
 ## Trained Presenters
 
