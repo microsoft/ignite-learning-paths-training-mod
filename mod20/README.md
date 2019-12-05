@@ -1,4 +1,6 @@
-# MOD20: Moving Your Database to Azure
+# MOD20 - Moving Your Database to Azure
+
+![Learning Path](https://img.shields.io/badge/Learning%20Path-MOD-fe5e00?logo=microsoft)  
 
 # Train-the-Trainer Guide
 
@@ -7,6 +9,15 @@
 Northwind kept the bulk of its data in an on-premises data center, which hosted servers running both SQL Server and MongoDB. After the acquisition, Tailwind Traders worked with the Northwind team to move their data center to Azure. 
 
 In this session, you’ll see how to migrate an on-premises MongoDB database to Azure Cosmos DB and SQL Server database to an Azure SQL Server. From there, you’ll walk through performing the migration and ensuring minimal downtime while you switch over to the cloud-hosted providers. 
+
+## Table of Content
+
+| Resources | Links |
+|-----------|------|
+| Outline | - [Session outline](00-outline.md)
+| PowerPoint | - [Presentation](presentations.md) |
+| Videos | - [See the videos page](00A-videos.md) |
+| Demos | - [Demos deployment and preparation](01-preparation.md) <br /> - [Deploying the data sources](02-prep-vms.md) <br /> - [Deploying the Azure services](03-prep-paas.md) <br /> - [Finishing the deployment](04-prep-finish.md) <br /> - [Preparing for the demos](05-prep-demos.md) <br /> - [Demos description](06-demos.md) <br /> - [Cleaning up the resources](07-cleaning-up.md)
 
 ## How to Use
 
@@ -19,25 +30,6 @@ Along with the video of the presentation, this document will link to all the ass
 * Read the document in its entirety.
 * Watch the video presentation
 * Ask questions of the Lead Presenter
-
-### Assets in Train-the-Trainer Kit
-
-* This guide
-* [PowerPoint presentation](./presentations.md)
-* [Outline for this session](./00-outline.md).
-* [A lot of videos made to help you learn and present](./00A-videos.md)
-
-### Demos deployment and preparation
-
-In order to run the demos, you will need to run two deployments to Azure. [This is explained in details here](./01-preparation.md). You can run this deployment for training purpose and then delete the resource groups that you created, and deploy again. The deployment can also be run in parallel multiple times with a unique name. This is needed sometimes when multiple speakers are presenting the session in different locations at the same time.
-
-### Running the demos
-
-Before each session you will need to run a few steps to [prepare the demo environment](./05-prep-demos.md). After that you'll be all set, and you can find a [complete description of the demos here](./06-demos.md).
-
-### Cleaning up
-
-After your session, and in order to save costs, you can simple [delete the resource groups and all the resources](./07-cleaning-up.md).
 
 ### Become a Trained Presenter
 

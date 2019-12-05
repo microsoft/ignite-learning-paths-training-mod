@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodels="clr-namespace:TailwindTraders.Mobile.ViewModels"
+             xmlns:views="clr-namespace:TailwindTraders.Mobile.Views"
+             mc:Ignorable="d"
+             x:Class="TailwindTraders.Mobile.Pages.ProductCategoryCollectionPage"
+             Shell.BackgroundColor="{StaticResource AccentColor}"
+             Shell.TitleColor="{StaticResource PrimaryColor}"             
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <viewmodels:ProductCategoryCollectionViewModel/>
+    </ContentPage.BindingContext>
+
+    
+
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding Products}"
+                        SelectionMode="Single" 
+                        SelectionChangedCommand="{Binding SelectProductCommand}"
+                        SelectedItem="{Binding SelectedProduct}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <views:ProductGridView BackgroundColor="White" ProductCost="{Binding Price}" ProductImage="{Binding Image}" ProductName="{Binding Name}" 
+                                           HeightRequest="250" Padding="10,40,10,10"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             x:Class="TailwindTraders.Mobile.Views.PopularProductView"
+             x:Name="this">
+  <ContentView.Content>
+        <AbsoluteLayout>
+            <AbsoluteLayout.Padding>
+                <Thickness Left="{StaticResource DefaultMargin}" Right="{StaticResource DefaultMargin}" Bottom="{StaticResource DefaultMargin}"/>
+            </AbsoluteLayout.Padding>
+
+            <BoxView
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                Margin="0,28"
+                android:VisualElement.Elevation="{StaticResource DefaultElevation}"
+                ios:VisualElement.IsShadowEnabled="true"
+                ios:VisualElement.ShadowColor="Black"
+                ios:VisualElement.ShadowOffset="10,10"
+                ios:VisualElement.ShadowOpacity="0.2" />
+
+            <StackLayout
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                android:VisualElement.Elevation="{StaticResource DefaultElevation}"
+                Spacing="{StaticResource 0.5xDefaultMargin}">
+
+                <StackLayout.Padding>
+                    <Thickness
+                        Left="{StaticResource DefaultMargin}"
+                        Right="{StaticResource DefaultMargin}" />
+                </StackLayout.Padding>
+
+                <Frame x:Name="imageFrame" BackgroundColor="{StaticResource AccentColor}"
+                    CornerRadius="{Binding Source={x:Reference imageFrame}, Path=Width, Converter={StaticResource DoubleToHalfFloatConverter}}"
+                    HeightRequest="{Binding Source={x:Reference imageFrame}, Path=Width}"
+                    IsClippedToBounds="true">
+
+                    <ffimageloading:CachedImage
+                        Aspect="AspectFill"
+                        Source="{Binding ProductImage, Source={x:Reference this}}"/>
+
+                </Frame>
+
+                <Label
+                    HorizontalOptions="Center"
+                    Style="{StaticResource BrandonGrotesqueMediumLargeFontStyle}"
+                    Text="{Binding ProductCost, StringFormat='${0}', Source={x:Reference this}}" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="1"
+                    Style="{StaticResource BrandonGrotesqueLightMediumFontStyle}"
+                    Text="{Binding ProductName, Source={x:Reference this}}" />
+
+                <Button
+                    BackgroundColor="{StaticResource Accent2Color}"                    
+                    CornerRadius="28"
+                    HeightRequest="56"
+                    Text="ADD TO CART"
+                    TextColor="White"
+                    WidthRequest="228" />
+
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>
