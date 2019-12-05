@@ -118,7 +118,7 @@ Line 49: Calls `MakeThumb` (Line 197 - end) to create thumbnail*
 11. Upload a new image from the app and show it processed in the event grid.
 12. Navigate to storage and show the thumbnail.
 
-As a bonus, you can show the "events" in storage to display the subscription and related metrics at.
+As a bonus, you can show the "events" in storage to display the subscription and related metrics.
 
 ## <a href="./#la"></a>Logic Apps, Slides 40 - 45 about 5 minutes
 
