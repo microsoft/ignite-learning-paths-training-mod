@@ -23,5 +23,3 @@ The PowerPoint slide deck is divided up in to six (6) sections including one (1)
 | [5 - Demo Audience Participation](https://youtu.be/Ma9NulalaKk?t=2556) | 2       | _32_      | [Link](https://youtu.be/Ma9NulalaKk?t=2556) |
 | [6 - Summary & Closing](https://youtu.be/Ma9NulalaKk?t=2610)           | 2       | _33 - 38_ | [Link](https://youtu.be/Ma9NulalaKk?t=2610) |
 | Total                                                                  | 45      |           |
-
----
