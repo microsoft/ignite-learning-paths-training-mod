@@ -39,7 +39,7 @@ Ask questions of the Lead Presenters and trained speakers (list below).
 
 This training repository is divided in to the following sections:
 
-| [Slides](presentations.md) | [Demos](/mod50/demos/README.md) | [Deployment](/mod50/deployment/README.md) | 
+| [Slides](slides/README.md) | [Demos](/mod50/demos/README.md) | [Deployment](/mod50/deployment/README.md) | 
 |--------|-------|------------|
 | 37 slides - 25 minutes, | 1 demo - 20 minutes
 
@@ -60,7 +60,7 @@ This training repository is divided in to the following sections:
 
 >**What's Here?** A speaking script, numbered slide thumbnails, and the master Powerpoint slide deck.
 
-Begin by familiarizing yourself with the presentation. Speaking scripts and the master Powerpoint slide deck can be found in the [slides](presentations.md) page.
+Begin by familiarizing yourself with the presentation. Speaking scripts and the master Powerpoint slide deck can be found in the [slides](slides/README.md) page.
  
 ### **Deployment**
 
