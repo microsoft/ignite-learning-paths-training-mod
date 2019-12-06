@@ -1,4 +1,4 @@
-# Train The Trainer - MOD30: Demo Walkthrough
+# MOD30: Demo Walkthrough
 
 *View the [Setup documentation](setup.md) to prepare for these demos.*
 

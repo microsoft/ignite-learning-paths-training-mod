@@ -1,4 +1,4 @@
-# Train The Trainer - MOD30: Director's Cut Walkthrough
+# MOD30: Director's Cut Walkthrough
 
 This section provides commentary on the entirety of the presentation, including the demos.
 
@@ -119,8 +119,6 @@ Line 49: Calls `MakeThumb` (Line 197 - end) to create thumbnail*
 12. Navigate to storage and show the thumbnail.
 
 As a bonus, you can show the "events" in storage to display the subscription and related metrics.
-
-ignite-learning-paths-training-mod\mod30\src\Mod30Functions\Mod30Functions\Mod30Functions\TailwindFunctions.cs
 
 ## <a href="./#la"></a>Logic Apps, Slides 40 - 45 about 5 minutes
 
