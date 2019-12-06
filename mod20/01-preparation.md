@@ -2,6 +2,27 @@
 
 The deployment of the demos is mostly automated. You can run this deployment for training purpose and then delete the resource groups that you created, and deploy again. The deployment can also be run in parallel multiple times with a unique name. This is needed sometimes when multiple speakers are presenting the session in different locations at the same time.
 
+## Tested regions
+
+> **IMPORTANT NOTE** Certain regions have restrictions with certain types of subscriptions. If you are planning to present this with an MSDN subscription (including MVP subscriptions and Microsoft FTE subscriptions), make sure to select one of the tested regions here below!!!
+
+| Tested, Works | *Tested, Doesn't work* |
+|---------------|----------------------|
+| - **East US** | - *East US 2* |
+| - **West US 2** | - *West US* |
+| - **North Europe** | - *West Europe* |
+| - **Southeast Asia** | - *Brazil South* |
+| - **Australia East** | - *Central US* |
+| | - *North Central US* |
+| | - *South Africa North* |
+| | - *Central India* |
+| | - *East Asia* |
+| | - *Japan East* |
+| | - *UAE North* |
+| | - *UAE Central* |
+
+## Deployment preparation
+
 In order to run the deployment, you will need the following decisions:
 
 <a id="credentials"></a>
