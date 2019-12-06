@@ -4,6 +4,10 @@ These are all the video resources to learn to present this session:
 
 Each video can be downloaded for offline usage too.
 
+## Ignite 2019 recording
+
+This session was recorded live at Microsoft Ignite 2019. [You can see the recording here](https://myignite.techcommunity.microsoft.com/sessions/83223?source=sessions).
+
 ## Dry run
 
 This video shows the 20 minutes dry run of the video, as presented to the team in November 2019. It's a good resource to learn the presentation, though some minor details changed.

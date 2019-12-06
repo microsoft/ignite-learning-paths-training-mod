@@ -55,6 +55,8 @@ This training repository is divided in to the following sections:
 
 [Download a silent video of the demos](https://globaleventcdn.blob.core.windows.net/assets/mod/mod50/video/mod50TTTSilentDemo2019-10-07.mp4).
 
+[Recording of this session at Microsoft Ignite 2019](https://myignite.techcommunity.microsoft.com/sessions/82992?source=sessions)
+
 
 ### **Slides**
 

@@ -32,6 +32,7 @@ code.
   * [Demo 4: Snapshot Debugging](https://globaleventcdn.blob.core.windows.net/assets/mod/mod40/MITT-MOD40-Demo4.mp4)
   * [Demo 5: Deployment Slots](https://globaleventcdn.blob.core.windows.net/assets/mod/mod40/MITT-MOD40-Demo5.mp4)
 - [Demo Guide Index](./demo-scripts/demo-guide.md)
+- [Recording of this session at Microsoft Ignite 2019](https://myignite.techcommunity.microsoft.com/sessions/82991?source=sessions)
 
 
 ## Become a Trained Presenter

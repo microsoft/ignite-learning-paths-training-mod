@@ -150,6 +150,7 @@ Run through the demo using [hints-for-presentation.md](hints-for-presentation.md
 - [Full-length recording of presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mitt-mod10-dry-run.mp4)
 - [Full-length presentation from Ignite 2019](https://myignite.techcommunity.microsoft.com/sessions/82988?source=speakerdetail)
 - [Full-length recording of presentation - Director Cut](https://youtu.be/eczGFbKcT_A)
+- [Recording of this session at Microsoft Ignite 2019](https://myignite.techcommunity.microsoft.com/sessions/82988?source=sessions)
 - [Demo Instructions](https://github.com/microsoft/ignite-learning-paths-training-mod/tree/master/mod10)
   
 

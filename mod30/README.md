@@ -76,6 +76,10 @@ Detailed explanations of each demonstration associated with this presentation ca
 |[4 - Social Media Integration with Logic Apps ](demos.md#demo-4-social-media-integration-with-logic-apps)|[Link](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30_Demo4.mp4)
 |[5 - Automatic Image Captioning with Cognitive Services](demos.md#demo-4-automatic-image-captioning-with-logic-apps)|[Link](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30_Demo5.mp4)
 
+### Recording of this session at Microsoft Ignite 2019
+
+[You can see and download the recording here](https://myignite.techcommunity.microsoft.com/sessions/90746?source=sessions)
+
 ## Become a Trained Presenter
 
 To become a trained presenter, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:

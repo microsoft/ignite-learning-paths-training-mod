@@ -16,6 +16,10 @@ Each video can be downloaded for offline usage too.
     - [Video download](https://globaleventcdn.blob.core.windows.net/assets/mod/mod20/Mod20%20TTT%20-%2002%20-%20Preparing.mp4)
     - [YouTube with captions](https://www.youtube.com/watch?v=WotAy0MlWWA&list=PLl8yjZLsL_Wol43sR9iUL5MqFn2OBSzCV)
 
+## Ignite 2019 recording
+
+This session was recorded live at Microsoft Ignite 2019. [You can see the recording here](https://myignite.techcommunity.microsoft.com/sessions/82989?source=sessions).
+
 ## Dry run
 
 This video shows the 45 minutes dry run of the video, as presented to the team in September 2019. It's a good resource to learn the presentation, though some minor details changed.
