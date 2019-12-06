@@ -9,6 +9,16 @@
 *We’ll then take that entirely to the cloud using Azure’s new DevOps project, showing you how you can automate the deployment of a frontend web application, backend web service and database, and mobile application with a few clicks of a button.*
 
 ---
+## Table of Contents
+ 
+ 
+| Resources          | Links                            |
+|-------------------|----------------------------------|
+| PowerPoint        | - [Presentation](slides/README.md) |
+| Videos            | - [Youtube with captions](https://youtu.be/Ma9NulalaKk)<br/> - [Full-length download](https://globaleventcdn.blob.core.windows.net/assets/mod/mod50/video/mod50sessionrecordingTTT-2019-10-07.mp4)<br/> - [Director's cut download](https://globaleventcdn.blob.core.windows.net/assets/mod/mod50/video/mod50directorscutTTT-2019-10-07%20-%20Copy.mp4)<br/> - [Silent demo](https://globaleventcdn.blob.core.windows.net/assets/mod/mod50/video/mod50TTTSilentDemo2019-10-07.mp4)|
+| Demos             | - [1 - Reviewing the tailwindtraders app](https://youtu.be/Ma9NulalaKk?t=1070) <br/>- [2 - Changing the tailwindtraders shipping cost](https://youtu.be/Ma9NulalaKk?t=1193) <br/>- [3 - Connecting the GitHub Repo and Azure DevOps](https://youtu.be/Ma9NulalaKk?t=1302)<br/>- [4 - Creating an Azure DevOps Release Pipeline](https://youtu.be/Ma9NulalaKk?t=1562) <br/>- [5 -  Audience Participation of A/B Testing](https://youtu.be/Ma9NulalaKk?t=2496) |
+
+---
 
 ## How To Use This Repository
 
@@ -29,7 +39,7 @@ Ask questions of the Lead Presenters and trained speakers (list below).
 
 This training repository is divided in to the following sections:
 
-| [Slides](slides/README.md) | [Demos](/mod50/demos/README.md) | [Deployment](/mod50/deployment/README.md) | 
+| [Slides](presentations.md) | [Demos](/mod50/demos/README.md) | [Deployment](/mod50/deployment/README.md) | 
 |--------|-------|------------|
 | 37 slides - 25 minutes, | 1 demo - 20 minutes
 
@@ -37,7 +47,7 @@ This training repository is divided in to the following sections:
 
 >**What's Here?** Stage ready videos.
 
- [View the video on Youtube with captions](https://globaleventcdn.blob.core.windows.net/assets/mod/mod50/video/mod50sessionrecordingTTT-2019-10-07.mp4).
+ [View the video on Youtube with captions](https://youtu.be/Ma9NulalaKk).
 
  [Download the full-length video](https://globaleventcdn.blob.core.windows.net/assets/mod/mod50/video/mod50sessionrecordingTTT-2019-10-07.mp4).
 
@@ -50,7 +60,7 @@ This training repository is divided in to the following sections:
 
 >**What's Here?** A speaking script, numbered slide thumbnails, and the master Powerpoint slide deck.
 
-Begin by familiarizing yourself with the presentation. Speaking scripts and the master Powerpoint slide deck can be found in the [slides](slides/README.md) section.
+Begin by familiarizing yourself with the presentation. Speaking scripts and the master Powerpoint slide deck can be found in the [slides](presentations.md) page.
  
 ### **Deployment**
 
