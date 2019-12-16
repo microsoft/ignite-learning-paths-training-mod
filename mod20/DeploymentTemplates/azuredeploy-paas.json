@@ -185,18 +185,11 @@
             "name": "[variables('hostingPlanName')]",
             "type": "Microsoft.Web/serverfarms",
             "location": "[variables('location')]",
-            "kind": "",
             "tags": {},
-            "dependsOn": [],
             "properties": {
-                "name": "[variables('hostingPlanName')]",
-                "workerSize": "[variables('workerSize')]",
-                "workerSizeId": "[variables('workerSizeId')]",
-                "numberOfWorkers": "[variables('numberOfWorkers')]",
-                "hostingEnvironment": "[variables('hostingEnvironment')]"
+                "name": "[variables('hostingPlanName')]"
             },
             "sku": {
-                "Tier": "[variables('sku')]",
                 "Name": "[variables('skuCode')]"
             }
         },
