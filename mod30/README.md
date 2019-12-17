@@ -15,10 +15,8 @@ In this session, we’ll create a set of routines that run on Azure Functions, r
 | PowerPoint        | - [Presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/mod30-2019-10_Oct-24.pptx) |
 | Videos            | - [Dry Run Rehearsal](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30DryRun.mp4) <br/>- [Microsoft Ignite Orlando Recording](https://myignite.techcommunity.microsoft.com/sessions/82990) |
 | Director's Cut Notes, with timing guidelines | - [Director's Cut](directors_cut.md) |
-| Demos             | - [Demo 1 - Serverless at Scale](./demos.md#demo-1-serverless-for-elastic-scale)<br/>- [Demo 2 - Thumbnails with Functions](./demos.md#demo-2-thumbnails-with-functions) <br/>- [Demo 3 - Trigger Function with Event Grid Event ](./demos.md#demo-3-trigger-function-with-event-grid-event) <br/>- [Demo 4 - Social Media Integration with Logic Apps ](./demos.md#demo-4-social-media-integration-with-logic-apps) <br/>- [Demo 5 - Automatic Image Captioning with Cognitive Services](./demos.md#demo-4-automatic-image-captioning-with-logic-apps) |
+| Demos             | - [Demo 1 - Serverless at Scale](./demos.md#demo-1-serverless-for-elastic-scale-watch-)<br/>- [Demo 2 - Thumbnails with Functions](./demos.md#demo-2-thumbnails-with-functions-watch-) <br/>- [Demo 3 - Trigger Function with Event Grid Event ](./demos.md#demo-3-trigger-function-with-event-grid-event-watch-) <br/>- [Demo 4 - Social Media Integration with Logic Apps ](./demos.md#demo-4-social-media-integration-with-logic-apps-watch-) <br/>- [Demo 5 - Automatic Image Captioning with Cognitive Services](./demos.md#demo-4-automatic-image-captioning-with-logic-apps-watch-) |
 
-
-https://github.com/microsoft/ignite-learning-paths-training-mod/blob/master/mod30/demos.md#demo-3-trigger-function-with-event-grid-event
 
 ## How To Use
 
