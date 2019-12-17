@@ -36,7 +36,7 @@ code.
 
 This training repository is divided in to the following sections:
 
-| **Slides** | [Demos](demos.md) | [Deployment](deployment.md) | 
+| **Slides** | [Demos](demo.md#Demoing-Live) | [Deployment](deployment.md) | 
 |-------------------|---------------------------|--------------------------------------
 | 46 slides  | 1 demo  | 1 deployment process
 

@@ -15,8 +15,10 @@ In this session, we’ll create a set of routines that run on Azure Functions, r
 | PowerPoint        | - [Presentation](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/mod30-2019-10_Oct-24.pptx) |
 | Videos            | - [Dry Run Rehearsal](https://globaleventcdn.blob.core.windows.net/assets/mod/mod30/MOD30DryRun.mp4) <br/>- [Microsoft Ignite Orlando Recording](https://myignite.techcommunity.microsoft.com/sessions/82990) |
 | Director's Cut Notes, with timing guidelines | - [Director's Cut](directors_cut.md) |
-| Demos             | - [Demo 1 - Serverless at Scale](demos.md#demo-1-serverless-for-elastic-scale)<br/>- [Demo 2 - Thumbnails with Functions](demos.md#demo-2-thumbnails-with-functions) <br/>- [Demo 3 - Trigger Function with Event Grid Event ](demos.md#demo-3-trigger-function-with-event-grid-event) <br/>- [Demo 4 - Social Media Integration with Logic Apps ](demos.md#demo-4-social-media-integration-with-logic-apps) <br/>- [Demo 5 - Automatic Image Captioning with Cognitive Services](demos.md#demo-4-automatic-image-captioning-with-logic-apps) |
+| Demos             | - [Demo 1 - Serverless at Scale](./demos.md#demo-1-serverless-for-elastic-scale)<br/>- [Demo 2 - Thumbnails with Functions](./demos.md#demo-2-thumbnails-with-functions) <br/>- [Demo 3 - Trigger Function with Event Grid Event ](./demos.md#demo-3-trigger-function-with-event-grid-event) <br/>- [Demo 4 - Social Media Integration with Logic Apps ](./demos.md#demo-4-social-media-integration-with-logic-apps) <br/>- [Demo 5 - Automatic Image Captioning with Cognitive Services](./demos.md#demo-4-automatic-image-captioning-with-logic-apps) |
 
+
+https://github.com/microsoft/ignite-learning-paths-training-mod/blob/master/mod30/demos.md#demo-3-trigger-function-with-event-grid-event
 
 ## How To Use
 
@@ -82,14 +84,15 @@ Detailed explanations of each demonstration associated with this presentation ca
 
 ## Become a Trained Presenter
 
-To become a trained presenter, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
+You don't need anything to present this content, it's all there to be used. However, by becoming a *Trained Presenter* the scalable content team will recognize you as well. *Trained Presenter* see their contact information (name, picture, website) in the bottom of each session.  
+ 
+To become a *Trained Presenter*, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
 
 - Complete name:
-- The code of this presentation: mod30
-- Link (ex: unlisted YouTube video) to a video of you presenting (~10 minutes). 
-  > It doesn't need to be this content, the important is to show your presenter skills
+- The code of this presentation: \<Session Code (ex:AFUN10)\>
+- Link to an unlisted YouTube video of you presenting around 10 minutes of the content for this specific session.
 
-A mentor will get back to you with the information on the process.
+
 
 ## Trained Presenters
 
