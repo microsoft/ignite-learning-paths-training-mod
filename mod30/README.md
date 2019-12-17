@@ -1,6 +1,6 @@
 # MOD30 - Enhancing Web Applications with Cloud Intelligence
 
-![Learning Path](https://img.shields.io/badge/Learning%20Path-MOD-fe5e00?logo=microsoft)  
+[![Learning Path](https://img.shields.io/badge/Learning%20Path-MOD-fe5e00?logo=microsoft)](https://github.com/microsoft/ignite-learning-paths-training-mod/)
 
 ## Session Abstract
 
@@ -103,14 +103,14 @@ Thanks goes to these wonderful people
     <td align="center"><a href="https://medium.com/@bbenz">
         <img src="https://avatars2.githubusercontent.com/u/2809036?s=400&v=4" width="100px;" alt="Brian Benz"/><br />
         <sub><b>Brian Benz</b></sub></a><br />
-            <!-- <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=fboucher" title="talk">📢</a>
-            <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=fboucher" title="Documentation">📖</a>  -->
+            <!-- <a href="https://github.com/microsoft/ignite-learning-paths-training-mod/commits?author=fboucher" title="talk">📢</a>
+            <a href="https://github.com/microsoft/ignite-learning-paths-training-mod/commits?author=fboucher" title="Documentation">📖</a>  -->
     </td>
     <td align="center"><a href="https://blog.jeremylikness.com/">
         <img src="https://avatars0.githubusercontent.com/u/5479675?s=400&v=4" width="100px;" alt="Jeremy Likness"/><br />
         <sub><b>Jeremy Likness</b></sub></a><br />
-            <!-- <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=neilpeterson" title="talk">🎨</a>
-            <a href="https://github.com/neilpeterson/ignite-tour-fy20/commits?author=neilpeterson" title="design">📖</a>  -->
+            <!-- <a href="https://github.com/microsoft/ignite-learning-paths-training-mod/commits?author=neilpeterson" title="talk">🎨</a>
+            <a href="https://github.com/microsoft/ignite-learning-paths-training-mod/commits?author=neilpeterson" title="design">📖</a>  -->
     </td>
 </tr></table>
 

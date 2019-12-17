@@ -1,6 +1,6 @@
 # MOD41 - Deploying and A/B testing without risks with Deployment Slots
 
-![Learning Path](https://img.shields.io/badge/Learning%20Path-MOD-fe5e00?logo=microsoft)  
+[![Learning Path](https://img.shields.io/badge/Learning%20Path-MOD-fe5e00?logo=microsoft)](https://github.com/microsoft/ignite-learning-paths-training-mod/)
 
 # Train-the-Trainer Guide
 
@@ -17,28 +17,28 @@ Who hasn’t been very scared when deploying a new feature to a website? Sometim
 | Videos | - [See the videos page](00A-videos.md) |
 | Demos | - [Demos deployment and preparation](01-preparation.md) <br /> - [Finishing the deployment](02-prep-finish.md) <br /> - [Preparing for the demo](03-prep-demo.md) <br /> - [Demo description](04-demo.md) <br /> - [Cleaning up the resources](05-cleaning-up.md)
 
-## How to Use
+## How To Use
 
-### Welcome, Presenter!
+Welcome! 
 
-We're glad you are here and look forward to your delivery of this amazing content. As an experienced presenter, we know you know **HOW** to present so this guide will focus on **WHAT** you need to present. It will provide you a full run-through of the presentation created by the presentation design team.
+We're glad you are here and look forward to your delivery of this amazing content. As an experienced presenter, we know you know HOW to present so this guide will focus on WHAT you need to present. It will provide you a full run-through of the presentation created by the presentation design team. 
 
-Along with the video of the presentation, this document will link to all the assets you need to successfully present including PowerPoint slides and demo instructions & code.
+Along with the video of the presentation, this document will link to all the assets you need to successfully present including PowerPoint slides and demo instructions &
+code.
 
-* Read the document in its entirety.
-* Watch the video presentation
-* Ask questions of the Lead Presenter
+1.  Read document in its entirety.
+2.  Watch the video presentation
+3.  Ask questions of the Lead Presenter
 
-### Become a Trained Presenter
+## Become a Trained Presenter
 
-To become a trained presenter, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
+You don't need anything to present this content, it's all there to be used. However, by becoming a *Trained Presenter* the scalable content team will recognize you as well. *Trained Presenter* see their contact information (name, picture, website) in the bottom of each session.  
+ 
+To become a *Trained Presenter*, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
 
 - Complete name:
-- The code of this presentation: MOD41
-- Link (ex: unlisted YouTube video) to a video of you presenting (~10 minutes). 
-  > It doesn't need to be this content, the important is to show your presenter skills
-
-A mentor will get back to you with the information on the process.
+- The code of this presentation: \<Session Code (ex:AFUN10)\>
+- Link to an unlisted YouTube video of you presenting around 10 minutes of the content for this specific session.
 
 ### Trained Presenters
 
