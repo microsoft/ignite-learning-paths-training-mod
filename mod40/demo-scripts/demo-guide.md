@@ -2,12 +2,16 @@
 
 ## Demo 1 - Azure Monitor in Existing Resources
 
+> 💡 You must have completed the [deployment](./provisioning.md) before attempting to do the demo.
+
 1. On overview, show the Http 5x, data in, data out, etc. and explain this is part of monitoring
 2. Open log streaming and navigate the site, show the streaming
 3. Explain Application Insights is a part of Azure Monitor and you’ll explore those details next
 4. Note: logs turn off automatically after 12 hours
 
 ## Demo 2 - Application Insights
+
+> 💡 You must have completed the [deployment](./provisioning.md) before attempting to do the demo.
 
 1. Navigate to Application Insights and show the overview
 2. Click on the Application Map
@@ -19,6 +23,8 @@
 
 ## Demo 3 - Log Analytics
 
+> 💡 You must have completed the [deployment](./provisioning.md) before attempting to do the demo.
+
 1. Open application insights
 2. Click on Logs (Analytics)
 3. Open Help -> Documentation -> Tutorials -> Log Queries
@@ -28,6 +34,8 @@
 7. Show different options to plot, graph, etc.
 
 ## Demo 4 - Snapshot debugging
+
+> 💡 You must have completed the [deployment](./provisioning.md) before attempting to do the demo.
 
 1. Navigate to Application Insights
 2. Navigate to Failures
