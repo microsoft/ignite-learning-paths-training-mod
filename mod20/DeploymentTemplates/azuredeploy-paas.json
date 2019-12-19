@@ -1,5 +1,5 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "prefix": {
@@ -26,23 +26,16 @@
     },
     "variables": {
         "name": "[toLower(concat('mod20', parameters('prefix')))]",
-        "subscriptionId": "[subscription().id]",
         "location": "[resourceGroup().location]",
-        
-        "hostingEnvironment": "",
-        "hostingPlanName": "[concat(variables('name'), 'plan')]",
-        "serverFarmResourceGroup": "[resourceGroup().name]",
+
+        "hostingPlanName": "[concat(variables('name'), 'plan')]",        
         "alwaysOn": true,
-        "sku": "PremiumV2",
         "skuCode": "P1v2",
-        "workerSize": "3",
-        "workerSizeId": "3",
-        "numberOfWorkers": "1",
         "currentStack": "dotnetcore",
         "apiUrl": "/api/v1",
         "apiUrlShoppingCart": "/api/v1",
-        "locationCode": "[toLower(replace(variables('location'), ' ', ''))]",
         
+        "locationCode": "[toLower(replace(variables('location'), ' ', ''))]",
         "appInsightsName": "[variables('name')]",
         
         "sqlServerName": "[concat(variables('name'), 'sqlsvr')]",
@@ -73,18 +66,28 @@
     "resources": [
         {
             "apiVersion": "2018-02-01",
+            "name": "[variables('hostingPlanName')]",
+            "type": "Microsoft.Web/serverfarms",
+            "location": "[variables('location')]",
+            "kind": "app",
+            "properties": {},
+            "sku": {
+                "name": "[variables('skuCode')]"
+            }
+        },
+        {
+            "apiVersion": "2018-11-01",
             "name": "[variables('name')]",
             "type": "Microsoft.Web/sites",
+            "kind": "app",
             "location": "[variables('location')]",
-            "tags": {},
             "dependsOn": [
                 "[concat('microsoft.insights/components/', variables('appInsightsName'))]",
-                "[concat('Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
-                "[concat('Microsoft.Sql/servers/', variables('sqlServerName'), '/databases/', variables('sqlDatabaseName'))]",
-                "[concat('Microsoft.DocumentDB/databaseAccounts/', variables('cosmosAccountName'))]"
+                "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+                "[concat('Microsoft.Sql/servers/', variables('sqlServerName'), '/databases/', variables('sqlBakDatabaseName'))]",
+                "[concat('Microsoft.DocumentDB/databaseAccounts/', variables('cosmosBakAccountName'))]"
             ],
             "properties": {
-                "name": "[variables('name')]",
                 "siteConfig": {
                     "appSettings": [
                         {
@@ -160,13 +163,11 @@
                     ],
                     "alwaysOn": "[variables('alwaysOn')]"
                 },
-                "serverFarmId": "[concat('/subscriptions/', variables('subscriptionId'),'/resourcegroups/', variables('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
-                "hostingEnvironment": "[variables('hostingEnvironment')]",
-                "clientAffinityEnabled": true
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
             },
             "resources": [
                 {
-                    "apiVersion": "2015-08-01",
+                    "apiVersion": "2018-11-01",
                     "name": "web",
                     "type": "sourcecontrols",
                     "dependsOn": [
@@ -181,24 +182,10 @@
             ]
         },
         {
-            "apiVersion": "2018-02-01",
-            "name": "[variables('hostingPlanName')]",
-            "type": "Microsoft.Web/serverfarms",
-            "location": "[variables('location')]",
-            "tags": {},
-            "properties": {
-                "name": "[variables('hostingPlanName')]"
-            },
-            "sku": {
-                "Name": "[variables('skuCode')]"
-            }
-        },
-        {
             "apiVersion": "2015-05-01",
             "name": "[variables('appInsightsName')]",
-            "type": "microsoft.insights/components",
+            "type": "Microsoft.Insights/components",
             "location": "[variables('locationCode')]",
-            "tags": null,
             "properties": {
                 "ApplicationId": "[variables('name')]",
                 "Request_Source": "IbizaWebAppExtensionCreate"
@@ -276,7 +263,7 @@
                         "endIpAddress": "0.0.0.0",
                         "startIpAddress": "0.0.0.0"
                     },
-                    "type": "firewallrules"
+                    "type": "firewallRules"
                 }
             ],
             "type": "Microsoft.Sql/servers"
