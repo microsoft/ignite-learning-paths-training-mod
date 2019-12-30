@@ -17,7 +17,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using Newtonsoft.Json.Linq;
 
-namespace Mod40Functions
+namespace Mod30Functions
 {
     public static class TailwindFunctions
     {

@@ -6,6 +6,12 @@ The following steps are necessary to prepare for MOD30 demos.
 
 1. Install [Node.js](https://nodejs.org) LTS
 2. Install [artillery](https://artillery.io/): `npm i -g artillery`
+
+    Windows - Add PATH to `artillery`.
+    ```
+    %USERPROFILE%\AppData\Roaming\npm
+    ```
+
 3. Install [Visual Studio or VS Code](https://visualstudio.microsoft.com/?WT.mc_id=msignitethetour2019-github-mod30)
 4. (Optional) Install [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows&WT.mc_id=msignitethetour2019-github-mod30)
 5. (Optional) for sharing and screen mirroring on Android device: [Vysor](http://www.vysor.io/)
