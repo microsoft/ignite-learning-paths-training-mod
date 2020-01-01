@@ -58,29 +58,35 @@ To make sure that the backup databases are populated, follow the steps:
 
 ## III. Preparing the Advanced Data Security for the Azure SQL Database
 
-During the demo, we introduce some features of the Azure SQL Database, including the Advanced Data Security. This needs a little configuration first:
+During the demo, we introduce some features of the Azure SQL Database, including the Advanced Data Security. This needs a little configuration first.
+
+### Preparing the demo SQL Database 
 
 1. In the Azure Portal, open the resource named `mod20[prefix]sqldb` where `[prefix]` is the unique prefix that you [prepared here](./01-preparation.md/#prefix).
 
 2. Open the tab `Advanced Data Security`.
 
-3. Click on `Enable Advanced Data Security on the server`.
+3. Click on the Vulnerability Assessment area.
 
-![Enable Advanced Data Security button](./images/2019-09-24_15-39-42.png)
+4. The `Vulnerability Assessment Settings` will be presented, where you need to select a storage account. Click on `Storage Account - Configure required settings`. 
 
-> Note that enabling Advanced Data Security costs a monthly fee, but there is a free trial period.
+5. A list of available storage accounts will be presented. Select the storage account named `mod20[prefix]storage` where `[prefix]` is the unique prefix that you [prepared here](./01-preparation.md/#prefix).
 
-4. After the feature has been enabled, click on the Vulnerability Assessment area and click on the `Scan` button to Initiate a new scan.
+6. Click on the `Save` button to save the settings.
+
+7. Click on the `Scan` button to Initiate a new scan.
 
 > If you wait for a moment, the Vulnerability Assessment will start automatically.
 
 ![Vulnerability Assessment](./images/2019-09-24_15-43-09.png)
 
-5. Open the resource named `mod20[prefix]sqldb-bak` where `[prefix]` is the unique prefix that you [prepared here](./01-preparation.md/#prefix).
+### Preparing the backup SQL Database 
 
-6. Open the Advanced Data Security tab.
+1. Open the resource named `mod20[prefix]sqldb-bak` where `[prefix]` is the unique prefix that you [prepared here](./01-preparation.md/#prefix).
 
-7. Click on the Vulnerability Assessment area and click on the `Scan` button to initiate a new scan.
+2. Open the Advanced Data Security tab.
+
+3. Click on the Vulnerability Assessment area and click on the `Scan` button to initiate a new scan. (The storage account for the backup database is already configured.)
 
 <a id="cheatsheet"></a>
 ## IV. Preparing the "cheat sheet" commands.md
