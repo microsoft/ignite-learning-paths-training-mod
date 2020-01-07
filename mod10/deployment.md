@@ -82,6 +82,43 @@ This should take about 15 minutes for both DBs to create.
 
 Collect both connection strings to put in the VARs for the container to connect to the database.
 
+### Creating the VM
+
+Live, you'll want to create the VM using the steps in [demo.md] for portal VM creation - before though you'll want to use this:
+
+```
+az vm create --subscription "Ignite The Tour" --resource-group ignitemod10 --name twtweb --public-ip-address-dns-name twtweb --image UbuntuLTS --admin-username ubuntu --generate-ssh-keys --vnet-name ignitemod10vnet --size Standard\_DS3\_v2
+```
+
+Open Network Ports
+
+```
+az vm open-port --subscription "Ignite The Tour" --resource-group ignitemod10 --name twtweb --port 80 --priority "201"
+
+az vm open-port --subscription "Ignite The Tour" --resource-group ignitemod10 --name twtweb --port 443 --priority "202"
+
+az vm open-port --subscription "Ignite The Tour" --resource-group ignitemod10 --name twtweb --port 22  --priority "203"
+```
+
+# SSH in and begin installing our dependencies
+
+```
+ssh ubuntu@twtweb.eastus.cloudapp.azure.com
+sudo su -
+```
+
 ## Next Steps
 
+get [deploy.sh] and update the env vars from the [create-db.sh] script
+
+curl https://raw.githubusercontent.com/microsoft/ignite-learning-paths-training-mod/master/mod10/deploy.sh >deploy.sh
+
+update lines 28/29
+
+```
+export MongoConnectionString=""
+export SqlConnectionString=""
+```
+
+### Final
 Go through the opening of the talk with the application fully built in the background.  Keep two portals up, one with the "complete" version of the app, one of the resource group you're going to build live.  You'll want to show them the difference and how you're creating the resources live as you're explaining each part.
