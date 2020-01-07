@@ -2,41 +2,36 @@
 
 ## Getting Started
 
-To begin the demo you'll need to do a few things which are described in the TTT video:
+We'll use these to prep before we go into the session.  Fully build the application at least before the session. Always keep a preview copy ready to go and build what you can as a demonstration live.  You will demonstrate building the databases live, but well remind the audience we're using "cooking show rules."  
 
-1. Execute a cloud shell
-2. Download the [create-db.sh](https://github.com/microsoft/ignite-learning-paths-training-mod/blob/master/mod10/create-db.sh) script.
-3. You'll need the presentation deck, get the latest from the [presentations.md](presentations.md)
+Mostly all steps in pre-session will be done again during the demo. We want a version already up & running so you don't need to wait when doing the demo.
 
-We'll use these to prep before we go into the session.  Fully build the application at least before the session. Always keep a preview copy ready to go and build what you can as a demonstration live.  You will demonstrate building the databases live, but well remind the audience we're using "cooking show rules."  You will show the process of creating these databases.
+Again, you'll be creating the application twice... once completely before the session (just run the create databases script, create the VM and then exectue bash deploy.sh
 
-Once you've prepped the app - you're going to build the same app live using the pre-created database information, an incremented name of the app from the one you've created for the demo.
+You will show the process of creating these databases.
 
-You'll be creating the application twice... once completely before the session (just run the create databases script, create the VM and then exectue bash deploy.sh
+- Open your favorite shell. It could be local or shell.azure.com, as long as you have Azure CLI and that you are connected to your subscription. 
 
-IE: My pre-show demo 
+Let's start by creating our Resource Group
 
 ```
-az group create --subscription "Ignite The Tour" --name ignitemod10 --location eastus
+az group create  --name ignitemod10 --location eastus
 ```
 
-What I will create live: resource group creation notes in [hints-for-presentation.md](hints-for-presentation.md)
-
-```
-az group create --subscription "Ignite The Tour" --name 001ignitemod10 --location eastus
-```
+> During the demo you could just do an incremented name is just to keep it easy to follow. What I will create live: resource group creation notes in [hints-for-presentation.md](hints-for-presentation.md)
+>
+>```
+>az group create  --name 001ignitemod10 --location eastus
+>```
+> 
 
 Create your VNET - You'll do the same incrementing on the name:
 
 ```
-az network vnet create --name ignitemod10vnet --subscription "Ignite The Tour" --resource-group groupname --subnet-name default
+az network vnet create --name ignitemod10vnet  --resource-group groupname --subnet-name default
 
 ```
 
-
-The incremented name is just to keep it easy to follow.
-
----
 
 ## Creating Resource Group and Databases.
 
@@ -82,7 +77,7 @@ cosmosdbname=001apps30twtnosql
 sqldbname=001apps30twtsql
 ```
 
-Once you've edited the script lets run it in bash Cloud Shell and begin process of building demo.
+Once you've edited the script, execute it.
 
 ```
 bash create-db.sh
@@ -90,55 +85,71 @@ bash create-db.sh
 
 This should take about 15 minutes for both DBs to create.
 
-Collect both connection strings to put in the VARs for the container to connect to the database.
+> !! Note both connection strings `MongoConnectionString` and `SqlConnectionString`. We will need them later in our  deployment script. 
 
-### Creating the VM
+## Creating the VM
 
 Live, you'll want to create the VM using the steps in [demo.md] for portal VM creation - before though you'll want to use this:
 
 ```
-az vm create --subscription "Ignite The Tour" --resource-group ignitemod10 --name twtweb --public-ip-address-dns-name twtweb --image UbuntuLTS --admin-username ubuntu --generate-ssh-keys --vnet-name ignitemod10vnet --size Standard\_DS3\_v2
+az vm create  --resource-group ignitemod10 --name twtweb --public-ip-address-dns-name twtweb --image UbuntuLTS --admin-username ubuntu --generate-ssh-keys --vnet-name ignitemod10vnet --size Standard_DS3_v2
 ```
 
 Open Network Ports
 
 ```
-az vm open-port --subscription "Ignite The Tour" --resource-group ignitemod10 --name twtweb --port 80 --priority "201"
+az vm open-port  --resource-group ignitemod10 --name twtweb --port 80 --priority "201"
 
-az vm open-port --subscription "Ignite The Tour" --resource-group ignitemod10 --name twtweb --port 443 --priority "202"
+az vm open-port  --resource-group ignitemod10 --name twtweb --port 443 --priority "202"
 
-az vm open-port --subscription "Ignite The Tour" --resource-group ignitemod10 --name twtweb --port 22  --priority "203"
+az vm open-port  --resource-group ignitemod10 --name twtweb --port 22  --priority "203"
 ```
 
-# SSH in and begin installing our dependencies
+## SSH in and begin installing our dependencies
 
-```
+Once the VM is up and running you will need to connect to it to copy the code. We will achieve this by 
+using SSH (the VM is running Linux Ubuntu). You can get the ssh command via the Azure Portal by clicking the *Connect* button in the VM blade. Execute it in your shell.
+
+```bash
 ssh ubuntu@twtweb.eastus.cloudapp.azure.com
-sudo su -
 ```
 
-## Next Steps
+Once connected you should get a greeting message like this: 
 
-Get [deploy.sh] and update the env vars from the [create-db.sh] script
+> Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.0.0-1027-azure x86_64)
 
-```
+## Update and execute the Deployment script
+
+The next step is to bring a copy of the deployment script, update it, and finally execute it as super user.
+To elevate the current user as seper and get the script `deploy.sh` execute the following commands.
+
+```bash
+sudo su
 curl https://raw.githubusercontent.com/microsoft/ignite-learning-paths-training-mod/master/mod10/deploy.sh >deploy.sh
 ```
 
-update lines 28/29, and set `MongoConnectionString` and `SqlConnectionString` equal to the value return by the script `create-db.sh`.
+Now, remember the connectionstrings `MongoConnectionString` and `SqlConnectionString` you noted? It's time to use them. You need to open `deploy.sh` update lines 28/29, and set `MongoConnectionString` and `SqlConnectionString` equal to the value return noted.
 
-```
-export MongoConnectionString=""
-export SqlConnectionString=""
-```
+> To edit in a Linux VM you can use nano (or any editor available if your prefer). Execute `nano deploy.sh` with the arrows navigate thru the document and update the values. When ready use [Ctrl+X], to exit. Confirm that you want to save and that the name of the file is indeed `deploy.sh`.
 
-will become something like:
+It should look like:
 
-```
+```bash
 export SqlConnectionString="Server=tcp:mod10twtsql.database.windows.net,1433;Database=tailwind;User ID=demoadmin;Password=5uperS3cur3Pwd!;Encrypt=true;Connection Timeout=30;"
 export MongoConnectionString="mongodb://mod10twtnosql:kaDcb2QGqG4scmETVHMZwRY0X9j3KA1DpdT2kvdVF12CJCBk6M9lJ9rbpA5NKzrx5lB0Re6jGSRaHIYB9rNrpw==@mod10twtnosql.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
 ```
 
-### Final
+The script is ready, execute it with:
+
+```bash
+bash deploy.sh
+```
+
+> This should take a few minutes.
+
+You  have now deploy all the resources required to to the demos. The only step missing, if you did not already do it is to prepare a version of 'create-db.sh' for the demo.  
+
+
+## Final
 
 Go through the opening of the talk with the application fully built in the background.  Keep two portals up, one with the "complete" version of the app, one of the resource group you're going to build live.  You'll want to show them the difference and how you're creating the resources live as you're explaining each part.
