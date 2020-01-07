@@ -26,6 +26,14 @@ What I will create live: resource group creation notes in [hints-for-presentatio
 az group create --subscription "Ignite The Tour" --name 001ignitemod10 --location eastus
 ```
 
+Create your VNET - You'll do the same incrementing on the name:
+
+```
+az network vnet create --name ignitemod10vnet --subscription "Ignite The Tour" --resource-group groupname --subnet-name default
+
+```
+
+
 The incremented name is just to keep it easy to follow.
 
 ---
