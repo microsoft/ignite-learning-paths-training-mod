@@ -1,5 +1,8 @@
 # Demoing Live
 
+The demo is re-executing the same tasks as done previously during deployment. Make sure the name are different (you can jus add an incrementation or something else as long as it's clear).
+
+The demo use a mix of portal and script to show that both method are available. It worth mentioning it to your audience more then once...
 
 Run through the demo using [hints-for-presentation.md](hints-for-presentation.md) file.
 
@@ -26,7 +29,7 @@ Run through the demo using [hints-for-presentation.md](hints-for-presentation.md
     * Create - Show create messages in deployment.
 4. Navigate to server in resource group, SSH into VM
 5. Copy contents of [deploy.sh](deploy.sh) into shell after su to root
-6. update variables as decribed in demo instructions in the deployment script (mongo string, SQL, api, etc)
+6. update variables as described in demo instructions in the deployment script (mongo string, SQL, api, etc)
 7. Run deploy script - talk through as it runs.
 8. Navigate browser to real prod tailwindtraders.com
 9. Delete resources
