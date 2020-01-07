@@ -12,6 +12,8 @@ We'll use these to prep before we go into the session.  Fully build the applicat
 
 Once you've prepped the app - you're going to build the same app live using the pre-created database information, an incremented name of the app from the one you've created for the demo.
 
+You'll be creating the application twice... once completely before the session (just run the create databases script, create the VM and then exectue bash deploy.sh
+
 IE: My pre-show demo 
 
 ```
@@ -37,9 +39,9 @@ Within [create-db.sh](https://github.com/microsoft/ignite-learning-paths-trainin
 set -e
 
 # Credentials
-azureResourceGroup=igniteapps30
+azureResourceGroup=ignitemod10
 adminUser=twtadmin
-adminPassword=twtapps30pD
+adminPassword=twtmod10pD
 subname=cd400f31-6f94-40ab-863a-673192a3c0d0
 location=eastus
 
