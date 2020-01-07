@@ -65,7 +65,7 @@ If you are only demoing the app as part of **APP10** you can download the compil
 
 Installing Xamarin on Windows can be done by selecting the _Mobile Development with .NET_ workload from the Visual Studio Installer.
 
-![mobile development with .NET workload](images/vs-workload.jpg)
+![mobile development with .NET workload](images/vs-workload.JPG)
 
 This will get you up and running with the Xamarin development environment. The [full installation documentation can be found here](https://docs.microsoft.com/en-us/xamarin/get-started/installation/windows?WT.mc_id=msignitethetour2019-github-mod30).
 
