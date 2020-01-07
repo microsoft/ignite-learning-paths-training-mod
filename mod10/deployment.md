@@ -111,16 +111,26 @@ sudo su -
 
 ## Next Steps
 
-get [deploy.sh] and update the env vars from the [create-db.sh] script
+Get [deploy.sh] and update the env vars from the [create-db.sh] script
 
+```
 curl https://raw.githubusercontent.com/microsoft/ignite-learning-paths-training-mod/master/mod10/deploy.sh >deploy.sh
+```
 
-update lines 28/29
+update lines 28/29, and set `MongoConnectionString` and `SqlConnectionString` equal to the value return by the script `create-db.sh`.
 
 ```
 export MongoConnectionString=""
 export SqlConnectionString=""
 ```
 
+will become something like:
+
+```
+export SqlConnectionString="Server=tcp:mod10twtsql.database.windows.net,1433;Database=tailwind;User ID=demoadmin;Password=5uperS3cur3Pwd!;Encrypt=true;Connection Timeout=30;"
+export MongoConnectionString="mongodb://mod10twtnosql:kaDcb2QGqG4scmETVHMZwRY0X9j3KA1DpdT2kvdVF12CJCBk6M9lJ9rbpA5NKzrx5lB0Re6jGSRaHIYB9rNrpw==@mod10twtnosql.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
+```
+
 ### Final
+
 Go through the opening of the talk with the application fully built in the background.  Keep two portals up, one with the "complete" version of the app, one of the resource group you're going to build live.  You'll want to show them the difference and how you're creating the resources live as you're explaining each part.
