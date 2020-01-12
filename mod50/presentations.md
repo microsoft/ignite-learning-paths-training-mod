@@ -4,7 +4,7 @@ This is a machine generated file, and should not be edited, as it will be overwr
 
 # MOD50 Presentation Files
 
-- [mod50.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod50/mod50.pptx) (Updated: Nov 01, 2019)
+- [mod50.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod50/mod50.pptx) (Updated: Nov 02, 2019)
 - [mod50.ja-jp.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod50/mod50.ja-jp.pptx) (Updated: Dec 16, 2019)
 ---
 ## Historical Files

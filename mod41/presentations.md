@@ -4,7 +4,7 @@ This is a machine generated file, and should not be edited, as it will be overwr
 
 # MOD41 Presentation Files
 
-- [mod41.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod41/mod41.pptx) (Updated: Nov 01, 2019)
+- [mod41.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod41/mod41.pptx) (Updated: Nov 02, 2019)
 - [mod41.ja-jp.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod41/mod41.ja-jp.pptx) (Updated: Dec 16, 2019)
 ---
 ## Historical Files
