@@ -55,7 +55,7 @@ Now that Tailwind Traders is running fully on Azure, the developers must find wa
 
 Who hasn’t been very scared when deploying a new feature to production? Sometimes we feel that we will break everything, and the stress level is just not something we want to experience ever again. That's why the Deployment Slots feature of Azure App Services is such a nice experience. With Deployment Slots, you can deploy to a staging slot that mirrors your production environment. You can test in isolation, without the risk of breaking something. Then you can gradually route some of the traffic to the new features, for example to perform A/B testing. When you are satisfied with the results, you can simply switch all the traffic to the new site. But don't fret, if something goes wrong, the old, safe site is just one mouse click away.
 
-### [MOD50: Debugging and Interacting with Production Applications](./mod50/README.md)
+### [MOD50: Managing Delivery of your App via DevOps](./mod50/README.md)
 
 In this session, we’ll show you how Tailwind Traders’ Developer team works with its Operations teams to safely automate tedious, manual tasks with reliable scripted routines and prepared services.
 
