@@ -56,7 +56,7 @@ You should now see the Tailwind Traders website, but there are some typos in the
 
 5. Click on `Add`.
 
-6. Click on the newly created Staging slot. Then, in the AbTest slot, click on Deployment Center.
+6. Click on the newly created AbTest slot. Then, in the AbTest slot, click on Deployment Center.
 
 7. Select `External` as the source for continuous deployment. Then click on `Continue`.
 
