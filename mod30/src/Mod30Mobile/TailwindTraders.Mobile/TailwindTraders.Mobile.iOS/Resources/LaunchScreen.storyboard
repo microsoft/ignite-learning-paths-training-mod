@@ -23,6 +23,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_vertical_w" translatesAutoresizingMaskIntoConstraints="NO" id="251">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="b9R-Ar-Rq3"/>
+                                    <constraint firstAttribute="height" constant="128" id="p4c-uH-iNH"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -31,16 +38,19 @@
                             <constraint firstAttribute="bottom" secondItem="23" secondAttribute="bottom" id="H6C-R0-yv2"/>
                             <constraint firstItem="23" firstAttribute="top" secondItem="yd7-JS-zBw" secondAttribute="top" id="PgZ-L8-ymB"/>
                             <constraint firstItem="23" firstAttribute="leading" secondItem="yd7-JS-zBw" secondAttribute="leading" id="cKp-kv-oG7"/>
+                            <constraint firstItem="251" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" id="jwf-pP-73r"/>
                             <constraint firstAttribute="trailing" secondItem="23" secondAttribute="trailing" id="nET-Ps-RBc"/>
+                            <constraint firstItem="251" firstAttribute="centerY" secondItem="yd7-JS-zBw" secondAttribute="centerY" id="wRE-Xj-BYl"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAI-xm-WK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="347.82608695652175" y="338.83928571428572"/>
+            <point key="canvasLocation" x="347.8261" y="338.83929999999998"/>
         </scene>
     </scenes>
     <resources>
+        <image name="logo_vertical_w" width="152" height="136"/>
         <image name="splash_screen" width="375" height="667"/>
     </resources>
 </document>

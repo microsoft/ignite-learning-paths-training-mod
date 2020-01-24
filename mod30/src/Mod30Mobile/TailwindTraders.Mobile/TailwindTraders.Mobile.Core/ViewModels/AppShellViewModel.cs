@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.AppCenter.Crashes;
-using Plugin.Toasts;
+using Plugin.XSnack;
 using TailwindTraders.Mobile.Helpers;
 using TailwindTraders.Mobile.Services;
 using Xamarin.Forms;
@@ -51,7 +51,10 @@ namespace TailwindTraders.Mobile.ViewModels
                 var storage = new AzureStorageService();
                 var sas = await storage.GetSharedAccessSignature();
 
-                success = await storage.UploadPhoto(photoStream, sas);
+                if (!(string.IsNullOrWhiteSpace(sas)))
+                {
+                    success = await storage.UploadPhoto(photoStream, sas);
+                }
 
                 Shell.Current.FlyoutIsPresented = false;
             }
@@ -63,18 +66,10 @@ namespace TailwindTraders.Mobile.ViewModels
             {
                 IsBusy = false;
             }
-
-            var toast = new NotificationOptions
-            {
-                Title = success ? "Upload Succeeded" : "Upload Failed",
-                Description = success ? "Photo successfully uploaded" : "There was an error while uploading",
-                ClearFromHistory = true,
-                IsClickable = false
-            };
-
-            var notification = DependencyService.Get<IToastNotificator>();
-
-            await notification.Notify(toast);
+            
+            var message = success ? "Photo successfully uploaded" : "There was an error while uploading";
+            var snack = DependencyService.Get<IXSnack>();
+            await snack.ShowMessageAsync(message);
         }
     }    
 }

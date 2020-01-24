@@ -26,8 +26,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignProvision>VS: WildCard Development</CodesignProvision>
-    <CodesignKey>iPhone Developer: Matthew Soucoup (HQER4F7A36)</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -37,8 +36,7 @@
     <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
-    <CodesignProvision>VS: WildCard Development</CodesignProvision>
-    <CodesignKey>iPhone Developer: Matthew Soucoup (HQER4F7A36)</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,7 +50,6 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>Tailwind Traders Cleaned DEV</CodesignProvision>
     <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -64,7 +61,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Distribution: Code Mill Technologies, Inc. (LMKW569223)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>Tailwind Traders Cleaned STORE</CodesignProvision>
+    <CodesignProvision>Tailwind Traders Cleaned ADHOC</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -249,31 +246,28 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>2.4.0-preview</Version>
+      <Version>2.6.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>2.4.0-preview</Version>
+      <Version>2.6.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Distribute">
-      <Version>2.4.0-preview</Version>
+      <Version>2.6.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Push">
-      <Version>2.4.0-preview</Version>
+      <Version>2.6.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Azure.Storage.Blob">
-      <Version>11.1.0</Version>
+      <Version>11.1.2</Version>
     </PackageReference>
     <PackageReference Include="MonkeyCache.SQLite">
       <Version>1.3.0</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>12.0.2</Version>
-    </PackageReference>
-    <PackageReference Include="Toasts.Forms.Plugin">
-      <Version>3.3.2</Version>
+      <Version>12.0.3</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Media">
-      <Version>4.4.6-beta</Version>
+      <Version>4.4.10-beta</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading">
       <Version>2.4.11.982</Version>
@@ -281,19 +275,13 @@
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
       <Version>2.4.11.982</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991537" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
     <PackageReference Include="Plugin.XSnack">
       <Version>1.0.17</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\TailwindTraders.Mobile\TailwindTraders.Mobile.csproj">
-      <Project>{C5E60C1E-2756-482B-B0E3-044DD763219E}</Project>
-      <Name>TailwindTraders.Mobile</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\header.imageset\" />
     <Folder Include="Assets.xcassets\logo_header_b.imageset\" />
@@ -311,5 +299,11 @@
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TailwindTraders.Mobile.Core\TailwindTraders.Mobile.Core.csproj">
+      <Project>{C5E60C1E-2756-482B-B0E3-044DD763219E}</Project>
+      <Name>TailwindTraders.Mobile.Core</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

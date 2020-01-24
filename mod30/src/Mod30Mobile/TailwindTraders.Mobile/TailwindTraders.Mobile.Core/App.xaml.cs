@@ -10,8 +10,7 @@ using Microsoft.AppCenter.Analytics;
 using TailwindTraders.Mobile.Helpers;
 using System.Collections.Generic;
 using Microsoft.AppCenter.Push;
-using Xamarin.Essentials;
-using Plugin.Toasts;
+
 using Plugin.XSnack;
 using System.Threading.Tasks;
 using Microsoft.AppCenter.Distribute;
@@ -36,19 +35,30 @@ namespace TailwindTraders.Mobile
 
         protected async override void OnStart()
         {
-            await SetupPushNotifications();
+            SetupPushNotifications();
+
+            AppCenter.LogLevel = LogLevel.Verbose;
 
             // Handle when your app starts
             AppCenter.Start($"ios={AppCenterConstants.iOSAppSecret};" +
                   $"android={AppCenterConstants.AndroidAppSecret}",
                   typeof(Analytics), typeof(Crashes), typeof(Push), typeof(Distribute));
+            
+            Analytics.TrackEvent("Phoning Home");
            
             // Check to see if app crashed during last run
             if (await Crashes.HasCrashedInLastSessionAsync())
             {
                 var report = await Crashes.GetLastSessionCrashReportAsync();
 
-                Crashes.TrackError(new Exception(report.StackTrace), new Dictionary<string, string> { { "RecoverFromCrash", "true" } });
+                var crashLastSessionEx = new Exception("Crash on last session");
+                var lastSessionCrashDict = new Dictionary<string, string>
+                {
+                    { "RecoverFromCrash", "true" },
+                    { "StackTrace", report.StackTrace }
+                };
+
+                Crashes.TrackError(crashLastSessionEx, lastSessionCrashDict);
             }
         }
 
@@ -62,21 +72,10 @@ namespace TailwindTraders.Mobile
             // Handle when your app resumes
         }
 
-        private async Task SetupPushNotifications()
+        private void SetupPushNotifications()
         {
             if (!AppCenter.Configured)
-            {
-                var isEnabled = await Push.IsEnabledAsync();
-
-                if (!isEnabled)
-                {
-                    await Push.SetEnabledAsync(true);
-                    isEnabled = await Push.IsEnabledAsync();
-                }
-
-                if (!isEnabled)
-                    Analytics.TrackEvent("Issues with enabling push");
-
+            {                
                 Push.PushNotificationReceived += async (sender, e) =>
                 {
                     // Add the notification message and title to the message
@@ -87,26 +86,18 @@ namespace TailwindTraders.Mobile
                     // If there is custom data associated with the notification,
                     // print the entries
                     var analyticsData = new Dictionary<string, string>();
-
-                    if (e.CustomData != null)
-                    {
-                        summary += "\n\tCustom data:\n";
-                        foreach (var key in e.CustomData.Keys)
-                        {
-                            summary += $"\t\t{key} : {e.CustomData[key]}\n";
-
-                            analyticsData.Add(key, e.CustomData[key]);
-                        }
-                    }
-
+                    
                     analyticsData.Add("title", e.Title);
                     analyticsData.Add("message", e.Message);
 
                     // Track that notification received
                     Analytics.TrackEvent("Push Received", analyticsData);
 
-                    var snack = DependencyService.Get<IXSnack>();
-                    await snack.ShowMessageAsync(e.Title);                   
+                    if (!string.IsNullOrEmpty(e.Title))
+                    {
+                        await Shell.Current.DisplayAlert(e.Title, e.Message, "OK");
+                    }
+
                 };
             }
 

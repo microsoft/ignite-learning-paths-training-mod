@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Plugin.Toasts;
+
 using TailwindTraders.Mobile.Helpers;
 using TailwindTraders.Mobile.Models;
 using TailwindTraders.Mobile.Services;
@@ -43,6 +43,7 @@ namespace TailwindTraders.Mobile.ViewModels
         {
             NavigateToProductCategoryCommand = new Command<string>(async (code) => await ExecuteNavigateToProductCategoryCommand(code));
             TakePhotoCommand = new Command(async () => await ExecuteTakePhotoCommand());
+
 
             RecommendedCategories = new ObservableCollection<RecommendedProductCategory>();
             PopularProducts = new ObservableCollection<Product>();
@@ -83,7 +84,10 @@ namespace TailwindTraders.Mobile.ViewModels
                 var storage = new AzureStorageService();
                 var sas = await storage.GetSharedAccessSignature();
 
-                success = await storage.UploadPhoto(photoStream, sas);
+                if (!string.IsNullOrWhiteSpace(sas))
+                {
+                    success = await storage.UploadPhoto(photoStream, sas);
+                }
             }
             catch (Exception ex)
             {
@@ -104,8 +108,8 @@ namespace TailwindTraders.Mobile.ViewModels
         {
             try
             {
-                //if (IsInitialized)
-                //    return;
+                if (IsInitialized)
+                    return;
 
                 RecommendedCategories = null;
 
@@ -136,7 +140,7 @@ namespace TailwindTraders.Mobile.ViewModels
                 Crashes.TrackError(ex, new Dictionary<string, string> { { "Function", "ShoppingHomeViewModel.LoadData" } });
                 IsInitialized = false;
 
-                if (PopularProducts.Count == 0)
+                if (PopularProducts?.Count == 0)
                 {
                     var popProd = new List<Product>();
                     popProd.Add(new Product { Name = "Wood Table", Price = 100, ImageUrl = new Uri("https://ttstorageucrqili3hgqvk.blob.core.windows.net/product-detail/19806834.jpg") });

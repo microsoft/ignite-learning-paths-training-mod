@@ -25,8 +25,6 @@
 	<string>TailwindTraders.Mobile</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.codemilltech.tailwindignite</string>
-	<key>CFBundleVersion</key>
-	<string>1.0.1</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
@@ -48,9 +46,15 @@
 	<string>This app needs access to microphone.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>This app needs access to the photo gallery.</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.3</string>
+	<key>CFBundleVersion</key>
+	<string>2</string>
 </dict>
 </plist>

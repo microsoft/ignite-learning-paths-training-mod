@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29319.158
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TailwindTraders.Mobile.Android", "TailwindTraders.Mobile\TailwindTraders.Mobile.Android\TailwindTraders.Mobile.Android.csproj", "{60EE154B-9D25-4EDD-B49D-47CF8FB529A5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TailwindTraders.Mobile.iOS", "TailwindTraders.Mobile\TailwindTraders.Mobile.iOS\TailwindTraders.Mobile.iOS.csproj", "{B3CA8C30-6866-4045-B626-BE16AA8B983E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TailwindTraders.Mobile.Core", "TailwindTraders.Mobile\TailwindTraders.Mobile.Core\TailwindTraders.Mobile.Core.csproj", "{C5E60C1E-2756-482B-B0E3-044DD763219E}"

@@ -6,9 +6,7 @@
              xmlns:viewmodels="clr-namespace:TailwindTraders.Mobile.ViewModels"
              xmlns:views="clr-namespace:TailwindTraders.Mobile.Views"
              mc:Ignorable="d"
-             x:Class="TailwindTraders.Mobile.Pages.ProductCategoryCollectionPage"
-             Shell.BackgroundColor="{StaticResource AccentColor}"
-             Shell.TitleColor="{StaticResource PrimaryColor}"             
+             x:Class="TailwindTraders.Mobile.Pages.ProductCategoryCollectionPage"        
              Title="{Binding Title}">
     <ContentPage.BindingContext>
         <viewmodels:ProductCategoryCollectionViewModel/>

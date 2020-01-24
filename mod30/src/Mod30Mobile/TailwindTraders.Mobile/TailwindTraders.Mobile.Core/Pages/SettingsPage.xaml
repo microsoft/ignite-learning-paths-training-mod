@@ -6,9 +6,7 @@
              xmlns:viewmodels="clr-namespace:TailwindTraders.Mobile.ViewModels"
              mc:Ignorable="d"
              x:Class="TailwindTraders.Mobile.Pages.SettingsPage"
-             Title="Settings"
-             Shell.BackgroundColor="{StaticResource AccentColor}"             
-             Shell.TitleColor="White">
+             Title="Settings">
 
     <ContentPage.BindingContext>
         <viewmodels:SettingsViewModel/>

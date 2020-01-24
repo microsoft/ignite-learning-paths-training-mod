@@ -7,8 +7,8 @@
              x:Class="TailwindTraders.Mobile.Views.FlyoutHeader"
              x:Name="this">
     <ContentView.Content>
-        <StackLayout Padding="20">
-            <Label Text="Tailwind Traders" FontSize="Default" Margin="0,0,0,40" />
+        <StackLayout Padding="20" BackgroundColor="#2F4B66AA">
+            <Label Text="Tailwind Traders" FontSize="Title" Margin="0,0,0,20" />
             <Button Text="Take Photo" ImageSource="photo" Margin="20,0,20,0" CornerRadius="24" 
                     BorderColor="{StaticResource AccentColor}" BorderWidth="2"
                     Command="{Binding PhotoCommand, Source={x:Reference this}}"/>

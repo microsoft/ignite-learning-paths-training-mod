@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Plugin.Toasts;
+using Plugin.XSnack;
 using TailwindTraders.Mobile.Helpers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -41,18 +41,10 @@ namespace TailwindTraders.Mobile.ViewModels
             Preferences.Set(PreferencesConstants.ProductApiUrlKey, ProductsAPIUrl);
             Preferences.Set(PreferencesConstants.StorageAccountNameKey, StorageAccountName);
             Preferences.Set(PreferencesConstants.FunctionAppUrlKey, FunctionAppUrl); 
-
-            var toast = new NotificationOptions
-            {
-                Title = "Settings Saved",
-                Description = "Settings Successfully Saved",
-                ClearFromHistory = true,
-                IsClickable = false
-            };
             
-            var notification = DependencyService.Get<IToastNotificator>();
-
-            await notification.Notify(toast);
+            var message = "Settings Successfully Saved";
+            var snack = DependencyService.Get<IXSnack>();
+            await snack.ShowMessageAsync(message);
         }
     }
 }
