@@ -1,6 +1,6 @@
 {
   "project_info": {
-    "project_number": "< project number >",
+    "project_number": "462259091292",
     "firebase_url": "https://tailwind-traders.firebaseio.com",
     "project_id": "tailwind-traders",
     "storage_bucket": "tailwind-traders.appspot.com"
@@ -8,7 +8,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "< sdk app id >",
+        "mobilesdk_app_id": "1:462259091292:android:e459babb9fab4ec9",
         "android_client_info": {
           "package_name": "com.microsoft.tailwindtraders"
         }
@@ -21,7 +21,7 @@
       ],
       "api_key": [
         {
-          "current_key": "< key >"
+          "current_key": "AIzaSyCBqoBljC7nOVZDbD8bvZmZmCCrKXRh2rk"
         }
       ],
       "services": {
