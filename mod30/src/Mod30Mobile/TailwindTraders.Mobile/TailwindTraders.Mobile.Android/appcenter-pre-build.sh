@@ -24,8 +24,8 @@ echo " - google json file: $GoogleJsonFile"
 
 sed -i '' "s/< project number >/$GOOGLE_PROJ_NUMBER/g" $GoogleJsonFile
 sed -i '' "s/< sdk app id >/$GOOGLE_MOBILE_SDK_APP_ID/g" $GoogleJsonFile
-sed -i '' "s/< client id >/$GOOGLE_CLIENT_ID/g" $GoogleJsonFile
+# sed -i '' "s/< client id >/$GOOGLE_CLIENT_ID/g" $GoogleJsonFile
 sed -i '' "s/< key >/$GOOGLE_CURRENT_KEY/g" $GoogleJsonFile
-sed -i '' "s/< client id two >/$GOOGLE_SECOND_CLIENT_ID/g" $GoogleJsonFile
+# sed -i '' "s/< client id two >/$GOOGLE_SECOND_CLIENT_ID/g" $GoogleJsonFile
 
 cat $GoogleJsonFile

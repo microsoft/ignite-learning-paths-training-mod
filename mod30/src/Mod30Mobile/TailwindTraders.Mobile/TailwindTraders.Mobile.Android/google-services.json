@@ -15,7 +15,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "< client id >",
+          "client_id": "462259091292-tvbas53fuqbfrljpr67fmal3242jj213.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -28,7 +28,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "< client id two >",
+              "client_id": "462259091292-tvbas53fuqbfrljpr67fmal3242jj213.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
