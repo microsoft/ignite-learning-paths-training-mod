@@ -41,7 +41,7 @@ namespace TailwindTraders.Mobile.ViewModels
             var allProducts = await DataStore.GetItemAsync(CategoryCode);
 
             Title = allProducts.Types.FirstOrDefault(t => t.Code == CategoryCode)?.Name;
-
+            
             Products = new ObservableCollection<Product>(allProducts.Products);
 
             IsBusy = false;

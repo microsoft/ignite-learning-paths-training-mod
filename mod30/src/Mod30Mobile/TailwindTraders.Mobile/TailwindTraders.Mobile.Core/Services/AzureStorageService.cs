@@ -37,11 +37,20 @@ namespace TailwindTraders.Mobile.Services
 
         public async Task<IEnumerable<WishlistItem>> GetWishlistItems()
         {
-            var functionUrl = Preferences.Get(PreferencesConstants.FunctionAppUrlKey, PreferencesConstants.DemoFunctionsUrl);
+            try
+            {
+                var functionUrl = Preferences.Get(PreferencesConstants.FunctionAppUrlKey, PreferencesConstants.DemoFunctionsUrl);
 
-            var wishlistJson = await httpClient.GetStringAsync($"{functionUrl}/getwishlist");
+                var wishlistJson = await httpClient.GetStringAsync($"{functionUrl}/getwishlist");
 
-            return JsonConvert.DeserializeObject<List<WishlistItem>>(wishlistJson);
+                return JsonConvert.DeserializeObject<List<WishlistItem>>(wishlistJson);
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex, new Dictionary<string, string> { { "Function", "AzureStorageService.GetWishlistItems" } });
+            }
+
+            return new List<WishlistItem>();
         }
 
         public async Task<bool> UploadPhoto(Stream photo, string sharedAccessSignature)

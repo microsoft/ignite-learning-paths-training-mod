@@ -8,9 +8,7 @@
              xmlns:views="clr-namespace:TailwindTraders.Mobile.Views"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              mc:Ignorable="d"             
-             ios:Page.UseSafeArea="True"
-             Shell.BackgroundColor="{StaticResource AccentColor}"
-             Shell.TitleColor="{StaticResource PrimaryColor}"
+             ios:Page.UseSafeArea="True"             
              x:Class="TailwindTraders.Mobile.Pages.ShoppingHomePage">
 
     <ContentPage.BindingContext>
@@ -50,7 +48,6 @@
 
                                 <ffimageloading:CachedImage Grid.Row="0" Grid.Column="0"
                                     Source="{Binding ImageName}" Aspect="AspectFill" />
-                                
                                 <Button Text="{Binding CategoryName}" Grid.Row="0" Grid.Column="0" 
                                     HorizontalOptions="Center" VerticalOptions="Center"
                                     CornerRadius="24" HeightRequest="48"

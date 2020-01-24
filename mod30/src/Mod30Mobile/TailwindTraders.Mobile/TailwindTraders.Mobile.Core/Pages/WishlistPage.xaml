@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodels="clr-namespace:TailwindTraders.Mobile.ViewModels"             
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             mc:Ignorable="d"
+             x:Class="TailwindTraders.Mobile.Pages.WishlistPage"            
+             Title="{Binding Title}"
+             ios:Page.UseSafeArea="True">
+    <ContentPage.BindingContext>
+        <viewmodels:WishlistViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>            
+            <CollectionView ItemsSource="{Binding WishlistItems}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10,10,10,0">
+                            
+                            <Grid HeightRequest="200">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage
+                                    Grid.Row="0" Grid.RowSpan="2"
+                                    Source="{Binding FullImageUrl}"
+                                    BackgroundColor="Black"/>
+                                <Label Grid.Row="1"
+                                    Padding="20,0"
+                                    TextColor="White"
+                                    BackgroundColor="{StaticResource Accent2Color}"
+                                    FontSize="20 "
+                                    Text="{Binding Description}"/>
+                            </Grid>                                                                
+                            
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
