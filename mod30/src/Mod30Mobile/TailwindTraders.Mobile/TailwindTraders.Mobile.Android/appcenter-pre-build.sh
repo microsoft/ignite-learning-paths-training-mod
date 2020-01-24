@@ -6,17 +6,17 @@ echo " - Android App Center: $ANDROID_APP_CENTER"
 
 # Updating ids
 
-AppCenterConstantsFile=$BUILD_REPOSITORY_LOCALPATH/mod30/src/Mod30Mobile/TailwindTraders.Mobile/TailwindTraders.Mobile.Core/Helpers/AppCenterConstants.cs
+# AppCenterConstantsFile=$BUILD_REPOSITORY_LOCALPATH/mod30/src/Mod30Mobile/TailwindTraders.Mobile/TailwindTraders.Mobile.Core/Helpers/AppCenterConstants.cs
 
-echo " - app center file: $AppCenterConstantsFile"
+# echo " - app center file: $AppCenterConstantsFile"
 
-sed -i '' "s/< ENTER YOUR APP CENTER IOS SECRET HERE >/$IOS_APP_CENTER/g" $AppCenterConstantsFile
-sed -i '' "s/< ENTER YOUR APP CENTER ANDROID SECRET HERE >/$ANDROID_APP_CENTER/g" $AppCenterConstantsFile
+# sed -i '' "s/< ENTER YOUR APP CENTER IOS SECRET HERE >/$IOS_APP_CENTER/g" $AppCenterConstantsFile
+# sed -i '' "s/< ENTER YOUR APP CENTER ANDROID SECRET HERE >/$ANDROID_APP_CENTER/g" $AppCenterConstantsFile
 
 # Print out file for reference
-cat $AppCenterConstantsFile
+# cat $AppCenterConstantsFile
 
-echo "Updated App Center Constants"
+# echo "Updated App Center Constants"
 
 # GoogleJsonFile=$BUILD_REPOSITORY_LOCALPATH/mod30/src/Mod30Mobile/TailwindTraders.Mobile/TailwindTraders.Mobile.Android/google-services.json
 
