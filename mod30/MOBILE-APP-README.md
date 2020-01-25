@@ -55,9 +55,11 @@ The following are the pros and cons of running from compiled.
 
 ### What Is the Recommendation?
 
-For **MOD30**, I recommend running from code. You already need to have Visual Studio installed. Running from code will reduce the number of moving parts.
+The easiest way is to run from a compiled version.
 
-If you are only demoing the app as part of **APP10** you can download the compiled version. You will not need to be as familiar with it. However, please try out the screen mirroring beforehand to make sure you are comfortable with that workflow.
+For **MOD30** you should give serious thought of running from [code in Visual Studio](#code). This will help you debug any errors, should they occur. However, demoing a mobile app at the same time as other things can be burdensome.
+
+For **APPS10** you will be find running from the [compiled version](#compile).
 
 ## <a name="install"></a>Installing Xamarin and Configuring Emulators
 
@@ -65,7 +67,7 @@ If you are only demoing the app as part of **APP10** you can download the compil
 
 Installing Xamarin on Windows can be done by selecting the _Mobile Development with .NET_ workload from the Visual Studio Installer.
 
-![mobile development with .NET workload](images/vs-workload.JPG)
+![mobile development with .NET workload](https://res.cloudinary.com/code-mill-technologies-inc/image/upload/c_scale,e_shadow:40,h_600/v1579909568/vs-workload_flmjkj.jpg)
 
 This will get you up and running with the Xamarin development environment. The [full installation documentation can be found here](https://docs.microsoft.com/en-us/xamarin/get-started/installation/windows?WT.mc_id=msignitethetour2019-github-mod30).
 
@@ -115,41 +117,41 @@ If the emulator starts, you're in business. If not, you'll need to follow these 
 
 1. On your Android device, browse to: https://aka.ms/tailwind-droid - tap the download button.
 
-![droid app center screenshot](./images/droid-app-center.png)
+![droid app center screenshot](https://res.cloudinary.com/code-mill-technologies-inc/image/upload/c_scale,e_shadow:40,h_800/v1579909568/droid-app-center_orx32p.png)
 
 2. Once the download is complete Android will prompt you to open the application, tap **Open**.
 
-![droid open application](./images/droid-finish-download.png)
+![droid open application](https://res.cloudinary.com/code-mill-technologies-inc/image/upload/c_scale,e_shadow:40,h_800/v1579909568/droid-finish-download_usdp9h.png)
 
 3. You will again get prompted top open the application. Tap **Open** again.
 
-![droid open app](./images/droid-open.app.png)
+![droid open app](https://res.cloudinary.com/code-mill-technologies-inc/image/upload/c_scale,e_shadow:40,h_800/v1579909568/droid-open-app_q39pyd.png)
 
 4. You will then get prompted to install the application. Tap **Install**. The application will be installed just like any other application and you can open it from the launcher.
 
-![droid install app screenshot](./images/droid-install-app.png)
+![droid install app screenshot](https://res.cloudinary.com/code-mill-technologies-inc/image/upload/c_scale,e_shadow:40,h_800/v1579909568/droid-install-app_dwjwia.png)
 
 ### iOS
 
 1. On your **iOS Phone** (iPad not supported), browse to: https://aka.ms/tailwind-ios. Install the _TestFlight_ application from the iOS App Store.
 
-![test flight screen shot](./images/ios-testflight-page.PNG)
+![test flight screen shot](https://res.cloudinary.com/code-mill-technologies-inc/image/upload/c_scale,e_shadow:40,h_800/v1579909568/ios-testflight-page_p8bf1v.png)
 
 1. The App Store will open, download and install _Test Flight_ as you would any other app.
 
-![iOS App Store for Test Flight installation screenshot](./images/ios-install-testflight.PNG)
+![iOS App Store for Test Flight installation screenshot](https://res.cloudinary.com/code-mill-technologies-inc/image/upload/c_scale,e_shadow:40,h_800/v1579909568/ios-install-testflight_kzj4as.png)
 
 1. Once installed, go back to the web browser screen from step 1. Tap on the button to install Tailwind Traders.
 
-![tailwind tradrs install screenshot](./images/ios-testflight-page.PNG)
+![tailwind tradrs install screenshot](https://res.cloudinary.com/code-mill-technologies-inc/image/upload/c_scale,e_shadow:40,h_800/v1579909568/ios-testflight-page_p8bf1v.png)
 
 1. The TestFlight application will launch. Follow the instructions on setting TestFlight up.
 
-![testflight setup instructions screenshot](./images/ios-setup-testflight.PNG)
+![testflight setup instructions screenshot](https://res.cloudinary.com/code-mill-technologies-inc/image/upload/c_scale,e_shadow:40,h_800/v1579909568/ios-setup-testflight_mzul8x.png)
 
 1. You will then be presented with a screen to install Tailwind Traders, tap **Install** and the app will be installed as if you downloaded it from the App Store.
 
-![install Tailwind Traders app from testflight screenshot](./images/ios-install-tailwind.PNG)
+![install Tailwind Traders app from testflight screenshot](https://res.cloudinary.com/code-mill-technologies-inc/image/upload/c_scale,e_shadow:40,h_800/v1579909568/ios-install-tailwind_ilw1sl.png)
 
 ## <a name="tips"></a>Tips and Tricks For a Successful Demo
 
@@ -162,13 +164,14 @@ In order for the demos to run successfully, the mobile application needs to have
 You can set these from the `Settings` screen.
 
 1. Tap on the Hamburger icon in the upper left corner to make the flyout appear.
-![hamburger menu](./images/hamburger.PNG)
+
+![hamburger menu](https://res.cloudinary.com/code-mill-technologies-inc/image/upload/c_scale,e_shadow:40,h_800/v1579909568/hamburger_swalqh.png)
 
 2. Tap on the `Settings` menu item.
 3. Change the `Storage Account Name` entry box to the one you are using for your demo. (The pink highlight below.)
 4. Change the `Function App URL` entry box to the one you are using in your demo. (The yellow highlight below.) _NOTE: You must include the url through the `/api` portion. The route to the actual function will be appended by the application._
 
-![urls to change](./images/settings.jpg)
+![urls to change](https://res.cloudinary.com/code-mill-technologies-inc/image/upload/c_scale,e_shadow:40,h_800/v1579909568/settings_y7i9bs.jpg)
 
 > You can leave the `Product Service API URL` setting as-is. That setting is pulling product metadata, and does not affect these demos. If you wish to change it, you first must setup the Tailwind Traders website first.
 
