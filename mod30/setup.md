@@ -28,7 +28,7 @@ The following steps are necessary to prepare for MOD30 demos.
     1. Search term (trigger)
     2. Owner name (This will most likely be `Microsoft-CDA`)
     3. App name (This will most likely be `Tailwind-Traders`)
-    4. Token from App Center, [see mobile app instructions](MOBILE-APP-README.md). 
+    4. Token from App Center. If you're a Microsoft employee, [visit this link](https://aka.ms/twt-appcenter-token). Otherwise, contact the session or learning path captains or Matt Soucoup.
 
 ***Deployment unsuccessful?** See [Troubleshooting](#troubleshooting)*
 
