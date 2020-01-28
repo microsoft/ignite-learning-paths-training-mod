@@ -10,6 +10,14 @@ The content of this repository is available for you so you can reproduce any dem
 
 If you are here to reproduce a demo in the comfort of your home/office, go to the [Sessions](#sessions) section. In each session you will find deployment instructions to create the environment you need, and a tutorial to do the demo step by step.
 
+Start by cloning this repository to a machine you can work on. We've developed the scripts using Bash so you'll need a machine that supports Bash (consider using [shell.azure.com](https://shell.azure.com/), selecting Bash).
+
+```bash
+mkdir azuretraining
+cd azuretraining
+git clone https://github.com/microsoft/ignite-learning-paths-training-mod.git
+```
+
 ## Presenting the content
 
 We're glad you are here and look forward to your delivery of this amazing content. As experienced presenters, we know you know HOW to present so this guide will focus on WHAT you need to present. It will provide you a full run-through of the presentation created by the presentation design team.
