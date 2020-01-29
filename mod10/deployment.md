@@ -35,6 +35,8 @@ az network vnet create --name ignitemod10vnet  --resource-group groupname --subn
 
 ## Creating Resource Group and Databases.
 
+Ensure you have cloned this repository already as per the instructions in the main [README](https://github.com/microsoft/ignite-learning-paths-training-mod#do-the-demos) so you have the scripts locally and can edit them.
+
 Within [create-db.sh](https://github.com/microsoft/ignite-learning-paths-training-mod/blob/master/mod10/create-db.sh) there are a few bash variables to change.
 
 ```
