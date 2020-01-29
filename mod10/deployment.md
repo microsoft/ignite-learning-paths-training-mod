@@ -85,7 +85,7 @@ bash create-db.sh
 
 This should take about 15 minutes for both DBs to create.
 
-> !! Note both connection strings `MongoConnectionString` and `SqlConnectionString`. We will need them later in our  deployment script. 
+> !! Note both connection strings `MongoConnectionString` and `SqlConnectionString`. We will need them later in our deployment script. Note that the SQL connection string will have placeholders for the user ID and password - make sure to replace them with the 'adminUser' and 'adminPassword' (in a production scenario _do not_ use admin credentials like this!)
 
 ## Creating the VM
 
