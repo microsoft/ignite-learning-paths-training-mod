@@ -87,15 +87,15 @@ This should take about 15 minutes for both DBs to create.
 
 > !! Note both connection strings `MongoConnectionString` and `SqlConnectionString`. We will need them later in our  deployment script. 
 
-## Creating the VM
+## Creating the Web Server VM
 
-Live, you'll want to create the VM using the steps in [demo.md] for portal VM creation - before though you'll want to use this:
+Live, you'll want to create the VM using the steps in [demo.md](./demo.md) for portal VM creation - before though you'll want to use this:
 
 ```
 az vm create  --resource-group ignitemod10 --name twtweb --public-ip-address-dns-name twtweb --image UbuntuLTS --admin-username ubuntu --generate-ssh-keys --vnet-name ignitemod10vnet --size Standard_DS3_v2
 ```
 
-Open Network Ports
+Open Network Ports to allow web and SSH traffic
 
 ```
 az vm open-port  --resource-group ignitemod10 --name twtweb --port 80 --priority "201"
@@ -120,8 +120,9 @@ Once connected you should get a greeting message like this:
 
 ## Update and execute the Deployment script
 
-The next step is to bring a copy of the deployment script, update it, and finally execute it as super user.
-To elevate the current user as seper and get the script `deploy.sh` execute the following commands.
+The next step is to download the deployment script to the VM, update it, and finally execute it as super user. This script will clone the web application content from GitHub and install NGINX as the web server.
+
+To elevate the current user as super and get the script `deploy.sh` execute the following commands.
 
 ```bash
 sudo su
@@ -145,9 +146,9 @@ The script is ready, execute it with:
 bash deploy.sh
 ```
 
-> This should take a few minutes.
+This should take a few minutes to complete.
 
-You  have now deploy all the resources required to to the demos. The only step missing, if you did not already do it is to prepare a version of 'create-db.sh' for the demo.  
+You have now deployed all the resources required to do the demos. The only step missing, if you did not already do it is to prepare a version of 'create-db.sh' for the live demo.  
 
 
 ## Final
