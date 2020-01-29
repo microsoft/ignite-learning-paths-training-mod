@@ -36,7 +36,7 @@ sleep .5
 # Publish and start application
 
 cd /tailwind/Source/Tailwind.Traders.Web
-dotnet publish -c Release
+sudo dotnet publish -c Release
 dotnet bin/Release/netcoreapp2.1/publish/Tailwind.Traders.Web.dll &
 
 sleep .5
