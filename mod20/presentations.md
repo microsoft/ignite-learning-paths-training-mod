@@ -1,11 +1,16 @@
 <!--
-This is a machine generated file, and should not be edited, as it will be overwritten with future updates.
+This is a machine generated file,
+and should not be edited,
+as it will be overwritten with future updates.
+
+If you have questions around this process
+please contact Scott Cate
 -->
 
 # MOD20 Presentation Files
 
-- [mod20.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod20/mod20.pptx) (Updated: Nov 02, 2019)
-- [mod20.ja-jp.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod20/mod20.ja-jp.pptx) (Updated: Jan 22, 2020)
+- [mod20.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod20/mod20.pptx) (Updated: Nov 01, 2019)
+- [mod20.ja-jp.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod20/mod20.ja-jp.pptx) (Updated: Jan 21, 2020)
 ---
 ## Historical Files
 - [mod20-2019-10_Oct-24.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod20/mod20-2019-10_Oct-24.pptx)
