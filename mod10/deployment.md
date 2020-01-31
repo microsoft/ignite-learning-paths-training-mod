@@ -46,8 +46,8 @@ set -e
 # Credentials
 azureResourceGroup=ignitemod10
 adminUser=twtadmin
-adminPassword=twtmod10pD
-subname=cd400f31-6f94-40ab-863a-673192a3c0d0
+adminPassword=__STRONGPASSWORD__
+subname=__MySubscriptionName__
 location=eastus
 
 # DB Name
@@ -69,8 +69,8 @@ set -e
 # Credentials
 azureResourceGroup=ignitemod10
 adminUser=example
-adminPassword=examplesjefkjdkj
-subname=2348283-example-398349839
+adminPassword=__STRONGPASSWORD__
+subname=__MySubscriptionName__
 location=eastus
 
 # DB Name
@@ -138,8 +138,8 @@ Now, remember the connectionstrings `MongoConnectionString` and `SqlConnectionSt
 It should look like:
 
 ```bash
-export SqlConnectionString="Server=tcp:mod10twtsql.database.windows.net,1433;Database=tailwind;User ID=demoadmin;Password=5uperS3cur3Pwd!;Encrypt=true;Connection Timeout=30;"
-export MongoConnectionString="mongodb://mod10twtnosql:kaDcb2QGqG4scmETVHMZwRY0X9j3KA1DpdT2kvdVF12CJCBk6M9lJ9rbpA5NKzrx5lB0Re6jGSRaHIYB9rNrpw==@mod10twtnosql.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
+export SqlConnectionString="Server=tcp:mod10twtsql.database.windows.net,1433;Database=tailwind;User ID=__USERNAME__;Password=__PASSWORD__;Encrypt=true;Connection Timeout=30;"
+export MongoConnectionString="mongodb://mod10twtnosql:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx==@mod10twtnosql.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
 ```
 
 The script is ready, execute it with:
