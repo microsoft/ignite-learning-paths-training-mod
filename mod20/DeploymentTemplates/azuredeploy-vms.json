@@ -420,7 +420,7 @@
 						]
 					},
 					"protectedSettings": {
-						"commandToExecute": "[concat('sudo sh configure-mongo.sh ', parameters('username'), ' ', parameters('password'))]"
+						"commandToExecute": "[concat('sudo sh configure-mongo.sh \"', replace(parameters('username'),'\"','\\\"'), '\" \"', replace(parameters('password'),'\"','\\\"'), '\"')]"
 					}
 				}
 			}]
