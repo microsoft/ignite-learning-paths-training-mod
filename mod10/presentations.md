@@ -9,9 +9,9 @@ please contact Scott Cate
 
 # MOD10 Current Presentation Files
 
-- [mod10.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mod10.pptx) (Updated: Dec 11, 2019)
-- [mod10.ja-jp.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mod10.ja-jp.pptx) (Updated: Jan 21, 2020)
-- [mod10.pt-br.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mod10.pt-br.pptx) (Updated: Dec 16, 2019)
+- [mod10.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mod10.pptx)
+- [mod10.ja-jp.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mod10.ja-jp.pptx)
+- [mod10.pt-br.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mod10.pt-br.pptx)
 ---
 ## Historical Files
 - [mod10-2019-10_Oct-24.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mod10-2019-10_Oct-24.pptx)

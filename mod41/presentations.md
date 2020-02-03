@@ -9,8 +9,8 @@ please contact Scott Cate
 
 # MOD41 Current Presentation Files
 
-- [mod41.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod41/mod41.pptx) (Updated: Nov 01, 2019)
-- [mod41.ja-jp.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod41/mod41.ja-jp.pptx) (Updated: Dec 16, 2019)
+- [mod41.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod41/mod41.pptx)
+- [mod41.ja-jp.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod41/mod41.ja-jp.pptx)
 ---
 ## Historical Files
 - [mod41-2019-10_Oct-24.pptx](https://globaleventcdn.blob.core.windows.net/assets/mod/mod41/mod41-2019-10_Oct-24.pptx)
