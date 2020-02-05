@@ -22,9 +22,9 @@
 3. Navigate to the `wishlist` container in the storage account
 4. Show the image and copy the full URL to the clipboard
 5. Navigate to the `mod30-app` function and expand, drill into `MakeThumbnailHttp`
-6. Open the "test" tab and change the body to:
+6. Open the "test" tab and change the body (replace `url` with the blob's URL):
 
-    `{ "blob": "{url}" }`
+    `{ "blob": "url" }`
 7.  Run and show the execution
 8.  Navigate back to the `wishlist` container in the storage account and show the thumbnail
 
