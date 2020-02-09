@@ -39,7 +39,7 @@ cd /tailwind/Source/Tailwind.Traders.Web
 sudo sed -i 's/http\:\/\/localhost\:5200\/v1/\/api\/v1/' appsettings.json
 sudo sed -i 's/http\:\/\/localhost\:3000/\/api/v1/' appsettings.json
 dotnet publish -c Release
-dotnet bin/Release/netcoreapp2.1/publish/Tailwind.Traders.Web.dll &
+dotnet bin/Release/netcoreapp2.1/publish/Tailwind.Traders.Web.dll 1>/dev/null 2>&1 </dev/null &
 
 sleep .5
 
