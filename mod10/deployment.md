@@ -127,7 +127,7 @@ The next step is to download the deployment script to the VM, update it, and fin
 To elevate the current user as super and get the script `deploy.sh` execute the following commands.
 
 ```bash
-sudo su
+sudo su -l
 curl https://raw.githubusercontent.com/microsoft/ignite-learning-paths-training-mod/master/mod10/deploy.sh >deploy.sh
 ```
 
