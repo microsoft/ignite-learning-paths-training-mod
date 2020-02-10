@@ -15,7 +15,7 @@ You will show the process of creating these databases.
 Let's start by creating our Resource Group
 
 ```
-az group create  --name ignitemod10 --location eastus
+az group create  --name ignitemod10 --location eastus --subscription "Ignite the Tour"
 ```
 
 > During the demo you could just do an incremented name is just to keep it easy to follow. What I will create live: resource group creation notes in [hints-for-presentation.md](hints-for-presentation.md)
@@ -28,7 +28,7 @@ az group create  --name ignitemod10 --location eastus
 Create your VNET - You'll do the same incrementing on the name:
 
 ```
-az network vnet create --name ignitemod10vnet  --resource-group groupname --subnet-name default
+az network vnet create --name ignitemod10vnet  --resource-group groupname --subnet-name default --subscription "Ignite the Tour"
 
 ```
 
@@ -94,7 +94,7 @@ This should take about 15 minutes for both DBs to create.
 Live, you'll want to create the VM using the steps in [demo.md](./demo.md) for portal VM creation - before though you'll want to use this:
 
 ```
-az vm create  --resource-group ignitemod10 --name twtweb --public-ip-address-dns-name twtweb --image UbuntuLTS --admin-username ubuntu --generate-ssh-keys --vnet-name ignitemod10vnet --size Standard_DS3_v2
+az vm create  --resource-group ignitemod10 --name twtweb --public-ip-address-dns-name twtweb --image UbuntuLTS --admin-username ubuntu --generate-ssh-keys --vnet-name ignitemod10vnet --size Standard_DS3_v2 --subscription "Ignite the Tour"
 ```
 
 Open Network Ports to allow web and SSH traffic
