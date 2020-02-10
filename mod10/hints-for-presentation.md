@@ -4,7 +4,7 @@ These are commands to run, fill in the location of your location and other detai
 
 # CREATE YOUR GROUP LIVE - 
 
-az group create --subscription "Ignite The Tour" --name groupname --location eastus
+az group create --subscription "Ignite the Tour" --name groupname --location eastus
 
 az network vnet create --name ignitemod10vnet --subscription  "Ignite The Tour" --resource-group groupname    --subnet-name default
 
