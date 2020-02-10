@@ -100,11 +100,11 @@ az vm create  --resource-group ignitemod10 --name twtweb --public-ip-address-dns
 Open Network Ports to allow web and SSH traffic
 
 ```
-az vm open-port  --resource-group ignitemod10 --name twtweb --port 80 --priority "201"
+az vm open-port  --resource-group ignitemod10 --name twtweb --port 80 --priority "201" --subsscription "Ignite the Tour
 
-az vm open-port  --resource-group ignitemod10 --name twtweb --port 443 --priority "202"
+az vm open-port  --resource-group ignitemod10 --name twtweb --port 443 --priority "202" --subsscription "Ignite the Tour
 
-az vm open-port  --resource-group ignitemod10 --name twtweb --port 22  --priority "203"
+az vm open-port  --resource-group ignitemod10 --name twtweb --port 22  --priority "203" --subsscription "Ignite the Tour
 ```
 
 ## SSH in and begin installing our dependencies
