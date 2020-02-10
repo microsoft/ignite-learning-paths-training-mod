@@ -1,5 +1,7 @@
 # MOD10 - Migrating Web Applications to Azure 
 
+# I have been told watching [Dry Run Rehearsal](https://globaleventcdn.blob.core.windows.net/assets/mod/mod10/mitt-mod10-dry-run.mp4) 
+
 [![Learning Path](https://img.shields.io/badge/Learning%20Path-MOD-fe5e00?logo=microsoft)](https://github.com/microsoft/ignite-learning-paths-training-mod/)
 
 ## Session Abstract
