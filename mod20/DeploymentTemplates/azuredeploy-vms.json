@@ -343,7 +343,7 @@
             "dependsOn": [
 				"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
 				"[concat('Microsoft.Network/publicIpAddresses/', variables('mongoPublicIpAddressName'))]"
-            ],			
+            ],
 			"properties": {
 				"ipConfigurations": [
 					{
@@ -420,7 +420,7 @@
 						]
 					},
 					"protectedSettings": {
-						"commandToExecute": "[concat('sudo sh configure-mongo.sh \"', replace(parameters('username'),'\"','\\\"'), '\" \"', replace(parameters('password'),'\"','\\\"'), '\"')]"
+						"commandToExecute": "[concat('sudo sh configure-mongo.sh \"', replace(parameters('username'),'\"','\\\"'), '\" \"', replace(parameters('password'),'\"','\\\"'), '\"')]"
 					}
 				}
 			}]
@@ -436,7 +436,7 @@
 			"properties": {
 				"publicIpAllocationMethod": "[variables('publicIpAddressType')]"
 			}
-		},		
+		},
 		{
 			"name": "[variables('sqlNsgName')]",
 			"type": "Microsoft.Network/networkSecurityGroups",
@@ -599,7 +599,7 @@
             "dependsOn": [
 				"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
 				"[concat('Microsoft.Network/publicIpAddresses/', variables('sqlPublicIpAddressName'))]"
-            ],			
+            ],
 			"properties": {
 				"ipConfigurations": [
 					{
