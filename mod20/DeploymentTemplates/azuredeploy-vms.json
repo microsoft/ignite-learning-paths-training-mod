@@ -400,7 +400,8 @@
 						"id": "[resourceId('Microsoft.Network/networkInterfaces', variables('mongoNicName'))]"
 					}]
 				}
-			},			"resources": [{
+			},
+			"resources": [{
 				"apiVersion": "2019-03-01",
 				"type": "extensions",
 				"name": "install-mongo",
@@ -419,7 +420,7 @@
 						]
 					},
 					"protectedSettings": {
-						"commandToExecute": "[concat('sudo sh configure-mongo.sh \"',replace(parameters('username'),'\"','\\\"'),'\" \"',replace(parameters('password'),'\"','\\\"'),'\"')]"
+						"commandToExecute": "[concat('sudo sh configure-mongo.sh \"',replace(parameters('username'),'\"','\\\"'),'\" \"',replace(parameters('password'),'\"','\\\"'),'\"')]"
 					}
 				}
 			}]
