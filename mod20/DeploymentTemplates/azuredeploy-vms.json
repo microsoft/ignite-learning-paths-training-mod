@@ -400,8 +400,7 @@
 						"id": "[resourceId('Microsoft.Network/networkInterfaces', variables('mongoNicName'))]"
 					}]
 				}
-			},
-			"resources": [{
+			},			"resources": [{
 				"apiVersion": "2019-03-01",
 				"type": "extensions",
 				"name": "install-mongo",
@@ -412,7 +411,7 @@
 				"properties": {
 					"publisher": "Microsoft.Azure.Extensions",
 					"type": "CustomScript",
-					"typeHandlerVersion": "2.1",
+					"typeHandlerVersion": "2.0",
 					"autoUpgradeMinorVersion": true,
 					"settings": {
 						"fileUris": [
