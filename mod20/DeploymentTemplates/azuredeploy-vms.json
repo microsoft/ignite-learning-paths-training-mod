@@ -412,7 +412,7 @@
 				"properties": {
 					"publisher": "Microsoft.Azure.Extensions",
 					"type": "CustomScript",
-					"typeHandlerVersion": "2.0",
+					"typeHandlerVersion": "2.1",
 					"autoUpgradeMinorVersion": true,
 					"settings": {
 						"fileUris": [
@@ -420,7 +420,7 @@
 						]
 					},
 					"protectedSettings": {
-						"commandToExecute": "[concat('sudo sh configure-mongo.sh \"', replace(parameters('username'),'\"','\\\"'), '\" \"', replace(parameters('password'),'\"','\\\"'), '\"')]"
+						"commandToExecute": "[concat('sh configure-mongo.sh \"',replace(parameters('username'),'\"','\\\"'),'\" \"',replace(parameters('password'),'\"','\\\"'),'\"')]"
 					}
 				}
 			}]
