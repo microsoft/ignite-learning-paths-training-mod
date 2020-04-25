@@ -3,9 +3,8 @@
 
 echo "Downloading Repo"
 
-git clone https://github.com/anthonychu/TailwindTraders-Website.git /tailwind
+git clone https://github.com/microsoft/TailwindTraders-Website.git /tailwind
 cd /tailwind
-git checkout monolith
 
 sleep .5
 
