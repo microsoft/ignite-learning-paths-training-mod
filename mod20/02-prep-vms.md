@@ -6,7 +6,7 @@ In order to install the virtual machines that will be used as the source of the 
 
 ## I. Click on the button below to open the deployment page.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fignite-learning-paths-training-mod%2Fmaster%2Fmod20%2FDeploymentTemplates%2Fazuredeploy-vms.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fignite-learning-paths-training-mod%2Fmain%2Fmod20%2FDeploymentTemplates%2Fazuredeploy-vms.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
