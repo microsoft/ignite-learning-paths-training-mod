@@ -2,7 +2,6 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "prefix": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -152,7 +151,7 @@
                         },
                         {
                             "name": "ProductImagesUrl",
-                            "value": "https://raw.githubusercontent.com/microsoft/TailwindTraders-Backend/master/Source/Services/Tailwind.Traders.Product.Api/Setup/product-images/product-details"
+                            "value": "https://raw.githubusercontent.com/microsoft/TailwindTraders-Backend/main/Source/Services/Tailwind.Traders.Product.Api/Setup/product-images/product-details"
                         }
                     ],
                     "metadata": [
@@ -175,7 +174,7 @@
                     ],
                     "properties": {
                         "RepoUrl": "https://github.com/lbugnion/TailwindTraders-Website",
-                        "branch": "master",
+                        "branch": "main",
                         "IsManualIntegration": true
                     }
                 }
