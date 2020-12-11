@@ -52,17 +52,6 @@ Almost all sessions can be performed from a trial Azure subscription. Instructio
 
 
 
-## Become a Trained Presenter
-
-You don't need anything to present this content, it's all there to be used. However, by becoming a *Trained Presenter* the scalable content team will recognize you as well. *Trained Presenter* see their contact information (name, picture, website) in the bottom of each session.  
- 
-To become a *Trained Presenter*, contact [scalablecontent@microsoft.com](mailto:scalablecontent@microsoft.com). In your email please include:
-
-- Complete name:
-- The code of this presentation: \<Session Code (ex:AFUN10)\>
-- Link to an unlisted YouTube video of you presenting around 10 minutes of the content for this specific session.
-
-
 ## Trained Presenters
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
